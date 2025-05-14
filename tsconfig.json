@@ -1,7 +1,12 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "compilerOptions": {
+    "jsx": "react-jsx",  
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"], // baseUrl을 기준으로 src/ 하위 디렉토리를 @/로 표현한다.
+      "@pages/*": ["src/pages/*"],
+      "@shared/*": ["src/shared/*"],
+      "@routes/*": ["src/routes/*"]
+    }
+  } 
 }
