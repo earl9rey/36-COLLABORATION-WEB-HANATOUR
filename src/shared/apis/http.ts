@@ -1,6 +1,6 @@
-import axios from "axios";
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
-import qs from "qs"; //객체를 쿼리 문자열로 변환하는 유틸 (?a=1&b=2 형태로)
+import axios from "axios";
+import * as qs from "qs";
 
 // Axios 인스턴스 생성
 const api: AxiosInstance = axios.create({
