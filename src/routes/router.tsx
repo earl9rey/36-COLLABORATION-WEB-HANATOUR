@@ -1,8 +1,8 @@
 import Layout from '@/layout/Layout';
 import Home from '@/pages/home/Home';
 import Search from '@/pages/search/Search';
+import { ROUTES_CONFIG } from '@/routes/routesConfig';
 import { createBrowserRouter } from 'react-router';
-import { ROUTES_CONFIG } from './routesConfig';
 
 export const router = createBrowserRouter([
   {
