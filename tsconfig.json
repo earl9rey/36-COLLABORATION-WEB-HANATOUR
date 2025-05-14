@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",  
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"], // baseUrl을 기준으로 src/ 하위 디렉토리를 @/로 표현한다.
@@ -7,5 +8,5 @@
       "@shared/*": ["src/shared/*"],
       "@routes/*": ["src/routes/*"]
     }
-  }
+  } 
 }
