@@ -11,7 +11,7 @@ import Divider from '@/shared/components/Divider/Divider';
 const Header = () => {
   return (
     <header className="w-full">
-      <section className="m-auto flex max-w-[114.7rem] justify-between">
+      <section className="m-auto flex h-[6.2rem] max-w-[114.7rem] justify-between">
         <div className="flex items-center gap-[2.3rem] pt-[1rem] pb-[1.3rem]">
           <p className="head6-sb-22">세주여행사</p>
           <div className="flex items-center gap-[0.6rem]">
@@ -23,7 +23,6 @@ const Header = () => {
             </button>
           </div>
         </div>
-
         <div className="flex items-center gap-[0.6rem] pt-[1.2rem] pb-[1.6rem]">
           <img src={hanatourLogo} alt="하나투어 로고" />
           <p className="sub3-sb-15 text-gray500 border-gray500 border-l px-[1.2rem] py-[0.4rem]">공식인증예약센터</p>
