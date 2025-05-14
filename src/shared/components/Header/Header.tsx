@@ -6,7 +6,7 @@ import myMenuIcon from '@/shared/assets/icons/myMenuIcon.svg';
 import reservationIcon from '@/shared/assets/icons/reservationIcon.svg';
 import searchIcon from '@/shared/assets/icons/searchIcon.svg';
 import talkButton from '@/shared/assets/icons/talkButton.svg';
-import Divider from '../Divider/Divider';
+import Divider from '@/shared/components/Divider/Divider';
 
 const Header = () => {
   return (
