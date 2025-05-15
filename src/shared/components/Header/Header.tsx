@@ -79,8 +79,8 @@ const Header = () => {
       <Divider direction="horizontal" color="gray400" length={'100%'} />
 
       <section className="m-auto flex max-w-[114.2rem] justify-between">
-        <nav className="flex gap-[2.5rem] py-[1.7rem]">
-          <div className="flex gap-[0.8rem] px-[2.6rem]">
+        <nav className="flex items-center gap-[2.5rem]">
+          <div className="] border-gray400 flex h-[5.2rem] items-center gap-[0.8rem] border-x px-[2.6rem]">
             <img src={menuIcon} alt="메뉴 아이콘" className="w-[2rem]" />
             <p className="sub5-r-15 text-gray600">전체 메뉴</p>
           </div>
