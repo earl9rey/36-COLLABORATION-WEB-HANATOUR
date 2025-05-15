@@ -26,7 +26,7 @@ const SearchBar = () => {
 
   return (
     <div className="inline-flex w-[121.6rem] flex-col items-start rounded-[0.5px] bg-white p-[0.5rem] shadow-[0_0.25rem_1.25rem_rgba(0,0,0,0.25)]">
-      <div className="flex w-full items-center justify-center px-[1.5rem] pt-[2rem]">
+      <div className="flex w-full items-center justify-center px-[1.5rem] pt-[3.2rem]">
         <div className="bg-purple100 head4-sb-26 flex w-full items-center justify-center px-[15.5rem] py-[1rem] text-center whitespace-nowrap text-white">
           패키지
         </div>
@@ -34,7 +34,7 @@ const SearchBar = () => {
           호텔
         </div>
       </div>
-      <div className="flex w-full flex-col items-start gap-[1.5rem] self-stretch px-[2rem] py-[1.5rem]">
+      <div className="flex w-full flex-col items-start gap-[2.4rem] self-stretch px-[2.4rem] py-[3.2rem]">
         <div className="flex w-full items-center justify-between">
           <div className="text-grey800 flex gap-[0.5rem]">
             <p className="head5-r-26 whitespace-nowrap">고객님,</p>
@@ -52,7 +52,7 @@ const SearchBar = () => {
           </div>
         </div>
         {isFilterDrop && (
-          <div className="items-[center] flex gap-[1rem] pr-[81.4rem]">
+          <div className="items-[center] flex gap-[1.6rem] pr-[81.4rem]">
             <div
               onClick={() => handleClickFilter('flight')}
               className={`flex cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] border-[0.15rem] bg-white px-[1.6rem] py-[1.2rem] ${isCheckedFlightFilter ? 'border-purple100 text-purple100' : 'border-gray300 text-gray500'}`}>
@@ -76,14 +76,14 @@ const SearchBar = () => {
           </div>
         )}
         <div className="flex items-center gap-[1rem] self-stretch">
-          <div className="bg-gray100 flex h-[6.8rem] w-full items-center gap-[1rem] rounded-[0.5rem] px-[1rem] py-[2.1rem]">
+          <div className="bg-gray100 flex h-[6.8rem] w-full items-center gap-[1rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
             <p className="text-gray600 body1-m-20">어디로 떠나세요?</p>
           </div>
-          <div className="bg-gray100 flex h-[6.8rem] w-full items-center gap-[0.8rem] rounded-[0.5rem] px-[1rem] py-[2.1rem]">
+          <div className="bg-gray100 flex h-[6.8rem] w-full items-center gap-[0.8rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
             <img src={location} alt="위치 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
             <p className="text-gray600 body1-m-20">출발지 전체</p>
           </div>
-          <div className="bg-gray100 flex h-[6.8rem] w-full items-center gap-[0.8rem] rounded-[0.5rem] px-[1rem] py-[2.1rem]">
+          <div className="bg-gray100 flex h-[6.8rem] w-full items-center gap-[0.8rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
             <img src={calendar} alt="캘린더 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
             <p className="text-gray600 body1-m-20">여행시작일 선택</p>
           </div>
