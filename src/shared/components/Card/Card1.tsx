@@ -9,14 +9,14 @@ const Card1 = () => {
         {/* 해시태그 */}
         <p className="text-blue200 body7-r-13">#태그</p>
         {/* 제목 */}
-        <h1 className="head7-m-17 my-[0.7rem]">제목</h1>
+        <h1 className="text-gray800 head7-m-17 my-[0.7rem]">제목</h1>
         {/* 서브텍스트 */}
-        <p className="body5-r-14">#서브텍스트</p>
+        <p className="text-gray600 body5-r-14">#서브텍스트</p>
         <div className="mt-[1.5rem] flex flex-row items-center">
           {/* 가격 숫자*/}
-          <p className="head6-sb-22">121322</p>
+          <p className="text-gray800 head6-sb-22">121322</p>
           {/* 가격 원 */}
-          <p className="body2-r-17">원</p>
+          <p className="text-gray800 body2-r-17">원</p>
         </div>
         {/* 특징 */}
         <div className="mt-[1.2rem] flex flex-row">
