@@ -3,12 +3,12 @@ type TravelCard1Props = {
   hashTag: string;
   title: string;
   subText: string;
-  priceNum: string;
+  price: string;
   feature1: string;
   feature2: string;
 };
 
-const Card1 = ({ image, hashTag, title, subText, priceNum, feature1, feature2 }: TravelCard1Props) => {
+const Card1 = ({ image, hashTag, title, subText, price, feature1, feature2 }: TravelCard1Props) => {
   return (
     <div className="h-[36.6rem] w-[26.9rem]">
       <img src={image} alt={title} className="h-[20.1rem] w-[26.9rem]"></img>
@@ -21,7 +21,7 @@ const Card1 = ({ image, hashTag, title, subText, priceNum, feature1, feature2 }:
         <p className="text-gray600 body5-r-14">#{subText}</p>
         <div className="mt-[1.5rem] flex flex-row items-center">
           {/* 가격 숫자*/}
-          <p className="text-gray800 head6-sb-22">{priceNum}</p>
+          <p className="text-gray800 head6-sb-22">{price}</p>
           {/* 가격 원 */}
           <p className="text-gray800 body2-r-17">원</p>
         </div>
