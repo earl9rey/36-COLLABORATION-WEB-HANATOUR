@@ -9,15 +9,16 @@ import calendar from '@/shared/assets/icons/calendar.svg';
 
 const SearchBar = () => {
   const [isFilterDrop, setIsFilterDrop] = useState<boolean>(false);
-  const [isCheckedFlightFilter, setIsCheckedFlightFilter] = useState<boolean>(false);
-  const [isCheckedGroupFilter, setIsCheckedGroupFilter] = useState<boolean>(false);
+  const [checkedFilters, setCheckedFilters] = useState<Record<FilterOption, boolean>>({
+    flight: false,
+    group: false,
+  });
 
   const handleClickFilter = (filterOption: FilterOption) => {
-    if (filterOption === 'flight') {
-      setIsCheckedFlightFilter((prev) => !prev);
-    } else if (filterOption === 'group') {
-      setIsCheckedGroupFilter((prev) => !prev);
-    }
+    setCheckedFilters((prev) => ({
+      ...prev,
+      [filterOption]: !prev[filterOption],
+    }));
   };
 
   const handleDropFilter = () => {
@@ -55,8 +56,8 @@ const SearchBar = () => {
           <div className="items-[center] flex gap-[1.6rem] pr-[81.4rem]">
             <div
               onClick={() => handleClickFilter('flight')}
-              className={`flex cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] border-[0.15rem] bg-white px-[1.6rem] py-[1.2rem] ${isCheckedFlightFilter ? 'border-purple100 text-purple100' : 'border-gray300 text-gray500'}`}>
-              {isCheckedFlightFilter ? (
+              className={`flex cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] border-[0.15rem] bg-white px-[1.6rem] py-[1.2rem] ${checkedFilters.flight ? 'border-purple100 text-purple100' : 'border-gray300 text-gray500'}`}>
+              {checkedFilters.flight ? (
                 <img src={checkedCircle} alt="채워진 체크박스 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
               ) : (
                 <img src={uncheckedCircle} alt="빈 체크박스 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
@@ -65,8 +66,8 @@ const SearchBar = () => {
             </div>
             <div
               onClick={() => handleClickFilter('group')}
-              className={`flex cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] border-[0.15rem] bg-white px-[1.6rem] py-[1.2rem] ${isCheckedGroupFilter ? 'border-purple100 text-purple100' : 'border-gray300 text-gray500'}`}>
-              {isCheckedGroupFilter ? (
+              className={`flex cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] border-[0.15rem] bg-white px-[1.6rem] py-[1.2rem] ${checkedFilters.group ? 'border-purple100 text-purple100' : 'border-gray300 text-gray500'}`}>
+              {checkedFilters.group ? (
                 <img src={checkedCircle} alt="채워진 체크박스 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
               ) : (
                 <img src={uncheckedCircle} alt="빈 체크박스 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
