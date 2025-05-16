@@ -14,14 +14,14 @@ const SearchBar = () => {
 
   const handleClickFilter = (filterOption: FilterOption) => {
     if (filterOption === 'flight') {
-      setIsCheckedFlightFilter(!isCheckedFlightFilter);
+      setIsCheckedFlightFilter((prev) => !prev);
     } else if (filterOption === 'group') {
-      setIsCheckedGroupFilter(!isCheckedGroupFilter);
+      setIsCheckedGroupFilter((prev) => !prev);
     }
   };
 
   const handleDropFilter = () => {
-    setIsFilterDrop(!isFilterDrop);
+    setIsFilterDrop((prev) => !prev);
   };
 
   return (
