@@ -1,7 +1,8 @@
-import downErrow from '@/shared/assets/downErrow.svg';
-import location from '@/shared/assets/location.svg';
-import calender from '@/shared/assets/calender.svg';
+import downErrow from '@/shared/assets/icons/downErrow.svg';
+import location from '@/shared/assets/icons/location.svg';
+import calendar from '@/shared/assets/icons/calender.svg';
 import Divider from '@/shared/components/Divider/Divider';
+
 const SearchHeader = () => {
   return (
     <div className="my-[2.7rem] flex flex-col items-center justify-center">
@@ -16,7 +17,7 @@ const SearchHeader = () => {
             인천/김포 출발
           </div>
           <div className="border-gray300 flex gap-[0.7rem] rounded-[0.5rem] border-1 px-[1.4rem] py-[1.5rem] text-gray-800">
-            <img src={calender} className="w-[1.4rem]" />
+            <img src={calendar} className="w-[1.4rem]" />
             2025.06.03(화) ~ 2025.06.09(월)
           </div>
         </div>
