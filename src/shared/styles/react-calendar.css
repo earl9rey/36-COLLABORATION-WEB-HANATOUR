@@ -118,6 +118,32 @@
   background: #f0f0f0;
 }
 
+.react-calendar__tile--now:hover:not(.react-calendar__tile--active) {
+  background: #f0f0f0 !important;
+  color: inherit;
+}
+
+.react-calendar__month-view__days__day.today-day {
+  position: relative;
+  overflow: visible !important;
+}
+
+.react-calendar__month-view__days__day.today-day::after {
+  content: 'TODAY';
+  position: absolute;
+  font-family: Pretendard;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  bottom: -1.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #111;
+  background-color: transparent;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
 .react-calendar__tile.past-day {
   background: #ffffff;
   color: #bcbcbc;

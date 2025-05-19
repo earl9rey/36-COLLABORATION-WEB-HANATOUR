@@ -11,13 +11,19 @@ const CalendarModal = () => {
     if (view === 'month') {
       const day = date.getDay();
       const isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+      const isToday =
+        date.getFullYear() === today.getFullYear() &&
+        date.getMonth() === today.getMonth() &&
+        date.getDate() === today.getDate();
 
+      if (isToday) return 'today-day';
       if (isPast) return 'past-day';
       else if (day === 0 || day === 6) return 'red-day';
       else if (day === 5) return 'black-day';
     }
     return null;
   };
+
   const today = new Date();
   const [activeStartDate, setActiveStartDate] = useState(new Date());
   const handlePrev = () => {
