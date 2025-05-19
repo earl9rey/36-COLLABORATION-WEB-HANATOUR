@@ -47,21 +47,23 @@ const CalendarModal = () => {
         <button onClick={handlePrev} disabled={isPrevDisabled} className="cursor-pointer">
           <img src={isPrevDisabled ? disabledChevIcon : chevronLeftIcon} />
         </button>
-        <div className="flex items-center justify-center gap-[0.7rem] pr-[6rem]">
-          <span className="text-gray800 body1-m-20 w-[13rem] text-right">
-            {activeStartDate.getFullYear()}년 {activeStartDate.getMonth() + 1}월
-          </span>
-          <button className="body7-r-13 text-gray500 border-gray500 cursor-pointer rounded-[0.5rem] border px-[1rem] py-[0.5rem]">
-            월 전체
-          </button>
-        </div>
-        <div className="flex items-center justify-center gap-[0.7rem] pl-[6rem]">
-          <span className="text-gray800 body1-m-20 w-[13rem] text-right">
-            {secondStartDate.getFullYear()}년 {secondStartDate.getMonth() + 1}월
-          </span>
-          <button className="body7-r-13 text-gray500 border-gray500 cursor-pointer rounded-[0.5rem] border px-[1rem] py-[0.5rem]">
-            월 전체
-          </button>
+        <div className="flex gap-[17rem]">
+          <div className="flex w-[17rem] items-center justify-end gap-[0.7rem]">
+            <span className="text-gray800 body1-m-20 text-right whitespace-nowrap">
+              {activeStartDate.getFullYear()}년 {activeStartDate.getMonth() + 1}월
+            </span>
+            <button className="body7-r-13 text-gray500 border-gray500 cursor-pointer rounded-[0.5rem] border px-[1rem] py-[0.5rem] whitespace-nowrap">
+              월 전체
+            </button>
+          </div>
+          <div className="flex w-[17rem] items-center justify-end gap-[0.7rem]">
+            <span className="text-gray800 body1-m-20 text-right whitespace-nowrap">
+              {secondStartDate.getFullYear()}년 {secondStartDate.getMonth() + 1}월
+            </span>
+            <button className="body7-r-13 text-gray500 border-gray500 cursor-pointer rounded-[0.5rem] border px-[1rem] py-[0.5rem] whitespace-nowrap">
+              월 전체
+            </button>
+          </div>
         </div>
         <button onClick={handleNext} className="cursor-pointer">
           <img src={chevronRightIcon} />
