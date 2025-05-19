@@ -2,6 +2,9 @@ import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import '@/shared/styles/react-calendar.css';
+import chevronLeftIcon from '@/shared/assets/icons/chevronLeftIcon.svg';
+import chevronRightIcon from '@/shared/assets/icons/chevronRightIcon.svg';
+import disabledChevIcon from '@/shared/assets/icons/disabledChevIcon.svg';
 
 const CalendarModal = () => {
   const tileClassName = ({ date, view }: { date: Date; view: string }) => {
@@ -30,13 +33,17 @@ const CalendarModal = () => {
   const secondStartDate = new Date(activeStartDate.getFullYear(), activeStartDate.getMonth() + 1, 1);
 
   return (
-    <div className="border-gray800 flex w-[70.8rem] flex-col border shadow-[0_0.4rem_2rem_rgba(0,0,0,0.25)]">
+    <div className="border-gray800 relative flex w-[70.8rem] flex-col border shadow-[0_0.4rem_2rem_rgba(0,0,0,0.25)]">
+      <div className="absolute mt-[4rem] flex w-full justify-between px-[3rem]">
+        <button onClick={handlePrev} className="px-2" disabled={isPrevDisabled}>
+          {isPrevDisabled ? <img src={disabledChevIcon} /> : <img src={chevronLeftIcon} />}
+        </button>
+        <button onClick={handleNext} className="px-2">
+          <img src={chevronRightIcon} className="h=[0.9rem] w-[0.6rem]" />
+        </button>
+      </div>
       <div className="flex gap-[3.6rem] px-[2.2rem] pt-[3.2rem] pb-[3rem]">
         <div className="flex-1">
-          {' '}
-          <button onClick={handlePrev} className="px-2" disabled={isPrevDisabled}>
-            {'<'}
-          </button>
           <Calendar
             calendarType="hebrew"
             tileClassName={tileClassName}
@@ -46,9 +53,6 @@ const CalendarModal = () => {
           />
         </div>
         <div className="flex-1">
-          <button onClick={handleNext} className="px-2">
-            {'>'}
-          </button>
           <Calendar
             calendarType="hebrew"
             tileClassName={tileClassName}
