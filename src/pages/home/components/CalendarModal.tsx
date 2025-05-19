@@ -13,6 +13,10 @@ const CalendarModal = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
 
+  const isPrevDisabled =
+    activeStartDate.getFullYear() === today.getFullYear() && activeStartDate.getMonth() === today.getMonth();
+  const secondStartDate = new Date(activeStartDate.getFullYear(), activeStartDate.getMonth() + 1, 1);
+
   const handlePrev = () => {
     const prevDate = new Date(activeStartDate.getFullYear(), activeStartDate.getMonth() - 1, 1);
     setActiveStartDate(prevDate);
@@ -22,11 +26,6 @@ const CalendarModal = () => {
     const nextDate = new Date(activeStartDate.getFullYear(), activeStartDate.getMonth() + 1, 1);
     setActiveStartDate(nextDate);
   };
-
-  const isPrevDisabled =
-    activeStartDate.getFullYear() === today.getFullYear() && activeStartDate.getMonth() === today.getMonth();
-
-  const secondStartDate = new Date(activeStartDate.getFullYear(), activeStartDate.getMonth() + 1, 1);
 
   const handleDateClick = (date: Date): void => {
     if ((startDate && isSameDay(date, startDate)) || (endDate && isSameDay(date, endDate))) {
@@ -64,7 +63,6 @@ const CalendarModal = () => {
 
   const isStart = (date: Date) => startDate !== null && isSameDay(date, startDate);
   const isEnd = (date: Date) => endDate !== null && isSameDay(date, endDate);
-
   console.log('시작:', startDate, '종료', endDate);
 
   const tileClassName = ({ date, view }: { date: Date; view: string }) => {
@@ -186,7 +184,7 @@ const CalendarModal = () => {
               ? `${formatDate(startDate)} - ${formatDate(endDate)}`
               : startDate
                 ? formatDate(startDate)
-                : '날짜를 선택해주세요'}
+                : '캘린더에서 여행 시작일을 선택해주세요'}
           </p>
         </div>
         <button className="bg-purple100 body2-r-17 h-[4.2rem] w-[11rem] cursor-pointer rounded-[0.5rem] py-[1rem] text-white">
