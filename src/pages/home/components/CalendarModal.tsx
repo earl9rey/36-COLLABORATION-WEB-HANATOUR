@@ -78,19 +78,23 @@ const CalendarModal = () => {
     const isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
     const isToday = isSameDay(date, today);
 
-    if (startDate && endDate && isStart(date)) return 'range-start-bg';
-    if (startDate && endDate && isEnd(date)) return 'range-end-bg';
-    if (isStart(date)) return 'range-start';
-    if (isEnd(date)) return 'range-end';
-    if (isInRange(date)) return 'range-middle';
+    const classes: string[] = [];
 
-    if (isToday) return 'today-day';
-    if (isPast) return 'past-day';
+    if (isStart(date)) classes.push('range-start');
+    if (isEnd(date)) classes.push('range-end');
+    if (startDate && endDate) {
+      if (isStart(date)) classes.push('bg');
+      if (isEnd(date)) classes.push('bg');
+    }
+    if (isInRange(date)) classes.push('range-middle');
 
-    if (day === 0 || day === 6) return 'red-day';
-    if (day === 5) return 'black-day';
+    if (isToday) classes.push('today-day');
+    if (isPast) classes.push('past-day');
 
-    return null;
+    if (day === 0 || day === 6) classes.push('red-day');
+    if (day === 5) classes.push('black-day');
+
+    return classes.length > 0 ? classes.join(' ') : null;
   };
 
   const tileContent = ({ date, view }: { date: Date; view: string }) => {
