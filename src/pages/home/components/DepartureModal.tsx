@@ -14,7 +14,9 @@ const DepartureModal = () => {
         <span className="body2-r-17">출발지 전체</span>
       </div>
       <div>
-        <div className="body2-r-17 bg-gray300 flex cursor-pointer items-center px-[3.2rem] py-[0.8rem] text-black">
+        <div
+          onClick={() => handleClicklocation('전체')}
+          className="body2-r-17 bg-gray300 flex cursor-pointer items-center px-[3.2rem] py-[0.8rem] text-black">
           전체
         </div>
         {departureLocations.map((loc) => (
