@@ -38,7 +38,7 @@
 
 /* 월별 날짜 영역 전체 그리드 */
 .react-calendar__month-view__days {
-  display: grid !important;
+  display: grid;
   grid-template-columns: repeat(7, 1fr);
   row-gap: 1.6rem;
 }
@@ -62,7 +62,7 @@
   border: none;
 }
 
-/* 기본 날짜 타일 스타일 */
+/* 기본 날짜 타일 스타일 정의*/
 .react-calendar__tile {
   text-align: center;
   font-family: Pretendard;
@@ -72,28 +72,56 @@
   padding: inherit;
 }
 
-/* 특정 날짜 타일 - 빨간색 (일/토요일) */
+.react-calendar__tile--active {
+  background: unset !important;
+  color: unset !important;
+}
+
+/* 특정 날짜 타일 구분 (공휴일/평일) */
 .react-calendar__tile.red-day {
   color: #eb2c3c;
 }
 
-/* 특정 날짜 타일 - 검정색 (금요일) */
 .react-calendar__tile.black-day {
   color: #111111;
 }
 
+.selected-tile {
+  width: 3.4rem;
+  height: 3.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rem;
+}
+
 /* 오늘 날짜 타일 배경 */
+
 .react-calendar__tile--now {
+  background: unset;
+}
+
+.react-calendar__tile--now .selected-tile {
   background: #f0f0f0;
 }
 
-.react-calendar__tile--active {
-  background: unset !important;
-  color: inherit !important;
+.today-day::after {
+  content: 'TODAY';
+  position: absolute;
+  font-family: Pretendard;
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  bottom: -1.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #111;
+  background-color: transparent;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 .react-calendar__month-view__days__day.today-day {
-  border-radius: 10rem !important;
   position: relative;
   overflow: visible !important;
 }
@@ -105,7 +133,7 @@
   font-size: 1.2rem;
   font-style: normal;
   font-weight: 400;
-  bottom: -1.8rem;
+  bottom: -1.7rem;
   left: 50%;
   transform: translateX(-50%);
   color: #111;
@@ -114,6 +142,7 @@
   white-space: nowrap;
 }
 
+/* 과거 날짜 타일 배경 */
 .react-calendar__tile.past-day {
   background: #ffffff;
   color: #bcbcbc;
@@ -122,26 +151,24 @@
 
 /* 범위 내 날짜 타일 스타일 */
 .react-calendar__tile.range-start .selected-tile,
-.react-calendar__tile.range-end .selected-tile,
-.react-calendar__tile.range-start-bg .selected-tile,
-.react-calendar__tile.range-end-bg .selected-tile {
-  background: #7f29e1 !important;
+.react-calendar__tile.range-end .selected-tile {
+  background: #7f29e1;
   width: 3.4rem;
   height: 3.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10rem;
-  color: #fff !important;
+  color: #fff;
 }
 
-.react-calendar__tile.range-start-bg {
+.react-calendar__tile.range-start.bg {
   position: relative;
   background: linear-gradient(to left, #f0e6fa 50%, transparent 50%) !important;
   border-radius: 10rem 0 0 10rem;
 }
 
-.react-calendar__tile.range-end-bg {
+.react-calendar__tile.range-end.bg {
   position: relative;
   border-radius: 0 10rem 10rem 0;
   background: linear-gradient(to right, #f0e6fa 50%, transparent 50%) !important;
@@ -152,4 +179,27 @@
   color: #000;
   border-radius: 0;
   position: relative;
+}
+
+/* hover시 색상 정의 */
+
+.react-calendar__tile:hover {
+  background-color: #ffffff !important;
+}
+
+.selected-tile:hover {
+  background: #f0f0f0;
+}
+
+.react-calendar__tile.range-start .selected-tile:hover,
+.react-calendar__tile.range-end .selected-tile:hover {
+  background: #7f29e1;
+}
+
+.react-calendar__tile.range-middle .selected-tile:hover {
+  background: #f0e6fa;
+}
+
+.react-calendar__tile.range-middle:hover {
+  background: #f0e6fa !important;
 }
