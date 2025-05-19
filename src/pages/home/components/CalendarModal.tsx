@@ -78,6 +78,8 @@ const CalendarModal = () => {
     const isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
     const isToday = isSameDay(date, today);
 
+    if (startDate && endDate && isStart(date)) return 'range-start-bg';
+    if (startDate && endDate && isEnd(date)) return 'range-end-bg';
     if (isStart(date)) return 'range-start';
     if (isEnd(date)) return 'range-end';
     if (isInRange(date)) return 'range-middle';
@@ -89,6 +91,12 @@ const CalendarModal = () => {
     if (day === 5) return 'black-day';
 
     return null;
+  };
+
+  const tileContent = ({ date, view }: { date: Date; view: string }) => {
+    if (view !== 'month') return null;
+
+    return <div className="selected-tile">{date.getDate()}</div>;
   };
 
   const formatDate = (date: Date) => {
@@ -132,8 +140,9 @@ const CalendarModal = () => {
           <Calendar
             calendarType="hebrew"
             tileClassName={tileClassName}
+            tileContent={tileContent}
             tileDisabled={({ date }) => date < new Date(today.getFullYear(), today.getMonth(), today.getDate())}
-            formatDay={(_locale, date) => date.getDate().toString()}
+            formatDay={() => ''}
             activeStartDate={activeStartDate}
             onActiveStartDateChange={() => {}}
             onClickDay={handleDateClick}
@@ -143,7 +152,8 @@ const CalendarModal = () => {
           <Calendar
             calendarType="hebrew"
             tileClassName={tileClassName}
-            formatDay={(_locale, date) => date.getDate().toString()}
+            tileContent={tileContent}
+            formatDay={() => ''}
             activeStartDate={secondStartDate}
             onActiveStartDateChange={() => {}}
             onClickDay={handleDateClick}
