@@ -41,7 +41,7 @@ const DestinationModal = () => {
   };
 
   return (
-    <div className="border-gray800 flex w-[68.3rem] flex-col items-start border">
+    <div className="border-gray800 flex w-[68.3rem] flex-col items-start border shadow-[0_0.25rem_1.25rem_rgba(0,0,0,0.25)]">
       {/* 최근 검색 */}
       <div className="flex w-full flex-col items-start gap-[1.7rem] self-stretch px-[2.6rem] py-[3.1rem]">
         <div className="w-full">
