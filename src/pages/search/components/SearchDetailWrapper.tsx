@@ -1,6 +1,7 @@
 import down from '@/shared/assets/icons/down.svg';
 import Divider from '@/shared/components/Divider/Divider';
 import SearchDetail from './SearchDetail';
+import searchdetailImage from '@/shared/assets/icons/searchdetailimage.png';
 const SearchDetailWrapper = () => {
   return (
     <div className="w-[89.6rem]">
@@ -14,7 +15,17 @@ const SearchDetailWrapper = () => {
         </span>
       </header>
       <Divider color="gray300" />
-      <SearchDetail />
+      <SearchDetail
+        mainTag="ZEUS"
+        subTag="럭셔리휴양"
+        title="[단독 가이드] 빅아일랜드·오아후 7일"
+        description="자연이 만든 걸작, 두 섬의 품격 있는 여정"
+        location="호놀룰루, 카일루아 코나"
+        date="여행기간 7일"
+        star="4.8 (1)"
+        price="1,200,000원"
+        img={searchdetailImage}
+      />
     </div>
   );
 };

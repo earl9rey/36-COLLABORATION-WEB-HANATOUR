@@ -5,7 +5,7 @@ import SearchTopFilter from './components/SearchTopFilter';
 const Search = () => {
   return (
     <div className="head1-sb-36">
-      <SearchHeader />
+      <SearchHeader arrival="호놀룰루" departure="인천/김포" date="2025.06.03(화) ~ 2025.06.09(월)" />
       <SearchTopFilter />
       <SearchDetailWrapper />
     </div>
