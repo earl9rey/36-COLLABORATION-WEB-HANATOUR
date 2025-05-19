@@ -28,22 +28,19 @@ const CalendarModal = () => {
 
   const secondStartDate = new Date(activeStartDate.getFullYear(), activeStartDate.getMonth() + 1, 1);
 
-  const handleDateClick = (date: Date) => {
-    // 1. 클릭한 날짜가 기존 startDate 또는 endDate라면 둘 다 초기화
+  const handleDateClick = (date: Date): void => {
     if ((startDate && isSameDay(date, startDate)) || (endDate && isSameDay(date, endDate))) {
       setStartDate(null);
       setEndDate(null);
       return;
     }
 
-    // 2. startDate, endDate 둘 다 있을 때 새로 선택하면 둘 다 초기화하고 startDate만 설정
     if (startDate && endDate) {
       setStartDate(date);
       setEndDate(null);
       return;
     }
 
-    // 3. startDate만 있고 endDate가 없으면 범위 설정
     if (startDate && !endDate) {
       if (date < startDate) {
         setStartDate(date);
@@ -54,7 +51,6 @@ const CalendarModal = () => {
       return;
     }
 
-    // 4. startDate가 없으면 그냥 설정
     setStartDate(date);
   };
 
@@ -103,7 +99,7 @@ const CalendarModal = () => {
     return <div className="selected-tile">{date.getDate()}</div>;
   };
 
-  const formatDate = (date: Date) => {
+  const formatDate = (date: Date): string => {
     const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
     return `${date.getFullYear()}.${(date.getMonth() + 1).toString().padStart(2, '0')}.${date
       .getDate()
@@ -161,7 +157,9 @@ const CalendarModal = () => {
             calendarType="hebrew"
             tileClassName={tileClassName}
             tileContent={tileContent}
-            tileDisabled={({ date }) => date < new Date(today.getFullYear(), today.getMonth(), today.getDate())}
+            tileDisabled={({ date }: { date: Date }): boolean =>
+              date < new Date(today.getFullYear(), today.getMonth(), today.getDate())
+            }
             formatDay={() => ''}
             activeStartDate={activeStartDate}
             onActiveStartDateChange={() => {}}
