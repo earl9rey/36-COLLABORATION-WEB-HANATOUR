@@ -92,7 +92,7 @@ const CalendarModal = () => {
     if (isPast) classes.push('past-day');
 
     if (day === 0 || day === 6) classes.push('red-day');
-    if (day === 5) classes.push('black-day');
+    else classes.push('black-day');
 
     return classes.length > 0 ? classes.join(' ') : null;
   };
