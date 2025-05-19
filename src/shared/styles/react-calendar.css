@@ -1,0 +1,157 @@
+/* 전체 캘린더 컨테이너 */
+.react-calendar {
+  width: 100%;
+  font-size: 1.4rem;
+  border: none;
+}
+
+/* 네비게이션 바 (상단 월/년과 이전/다음 버튼) */
+.react-calendar__navigation {
+  display: flex;
+  width: 100%;
+  height: 2.6rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0rem;
+  margin-bottom: 2rem;
+}
+
+/* 네비게이션 라벨 (현재 월/년 텍스트) */
+.react-calendar__navigation__label {
+  font-weight: 700;
+  font-size: 1.6rem;
+  background-color: #fff;
+  border: none;
+  color: #111;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+/* 네비게이션 이전/다음 버튼 */
+.react-calendar__navigation__prev-button,
+.react-calendar__navigation__next-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* hover 시에도 변화 없도록 */
+.react-calendar__navigation__prev-button:hover,
+.react-calendar__navigation__next-button:hover,
+.react-calendar__navigation__prev-button:active,
+.react-calendar__navigation__next-button:active,
+.react-calendar__navigation__prev-button:focus,
+.react-calendar__navigation__next-button:focus {
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+/* 네비게이션 2달 이전/다음 버튼 숨김 */
+.react-calendar__navigation__prev2-button,
+.react-calendar__navigation__next2-button {
+  display: none;
+}
+
+/* 요일 헤더 행 전체 컨테이너 */
+.react-calendar__month-view__weekdays {
+  height: 2.6rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  color: #333;
+}
+
+/* 요일 각각의 셀 (일, 월, ...) */
+.react-calendar__month-view__weekdays_weekday {
+  text-align: center;
+}
+
+/* 요일 텍스트 (abbr 태그 기본 스타일) */
+.react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none;
+}
+
+/* 토요일/일요일(abbr) 텍스트 빨간색 */
+.react-calendar__month-view__weekdays__weekday:nth-child(1) abbr,
+.react-calendar__month-view__weekdays__weekday:nth-child(7) abbr {
+  color: #eb2c3c;
+}
+
+/* 월별 날짜 영역 전체 그리드 */
+.react-calendar__month-view__days {
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr);
+  row-gap: 1.6rem;
+  column-gap: 0.8rem;
+}
+
+/* 월별 날짜 각각의 셀 */
+.react-calendar__month-view__days__day {
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 이전/다음 달 날짜 미리보기 */
+.react-calendar__month-view__days__day--neighboringMonth {
+  visibility: hidden;
+  pointer-events: none;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* 기본 날짜 타일 스타일 */
+.react-calendar__tile {
+  border-radius: 10rem !important;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 1.4rem;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* 특정 날짜 타일 - 빨간색 (일/토요일) */
+.react-calendar__tile.red-day {
+  color: #eb2c3c;
+}
+
+/* 특정 날짜 타일 - 검정색 (금요일) */
+.react-calendar__tile.black-day {
+  color: #111111;
+}
+
+/* 오늘 날짜 타일 배경 */
+.react-calendar__tile--now {
+  background: #f0f0f0;
+}
+
+/* 선택된 날짜 타일 스타일 */
+.react-calendar__tile--active {
+  background: #7f29e1 !important;
+  color: #fff !important;
+}
+
+/* 범위 내 날짜 타일 스타일 */
+.react-calendar__tile--range {
+  background: #e0e0e0;
+  color: #000;
+  border-radius: 1.5rem;
+}
+
+/* 범위 시작/끝 날짜 타일 스타일 */
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd {
+  background: #b6b6b6;
+  border-radius: 1.5rem;
+}
