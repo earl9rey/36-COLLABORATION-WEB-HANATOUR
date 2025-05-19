@@ -10,8 +10,11 @@ const CalendarModal = () => {
   const tileClassName = ({ date, view }: { date: Date; view: string }) => {
     if (view === 'month') {
       const day = date.getDay();
-      if (day === 0 || day === 6) return 'red-day';
-      if (day === 5) return 'black-day';
+      const isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+      if (isPast) return 'past-day';
+      else if (day === 0 || day === 6) return 'red-day';
+      else if (day === 5) return 'black-day';
     }
     return null;
   };
@@ -47,6 +50,7 @@ const CalendarModal = () => {
           <Calendar
             calendarType="hebrew"
             tileClassName={tileClassName}
+            tileDisabled={({ date }) => date < new Date(today.getFullYear(), today.getMonth(), today.getDate())}
             formatDay={(_locale, date) => date.getDate().toString()}
             activeStartDate={activeStartDate}
             onActiveStartDateChange={() => {}}
