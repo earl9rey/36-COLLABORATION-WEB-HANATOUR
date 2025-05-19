@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "[단독 가이드]빅아일랜드·오아후 7일",
+    "airline": "대한항공",
+    "date": "06/03(화) 21:20 → 06/09(월) 17:50 5박 7일",
+    "memo": "호텔 5성급, 쇼핑없음, 가이드 있음",
+    "travel_period": "7일",
+    "mainTag": "ZEUS",
+    "subTag": "휴양+레저",
+    "underTag": "럭셔리 휴양",
+    "price": "165,000원",
+    "description": "호텔 5성급, 쇼핑없음, 가이드 있음",
+    "location": "미국 뉴욕",
+    "star": "5.0",
+    "img": "/searchdetailimage.png"
+  },
+  {
+    "id": 2,
+    "title": "오아후 자유일정 6일",
+    "airline": "하와이안항공",
+    "date": "06/10(화) 12:00 → 06/16(월) 17:50 5박 7일",
+    "memo": "리조트 숙박, 자유일정",
+    "mainTag": "ALOHA",
+    "subTag": "가족",
+    "underTag": "자유 여행",
+    "travel_period": "6일",
+    "price": "120,000원",
+    "description": "리조트 숙박, 자유일정",
+    "location": "하와이 오아후",
+    "star": "4.9",
+    "img": "/searchdetailimage.png"
+  }
+]

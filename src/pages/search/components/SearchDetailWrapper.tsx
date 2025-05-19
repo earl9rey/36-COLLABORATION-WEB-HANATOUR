@@ -1,8 +1,21 @@
 import down from '@/shared/assets/icons/down.svg';
 import Divider from '@/shared/components/Divider/Divider';
 import SearchDetail from './SearchDetail';
-import searchdetailImage from '@/shared/assets/icons/searchdetailimage.png';
+import SearchDetailViewMore from './SearchDetailViewMore';
+import { useState } from 'react';
+import SearchDetailMock from '@/pages/home/mock/SearchDetailMock.json';
+
 const SearchDetailWrapper = () => {
+  const [searchDetailList, setSearchDetailList] = useState(SearchDetailMock);
+  const [showMoreMap, setShowMoreMap] = useState({});
+
+  const toggleShowMore = (id) => {
+    setShowMoreMap((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
   return (
     <div className="w-[89.6rem]">
       <header className="flex items-center justify-between">
@@ -15,17 +28,18 @@ const SearchDetailWrapper = () => {
         </span>
       </header>
       <Divider color="gray300" />
-      <SearchDetail
-        mainTag="ZEUS"
-        subTag="럭셔리휴양"
-        title="[단독 가이드] 빅아일랜드·오아후 7일"
-        description="자연이 만든 걸작, 두 섬의 품격 있는 여정"
-        location="호놀룰루, 카일루아 코나"
-        date="여행기간 7일"
-        star="4.8 (1)"
-        price="1,200,000원"
-        img={searchdetailImage}
-      />
+      {searchDetailList.map((item) => (
+        <div key={item.id}>
+          <SearchDetail {...item} isshowMore={!!showMoreMap[item.id]} setIsShowMore={() => toggleShowMore(item.id)} />
+          {showMoreMap[item.id] && (
+            <SearchDetailViewMore
+              isshowMore={!!showMoreMap[item.id]}
+              setIsShowMore={() => toggleShowMore(item.id)}
+              detailInfo={SearchDetailMock.find((info) => info.id === item.id)}
+            />
+          )}
+        </div>
+      ))}
     </div>
   );
 };
