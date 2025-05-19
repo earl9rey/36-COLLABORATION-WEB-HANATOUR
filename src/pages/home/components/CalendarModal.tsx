@@ -43,15 +43,31 @@ const CalendarModal = () => {
 
   return (
     <div className="border-gray800 relative flex w-[70.8rem] flex-col border shadow-[0_0.4rem_2rem_rgba(0,0,0,0.25)]">
-      <div className="absolute mt-[4rem] flex w-full justify-between px-[3rem]">
-        <button onClick={handlePrev} className="px-2" disabled={isPrevDisabled}>
-          {isPrevDisabled ? <img src={disabledChevIcon} /> : <img src={chevronLeftIcon} />}
+      <div className="mt-[3.2rem] flex items-center justify-between px-[3.5rem]">
+        <button onClick={handlePrev} disabled={isPrevDisabled} className="cursor-pointer">
+          <img src={isPrevDisabled ? disabledChevIcon : chevronLeftIcon} />
         </button>
-        <button onClick={handleNext} className="px-2">
-          <img src={chevronRightIcon} className="h=[0.9rem] w-[0.6rem]" />
+        <div className="flex items-center justify-center gap-[0.7rem] pr-[6rem]">
+          <span className="text-gray800 body1-m-20 w-[13rem] text-right">
+            {activeStartDate.getFullYear()}년 {activeStartDate.getMonth() + 1}월
+          </span>
+          <button className="body7-r-13 text-gray500 border-gray500 cursor-pointer rounded-[0.5rem] border px-[1rem] py-[0.5rem]">
+            월 전체
+          </button>
+        </div>
+        <div className="flex items-center justify-center gap-[0.7rem] pl-[6rem]">
+          <span className="text-gray800 body1-m-20 w-[13rem] text-right">
+            {secondStartDate.getFullYear()}년 {secondStartDate.getMonth() + 1}월
+          </span>
+          <button className="body7-r-13 text-gray500 border-gray500 cursor-pointer rounded-[0.5rem] border px-[1rem] py-[0.5rem]">
+            월 전체
+          </button>
+        </div>
+        <button onClick={handleNext} className="cursor-pointer">
+          <img src={chevronRightIcon} />
         </button>
       </div>
-      <div className="flex gap-[3.6rem] px-[2.2rem] pt-[3.2rem] pb-[3rem]">
+      <div className="flex gap-[3.6rem] px-[2.2rem] pt-[3rem] pb-[3rem]">
         <div className="flex-1">
           <Calendar
             calendarType="hebrew"
