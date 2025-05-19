@@ -7,25 +7,12 @@ import chevronRightIcon from '@/shared/assets/icons/chevronRightIcon.svg';
 import disabledChevIcon from '@/shared/assets/icons/disabledChevIcon.svg';
 
 const CalendarModal = () => {
-  const tileClassName = ({ date, view }: { date: Date; view: string }) => {
-    if (view === 'month') {
-      const day = date.getDay();
-      const isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
-      const isToday =
-        date.getFullYear() === today.getFullYear() &&
-        date.getMonth() === today.getMonth() &&
-        date.getDate() === today.getDate();
-
-      if (isToday) return 'today-day';
-      if (isPast) return 'past-day';
-      else if (day === 0 || day === 6) return 'red-day';
-      else if (day === 5) return 'black-day';
-    }
-    return null;
-  };
-
   const today = new Date();
-  const [activeStartDate, setActiveStartDate] = useState(new Date());
+
+  const [activeStartDate, setActiveStartDate] = useState<Date>(new Date());
+  const [startDate, setStartDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState<Date | null>(null);
+
   const handlePrev = () => {
     const prevDate = new Date(activeStartDate.getFullYear(), activeStartDate.getMonth() - 1, 1);
     setActiveStartDate(prevDate);
@@ -40,6 +27,77 @@ const CalendarModal = () => {
     activeStartDate.getFullYear() === today.getFullYear() && activeStartDate.getMonth() === today.getMonth();
 
   const secondStartDate = new Date(activeStartDate.getFullYear(), activeStartDate.getMonth() + 1, 1);
+
+  const handleDateClick = (date: Date) => {
+    // 1. 클릭한 날짜가 기존 startDate 또는 endDate라면 둘 다 초기화
+    if ((startDate && isSameDay(date, startDate)) || (endDate && isSameDay(date, endDate))) {
+      setStartDate(null);
+      setEndDate(null);
+      return;
+    }
+
+    // 2. startDate, endDate 둘 다 있을 때 새로 선택하면 둘 다 초기화하고 startDate만 설정
+    if (startDate && endDate) {
+      setStartDate(date);
+      setEndDate(null);
+      return;
+    }
+
+    // 3. startDate만 있고 endDate가 없으면 범위 설정
+    if (startDate && !endDate) {
+      if (date < startDate) {
+        setStartDate(date);
+        setEndDate(startDate);
+      } else {
+        setEndDate(date);
+      }
+      return;
+    }
+
+    // 4. startDate가 없으면 그냥 설정
+    setStartDate(date);
+  };
+
+  const isSameDay = (d1: Date, d2: Date) =>
+    d1.getFullYear() === d2.getFullYear() && d1.getMonth() === d2.getMonth() && d1.getDate() === d2.getDate();
+
+  const isInRange = (date: Date) => {
+    if (!startDate || !endDate) return false;
+    return date > startDate && date < endDate;
+  };
+
+  const isStart = (date: Date) => startDate !== null && isSameDay(date, startDate);
+  const isEnd = (date: Date) => endDate !== null && isSameDay(date, endDate);
+
+  console.log('시작:', startDate, '종료', endDate);
+
+  const tileClassName = ({ date, view }: { date: Date; view: string }) => {
+    if (view !== 'month') return null;
+
+    const day = date.getDay();
+    const isPast = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const isToday = isSameDay(date, today);
+
+    if (isStart(date)) return 'range-start';
+    if (isEnd(date)) return 'range-end';
+    if (isInRange(date)) return 'range-middle';
+
+    if (isToday) return 'today-day';
+    if (isPast) return 'past-day';
+
+    if (day === 0 || day === 6) return 'red-day';
+    if (day === 5) return 'black-day';
+
+    return null;
+  };
+
+  const formatDate = (date: Date) => {
+    const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
+    return `${date.getFullYear()}.${(date.getMonth() + 1).toString().padStart(2, '0')}.${date
+      .getDate()
+      .toString()
+      .padStart(2, '0')}(${dayNames[date.getDay()]})`;
+  };
 
   return (
     <div className="border-gray800 relative flex w-[70.8rem] flex-col border shadow-[0_0.4rem_2rem_rgba(0,0,0,0.25)]">
@@ -78,6 +136,7 @@ const CalendarModal = () => {
             formatDay={(_locale, date) => date.getDate().toString()}
             activeStartDate={activeStartDate}
             onActiveStartDateChange={() => {}}
+            onClickDay={handleDateClick}
           />
         </div>
         <div className="flex-1">
@@ -87,13 +146,20 @@ const CalendarModal = () => {
             formatDay={(_locale, date) => date.getDate().toString()}
             activeStartDate={secondStartDate}
             onActiveStartDateChange={() => {}}
+            onClickDay={handleDateClick}
           />
         </div>
       </div>
       <div className="bg-gray100 flex h-[11.9rem] w-full items-center justify-between px-[2.8rem] py-[2.5rem]">
         <div className="pb-[1.5rem]">
           <p className="text-gray500 sub5-r-15 mb-[0.9rem]">여행 시작일</p>
-          <p className="text-gray600 sub3-sb-15">2002.06.24(월)</p>
+          <p className="text-gray600 sub3-sb-15">
+            {startDate && endDate
+              ? `${formatDate(startDate)} - ${formatDate(endDate)}`
+              : startDate
+                ? formatDate(startDate)
+                : '날짜를 선택해주세요'}
+          </p>
         </div>
         <button className="bg-purple100 body2-r-17 h-[4.2rem] w-[11rem] cursor-pointer rounded-[0.5rem] py-[1rem] text-white">
           선택완료
@@ -102,4 +168,5 @@ const CalendarModal = () => {
     </div>
   );
 };
+
 export default CalendarModal;

@@ -66,7 +66,6 @@
 
 /* 기본 날짜 타일 스타일 */
 .react-calendar__tile {
-  border-radius: 10rem !important;
   text-align: center;
   font-family: Pretendard;
   font-size: 1.4rem;
@@ -89,12 +88,13 @@
   background: #f0f0f0;
 }
 
-.react-calendar__tile--now:hover:not(.react-calendar__tile--active) {
-  background: #f0f0f0 !important;
-  color: inherit;
+.react-calendar__tile--active {
+  background: transparent !important;
+  color: inherit !important;
 }
 
 .react-calendar__month-view__days__day.today-day {
+  border-radius: 10rem !important;
   position: relative;
   overflow: visible !important;
 }
@@ -121,20 +121,15 @@
   pointer-events: none;
 }
 
-/* 선택된 날짜 타일 스타일 */
-.react-calendar__tile--active {
+/* 범위 내 날짜 타일 스타일 */
+.react-calendar__tile.range-start,
+.react-calendar__tile.range-end {
   background: #7f29e1 !important;
   color: #fff !important;
 }
 
-/* 범위 내 날짜 타일 스타일 */
-.react-calendar__tile--range {
+.react-calendar__tile.range-middle {
+  background: #f0e6fa;
   color: #000;
-  border-radius: 1.5rem;
-}
-
-/* 범위 시작/끝 날짜 타일 스타일 */
-.react-calendar__tile--rangeStart,
-.react-calendar__tile--rangeEnd {
-  border-radius: 1.5rem;
+  border-radius: 0;
 }
