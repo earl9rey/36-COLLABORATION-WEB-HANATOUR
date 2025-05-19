@@ -187,7 +187,8 @@ const CalendarModal = () => {
                 : '캘린더에서 여행 시작일을 선택해주세요'}
           </p>
         </div>
-        <button className="bg-purple100 body2-r-17 h-[4.2rem] w-[11rem] cursor-pointer rounded-[0.5rem] py-[1rem] text-white">
+        <button
+          className={`body2-r-17 h-[4.2rem] w-[11rem] cursor-pointer rounded-[0.5rem] py-[1rem] text-white ${startDate ? 'bg-purple100' : 'bg-gray300'}`}>
           선택완료
         </button>
       </div>
