@@ -39,7 +39,10 @@ const SearchBar = () => {
       .padStart(2, '0')}(${dayNames[date.getDay()]})`;
   };
 
-  const formatDateISO = (date: Date): string => {
+  const formatDateISO = (date: Date | null): string | null => {
+    if (date === null) {
+      return null;
+    }
     const tzOffset = date.getTimezoneOffset() * 60000;
     const localISOTime = new Date(date.getTime() - tzOffset).toISOString().slice(0, 19);
     return localISOTime;
@@ -52,17 +55,6 @@ const SearchBar = () => {
     arriveDate: null,
     departDate: null,
   });
-
-  console.log(
-    'API 연동 Date : ',
-    selectedDate.arriveDate ? formatDateISO(selectedDate.arriveDate) : '없음',
-    selectedDate.departDate ? formatDateISO(selectedDate.departDate) : '없음'
-  );
-  console.log(
-    'UI date : ',
-    selectedDate.arriveDate ? formatDateString(selectedDate.arriveDate) : '없음',
-    selectedDate.departDate ? formatDateString(selectedDate.departDate) : '없음'
-  );
 
   const closeModal = () => setActiveModal(null);
 
@@ -113,6 +105,20 @@ const SearchBar = () => {
       default:
         return null;
     }
+  };
+
+  const handleClickSearch = () => {
+    console.log(
+      'arrival:',
+      selectedArrival,
+      '/ departure:',
+      selectedDeparture,
+      '/ arrive_date:',
+      formatDateISO(selectedDate.arriveDate),
+      '/ depart_date:',
+      formatDateISO(selectedDate.departDate)
+    );
+    localStorage.removeItem('calendar-selected-dates');
   };
 
   return (
@@ -192,7 +198,9 @@ const SearchBar = () => {
                   : `${formatDateString(selectedDate.arriveDate)} - ${formatDateString(selectedDate.departDate)}`}
             </p>
           </div>
-          <div className="bg-gray600 body2-r-17 flex h-[6.8rem] w-[7.8rem] flex-shrink-0 cursor-pointer items-center justify-center gap-[1rem] rounded-[0.5rem] px-[1.5rem] py-[2.3rem] text-center text-white">
+          <div
+            onClick={() => handleClickSearch()}
+            className="bg-gray600 body2-r-17 flex h-[6.8rem] w-[7.8rem] flex-shrink-0 cursor-pointer items-center justify-center gap-[1rem] rounded-[0.5rem] px-[1.5rem] py-[2.3rem] text-center text-white">
             검색
           </div>
         </div>

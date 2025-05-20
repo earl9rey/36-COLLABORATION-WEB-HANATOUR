@@ -9,7 +9,6 @@ interface DepartureModalProps {
 
 const DepartureModal = ({ onSelectDeparture }: DepartureModalProps) => {
   const handleClicklocation = (location: string) => {
-    console.log('출발지 선택', location);
     onSelectDeparture(location);
   };
 

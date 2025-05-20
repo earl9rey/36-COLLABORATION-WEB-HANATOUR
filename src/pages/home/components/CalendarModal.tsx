@@ -79,7 +79,6 @@ const CalendarModal = ({ onClose, onSelectDate }: CalendarModalProps) => {
 
   const isStart = (date: Date) => startDate !== null && isSameDay(date, startDate);
   const isEnd = (date: Date) => endDate !== null && isSameDay(date, endDate);
-  console.log('시작:', startDate, '종료', endDate);
 
   const tileClassName = ({ date, view }: { date: Date; view: string }) => {
     if (view !== 'month') return null;
