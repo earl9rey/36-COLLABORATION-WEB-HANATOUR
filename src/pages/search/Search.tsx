@@ -1,5 +1,5 @@
 // import SearchDetailWrapper from './components/SearchDetailWrapper';
-import SearchFilterList from './components/SearchFilterList';
+import SearchFilterList from './components/SearchFilterList/SearchFilterList';
 import SearchHeader from './components/SearchHeader';
 // import SearchTopFilter from './components/SearchTopFilter';
 

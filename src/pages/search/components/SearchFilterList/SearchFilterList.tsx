@@ -3,6 +3,7 @@ import downIcon from '@/shared/assets/icons/downIcon_gray.svg';
 import nonCheckboxIcon from '@/shared/assets/icons/non_checkbox.svg';
 import searchIcon from '@/shared/assets/icons/SearchIcon.svg';
 import upIcon from '@/shared/assets/icons/upIcon_black.svg';
+import slide from '@/shared/assets/images/slider.svg';
 import Accordion from '@/shared/components/Accordion/Accordion';
 
 import Divider from '@/shared/components/Divider/Divider';
@@ -15,7 +16,7 @@ import {
   TOUR_CONDITION,
   TRAVEL_PERIOD,
   WHO_WITH_TRAVEL,
-} from '../constants/filter';
+} from '../../constants/filter';
 
 const SearchFilterList = () => {
   const [selectedPeriod, setSelectedPeriod] = useState<string[]>([]);
@@ -333,6 +334,46 @@ const SearchFilterList = () => {
                     </label>
                   );
                 })}
+              </div>
+            </Accordion.Content>
+          </div>
+        )}
+      </Accordion>
+
+      <Divider />
+
+      {/* 1인당 여행 예산 */}
+      <Accordion>
+        {({ isVisible }) => (
+          <div className="my-[2.4rem]">
+            <Accordion.Header>
+              <div className="flex items-center justify-between">
+                <p className="sub3-sb-15">1인당 여행 예산</p>
+                <img src={isVisible ? upIcon : downIcon} alt="up 아이콘" className="w-[1.4rem]" />
+              </div>
+            </Accordion.Header>
+
+            <Accordion.Content>
+              <div className="mt-[2rem] flex flex-col gap-y-[2rem]">
+                <img src={slide} alt="슬라이더 이미지" />
+                <div className="bg-gray100 h-[8.9rem] w-full pt-[1.6rem] pb-[1rem]">
+                  <p className="body6-m-13 px-[1.6rem]">직접 입력</p>
+                  <div className="flex items-center gap-[1.4rem] px-[1.7rem] py-[1.2rem]">
+                    <div className="flex items-center gap-[0.6rem]">
+                      <div className="text-gray500 body5-r-14 border-gray300 flex h-[2.2rem] w-[6.5rem] items-center justify-center rounded-[2px] border">
+                        0
+                      </div>
+                      <p className="body6-m-13 text-gray600">만원</p>
+                    </div>
+
+                    <div className="flex items-center gap-[0.6rem]">
+                      <div className="text-gray500 body5-r-14 border-gray300 flex h-[2.2rem] w-[6.5rem] items-center justify-center rounded-[2px] border">
+                        0
+                      </div>
+                      <p className="body6-m-13 text-gray600">만원</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </Accordion.Content>
           </div>
