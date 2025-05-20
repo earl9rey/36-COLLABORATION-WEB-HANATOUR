@@ -1,6 +1,10 @@
 import checkboxIcon from '@/shared/assets/icons/checkbox.svg';
 import downIcon from '@/shared/assets/icons/downIcon_gray.svg';
+import flightIcon from '@/shared/assets/icons/flightFilterIcon.svg';
+import groupTourIcon from '@/shared/assets/icons/groupTourFilterIcon.svg';
+import noFlightIcon from '@/shared/assets/icons/noFlightFilterIcon.svg';
 import nonCheckboxIcon from '@/shared/assets/icons/non_checkbox.svg';
+import ourTourIcon from '@/shared/assets/icons/ourTourFilterIcon.svg';
 import searchIcon from '@/shared/assets/icons/SearchIcon.svg';
 import upIcon from '@/shared/assets/icons/upIcon_black.svg';
 import slide from '@/shared/assets/images/slider.svg';
@@ -85,6 +89,38 @@ const SearchFilterList = () => {
 
   return (
     <div className="w-[23.6rem]">
+      <div className="mt-[1.2rem] mb-[2.6rem] flex flex-col gap-[1.7rem]">
+        <div className="flex gap-[1.2rem]">
+          <div className="flex flex-col items-center gap-[1.6rem]">
+            <img src={flightIcon} alt="" className="h-[5rem] w-[5rem]" />
+            <p className="text-purple100 body6-m-13 text-center">항공포함</p>
+          </div>
+          <div className="flex flex-col items-center gap-[1.6rem]">
+            <img src={noFlightIcon} alt="" className="h-[5rem] w-[5rem]" />
+            <p className="text-purple100 body6-m-13 text-center">
+              항공
+              <br /> 불포함
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-[1.6rem]">
+            <img src={groupTourIcon} alt="" className="h-[5rem] w-[5rem]" />
+            <p className="body6-m-13 text-gray500 text-center">단체여행</p>
+          </div>
+          <div className="flex flex-col items-center gap-[1.6rem]">
+            <img src={ourTourIcon} alt="" className="h-[5rem] w-[5rem]" />
+            <p className="text-purple100 body6-m-13 text-center">
+              우리끼리
+              <br /> 여행
+            </p>
+          </div>
+        </div>
+        <div className="text-gray500 sub6-r-12 bg-gray100 h-[4.8rem] w-full py-[0.8rem] pl-[1rem]">
+          한공 포함 여부와 행사 종류 선택에 따라
+          <br />
+          다양한 패키지를 검색할 수 있습니다.
+        </div>
+      </div>
+
       <Divider />
 
       {/* 여행기간 */}
