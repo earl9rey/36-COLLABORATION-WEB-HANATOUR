@@ -1,5 +1,5 @@
 import ModalBase from './ModalBase';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import '@/shared/styles/react-calendar.css';
@@ -16,6 +16,8 @@ interface CalendarModalProps {
   onClose: () => void;
   onSelectDate: (dates: DateRange) => void;
 }
+
+const LOCAL_STORAGE_KEY = 'calendar-selected-dates';
 
 const CalendarModal = ({ onClose, onSelectDate }: CalendarModalProps) => {
   const today = new Date();
@@ -48,6 +50,7 @@ const CalendarModal = ({ onClose, onSelectDate }: CalendarModalProps) => {
     if (startDate && endDate) {
       setStartDate(date);
       setEndDate(null);
+      saveDatesToLocalStorage(date, null);
       return;
     }
 
@@ -55,13 +58,16 @@ const CalendarModal = ({ onClose, onSelectDate }: CalendarModalProps) => {
       if (date < startDate) {
         setStartDate(date);
         setEndDate(startDate);
+        saveDatesToLocalStorage(date, startDate);
       } else {
         setEndDate(date);
+        saveDatesToLocalStorage(startDate, date);
       }
       return;
     }
 
     setStartDate(date);
+    saveDatesToLocalStorage(date, null);
   };
 
   const isSameDay = (d1: Date, d2: Date) =>
@@ -143,6 +149,29 @@ const CalendarModal = ({ onClose, onSelectDate }: CalendarModalProps) => {
       onClose();
     }
   };
+
+  const saveDatesToLocalStorage = (start: Date | null, end: Date | null) => {
+    localStorage.setItem(
+      LOCAL_STORAGE_KEY,
+      JSON.stringify({
+        startDate: start ? start.toISOString() : null,
+        endDate: end ? end.toISOString() : null,
+      })
+    );
+  };
+
+  useEffect(() => {
+    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (parsed.startDate) setStartDate(new Date(parsed.startDate));
+        if (parsed.endDate) setEndDate(new Date(parsed.endDate));
+      } catch (e) {
+        console.error('날짜 저장 실패:', e);
+      }
+    }
+  }, []);
 
   return (
     <ModalBase onClose={onClose}>
