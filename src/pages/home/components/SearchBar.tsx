@@ -30,16 +30,43 @@ const SearchBar = () => {
   };
 
   const [activeModal, setActiveModal] = useState<ModalType>(null);
+  const [selectedArrival, setSelectedArrival] = useState<string | null>(null);
+  const [selectedDeparture, setSelectedDeparture] = useState<string | null>(null);
+
   const closeModal = () => setActiveModal(null);
 
   const renderModal = () => {
     switch (activeModal) {
       case 'destination':
-        return <DestinationModal onClose={closeModal} />;
+        return (
+          <DestinationModal
+            onClose={closeModal}
+            onSelectArrival={(city) => {
+              setSelectedArrival(city);
+              closeModal();
+            }}
+          />
+        );
       case 'departure':
-        return <DepartureModal onClose={closeModal} />;
+        return (
+          <DepartureModal
+            onClose={closeModal}
+            onSelectDeparture={(location) => {
+              setSelectedDeparture(location);
+              closeModal();
+            }}
+          />
+        );
       case 'calendar':
-        return <DepartureModal onClose={closeModal} />;
+        return (
+          <DepartureModal
+            onClose={closeModal}
+            onSelectDeparture={(location) => {
+              setSelectedDeparture(location);
+              closeModal();
+            }}
+          />
+        );
       default:
         return null;
     }
@@ -96,13 +123,15 @@ const SearchBar = () => {
           <div
             onClick={() => setActiveModal('destination')}
             className="bg-gray100 flex h-[6.8rem] w-full cursor-pointer items-center gap-[1rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
-            <p className="text-gray600 body1-m-20">어디로 떠나세요?</p>
+            <p className="text-gray600 body1-m-20" onClick={() => setActiveModal('destination')}>
+              {selectedArrival ? selectedArrival : '어디로 떠나세요?'}
+            </p>
           </div>
           <div
             onClick={() => setActiveModal('departure')}
             className="bg-gray100 flex h-[6.8rem] w-full cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
             <img src={location} alt="위치 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
-            <p className="text-gray600 body1-m-20">출발지 전체</p>
+            <p className="text-gray600 body1-m-20">{selectedDeparture ? selectedDeparture : '출발지 전체'}</p>
           </div>
           <div
             onClick={() => setActiveModal('calendar')}

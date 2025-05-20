@@ -4,7 +4,12 @@ import closeIcon from '@/shared/assets/icons/closeIcon.svg';
 import chevronRightIcon from '@/shared/assets/icons/chevronRightIcon.svg';
 import { regions } from '../../../shared/constants/destinationData';
 
-const DestinationModal = ({ onClose }: { onClose: () => void }) => {
+interface DestinationModalProps {
+  onClose: () => void;
+  onSelectArrival: (city: string) => void;
+}
+
+const DestinationModal = ({ onClose, onSelectArrival }: DestinationModalProps) => {
   const [selectedRegionIndex, setSelectedRegionIndex] = useState(0);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
@@ -39,6 +44,7 @@ const DestinationModal = ({ onClose }: { onClose: () => void }) => {
       localStorage.setItem('recentSearches', JSON.stringify(updated));
       return updated;
     });
+    onSelectArrival(cityName);
   };
 
   return (

@@ -25,7 +25,9 @@ const ModalBase = ({ onClose, children }: ModalBaseProps) => {
           alignItems: 'center',
           zIndex: 1000,
         }}>
-        <div style={{ background: '#fff' }}>{children}</div>
+        <div onClick={(e) => e.stopPropagation()} style={{ background: '#fff' }}>
+          {children}
+        </div>
       </div>
     </Portal>
   );
