@@ -73,8 +73,8 @@
 }
 
 .react-calendar__tile--active {
-  background: unset !important;
-  color: unset !important;
+  background: inherit !important;
+  color: inherit !important;
 }
 
 /* 특정 날짜 타일 구분 (공휴일/평일) */
@@ -175,7 +175,7 @@
 }
 
 .react-calendar__tile.range-middle {
-  background: #f8f3fd;
+  background: #f8f3fd !important;
   color: #000;
   border-radius: 0;
   position: relative;
