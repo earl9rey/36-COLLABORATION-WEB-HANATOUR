@@ -3,16 +3,34 @@ import upIcon from '@/shared/assets/icons/upIcon_black.svg';
 import Accordion from '@/shared/components/Accordion/Accordion';
 import Divider from '@/shared/components/Divider/Divider';
 import { useState } from 'react';
-import { TOUR_CONDITION, TRAVEL_PERIOD } from '../constants/filter';
+import { DEPARTURE_TIME, TOUR_CONDITION, TRAVEL_PERIOD } from '../constants/filter';
 
 const SearchFilterList = () => {
   const [selectedPeriod, setSelectedPeriod] = useState<string[]>([]);
+  const [selectedTourCondition, setSelectedTourCondition] = useState<string[]>([]);
+  const [selectedDepartureTime, setSelectedDepartureTime] = useState<string[]>([]);
 
   const handleSelectPeriod = (period: string) => {
     if (selectedPeriod.includes(period)) {
       setSelectedPeriod(selectedPeriod.filter((item) => item !== period));
     } else {
       setSelectedPeriod([...selectedPeriod, period]);
+    }
+  };
+
+  const handleSelectTourCondition = (condition: string) => {
+    if (selectedTourCondition.includes(condition)) {
+      setSelectedTourCondition(selectedTourCondition.filter((item) => item !== condition));
+    } else {
+      setSelectedTourCondition([...selectedTourCondition, condition]);
+    }
+  };
+
+  const handleSelectDepartureTime = (time: string) => {
+    if (selectedDepartureTime.includes(time)) {
+      setSelectedDepartureTime(selectedDepartureTime.filter((item) => item !== time));
+    } else {
+      setSelectedDepartureTime([...selectedDepartureTime, time]);
     }
   };
 
@@ -87,12 +105,12 @@ const SearchFilterList = () => {
             <Accordion.Content>
               <div className="mt-[2rem] flex flex-wrap gap-x-[0.2rem] gap-y-[0.6rem]">
                 {TOUR_CONDITION.map((condition) => {
-                  const isSelected = selectedPeriod.includes(condition.name);
+                  const isSelected = selectedTourCondition.includes(condition.name);
 
                   return (
                     <div
                       key={condition.id}
-                      onClick={() => handleSelectPeriod(condition.name)}
+                      onClick={() => handleSelectTourCondition(condition.name)}
                       className={`body6-m-13 ${isSelected ? 'text-purple100' : 'text-gray800'} ${isSelected ? 'border-purple100' : 'border-gray300'} flex h-[3.4rem] w-[11.7rem] cursor-pointer items-center justify-center rounded-[2px] border`}>
                       {condition.name}
                     </div>
@@ -119,15 +137,15 @@ const SearchFilterList = () => {
 
             <Accordion.Content>
               <div className="mt-[2rem] flex flex-wrap gap-x-[0.2rem] gap-y-[0.6rem]">
-                {TOUR_CONDITION.map((condition) => {
-                  const isSelected = selectedPeriod.includes(condition.name);
+                {DEPARTURE_TIME.map((time) => {
+                  const isSelected = selectedDepartureTime.includes(time.name);
 
                   return (
                     <div
-                      key={condition.id}
-                      onClick={() => handleSelectPeriod(condition.name)}
+                      key={time.id}
+                      onClick={() => handleSelectDepartureTime(time.name)}
                       className={`body6-m-13 ${isSelected ? 'text-purple100' : 'text-gray800'} ${isSelected ? 'border-purple100' : 'border-gray300'} flex h-[3.4rem] w-[11.7rem] cursor-pointer items-center justify-center rounded-[2px] border`}>
-                      {condition.name}
+                      {time.name}
                     </div>
                   );
                 })}

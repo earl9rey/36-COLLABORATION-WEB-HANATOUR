@@ -17,3 +17,10 @@ export const TOUR_CONDITION = [
   { id: '4', name: '가이드경비없음' },
   { id: '5', name: '쇼핑없음' },
 ];
+
+export const DEPARTURE_TIME = [
+  { id: '1', name: '아침(05~12시)' },
+  { id: '2', name: '점심(12시~18시)' },
+  { id: '3', name: '저녁(18시~24시)' },
+  { id: '4', name: '새벽(00시~05시)' },
+];
