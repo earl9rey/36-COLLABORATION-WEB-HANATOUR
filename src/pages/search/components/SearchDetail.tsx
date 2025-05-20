@@ -6,26 +6,28 @@ import arrowUpIcon from '@/shared/assets/icons/upErrow_purple.svg';
 
 interface SearchDetailPropsTypes {
   mainTag: string;
-  subTag: string;
+  underTag: string;
   title: string;
   description: string;
-  date: string;
   price: string;
   location: string;
   star: string;
+  travel_period: string;
   img: string;
+  setIsShowMore: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const SearchDetail = ({
   mainTag,
-  subTag,
+  underTag,
   title,
   description,
-  date,
   price,
   location,
   star,
+  travel_period,
   img,
+  setIsShowMore,
 }: SearchDetailPropsTypes) => {
   return (
     <div className="flex gap-[2.2rem] py-[2.8rem] pr-[2.8rem]">
@@ -35,7 +37,7 @@ const SearchDetail = ({
       <div className="min-w-[47rem]">
         <div className="sub6-r-12 flex gap-[1.3rem]">
           <span className="bg-purple100 px-[0.6rem] py-[0.3rem] text-white">{mainTag}</span>
-          <span className="bg-light-purple100 text-purple100 px-[0.5rem] py-[0.3rem]">#{subTag}</span>
+          <span className="bg-light-purple100 text-purple100 px-[0.5rem] py-[0.3rem]">#{underTag}</span>
         </div>
         <h1 className="sub1-sb-20 py-[1rem]">{title}</h1>
         <h2 className="body5-r-14 text-gray600">{description}</h2>
@@ -46,7 +48,7 @@ const SearchDetail = ({
           </div>
           <div className="flex">
             <img src={calendarIcon} alt="calendarIcon" />
-            {date}
+            여행기간 {travel_period}
           </div>
         </div>
         <div className="body6-m-13 flex">
@@ -60,7 +62,9 @@ const SearchDetail = ({
           <img src={likesmallIcon} alt="likesmallIcon" />
           찜하기
         </button>
-        <button className="sub3-sb-15 text-purple100 border-purple100 mt-[0.6rem] flex h-[4.7rem] w-[15.4rem] items-center justify-center gap-[0.4rem] rounded-[0.5rem] border-1">
+        <button
+          onClick={() => setIsShowMore((prev) => !prev)}
+          className="sub3-sb-15 text-purple100 border-purple100 mt-[0.6rem] flex h-[4.7rem] w-[15.4rem] items-center justify-center gap-[0.4rem] rounded-[0.5rem] border-1">
           자세히 보기
           <img src={arrowUpIcon} alt="arrowUpIcon" />
         </button>

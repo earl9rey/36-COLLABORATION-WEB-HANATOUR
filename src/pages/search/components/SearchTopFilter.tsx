@@ -14,7 +14,7 @@ const SearchTopFilter = () => {
           <div className="body5-r-14 bg-purple100 rounded-full px-[0.3rem] py-[0.1rem] text-white">15</div>
         </div>
         <div className="flex gap-[0.7rem]">
-          <div className="text-gray600 body6-m-13 bg-coolgray100 rounded-[0.5rem] px-[0.9rem] py-[0.7rem]">
+          <div className="text-gray600 body6-m-13 bg-coolgray100 rounded-[0.5rem] px-[0.9rem] py-[0.7rem] leading-[2.1rem]">
             항공포함
           </div>
           <button className="body6-m-13 text-gray500 border-gray600 flex items-center gap-[0.5rem] rounded-[0.5rem] border-1 px-[0.9rem] py-[0.7rem]">
