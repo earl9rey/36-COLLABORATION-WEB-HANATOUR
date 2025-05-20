@@ -77,18 +77,18 @@ const SearchBar = () => {
           </div>
         )}
         <div className="flex items-center gap-[1rem] self-stretch">
-          <div className="bg-gray100 flex h-[6.8rem] w-full items-center gap-[1rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
+          <div className="bg-gray100 flex h-[6.8rem] w-full cursor-pointer items-center gap-[1rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
             <p className="text-gray600 body1-m-20">어디로 떠나세요?</p>
           </div>
-          <div className="bg-gray100 flex h-[6.8rem] w-full items-center gap-[0.8rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
+          <div className="bg-gray100 flex h-[6.8rem] w-full cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
             <img src={location} alt="위치 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
             <p className="text-gray600 body1-m-20">출발지 전체</p>
           </div>
-          <div className="bg-gray100 flex h-[6.8rem] w-full items-center gap-[0.8rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
+          <div className="bg-gray100 flex h-[6.8rem] w-full cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
             <img src={calendar} alt="캘린더 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
             <p className="text-gray600 body1-m-20">여행시작일 선택</p>
           </div>
-          <div className="bg-gray600 body2-r-17 flex h-[6.8rem] w-[7.8rem] flex-shrink-0 items-center justify-center gap-[1rem] rounded-[0.5rem] px-[1.5rem] py-[2.3rem] text-center text-white">
+          <div className="bg-gray600 body2-r-17 flex h-[6.8rem] w-[7.8rem] flex-shrink-0 cursor-pointer items-center justify-center gap-[1rem] rounded-[0.5rem] px-[1.5rem] py-[2.3rem] text-center text-white">
             검색
           </div>
         </div>
