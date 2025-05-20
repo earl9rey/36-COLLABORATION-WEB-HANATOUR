@@ -24,3 +24,13 @@ export const DEPARTURE_TIME = [
   { id: '3', name: '저녁(18시~24시)' },
   { id: '4', name: '새벽(00시~05시)' },
 ];
+
+export const DEPARTURE_DAYS = [
+  { id: '1', name: '월' },
+  { id: '2', name: '화' },
+  { id: '3', name: '수' },
+  { id: '4', name: '목' },
+  { id: '5', name: '금' },
+  { id: '6', name: '토' },
+  { id: '7', name: '일' },
+];

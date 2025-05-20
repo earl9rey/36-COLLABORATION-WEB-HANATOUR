@@ -3,12 +3,13 @@ import upIcon from '@/shared/assets/icons/upIcon_black.svg';
 import Accordion from '@/shared/components/Accordion/Accordion';
 import Divider from '@/shared/components/Divider/Divider';
 import { useState } from 'react';
-import { DEPARTURE_TIME, TOUR_CONDITION, TRAVEL_PERIOD } from '../constants/filter';
+import { DEPARTURE_DAYS, DEPARTURE_TIME, TOUR_CONDITION, TRAVEL_PERIOD } from '../constants/filter';
 
 const SearchFilterList = () => {
   const [selectedPeriod, setSelectedPeriod] = useState<string[]>([]);
   const [selectedTourCondition, setSelectedTourCondition] = useState<string[]>([]);
   const [selectedDepartureTime, setSelectedDepartureTime] = useState<string[]>([]);
+  const [selectedDepartureDays, setSelectedDepartureDays] = useState<string[]>([]);
 
   const handleSelectPeriod = (period: string) => {
     if (selectedPeriod.includes(period)) {
@@ -31,6 +32,14 @@ const SearchFilterList = () => {
       setSelectedDepartureTime(selectedDepartureTime.filter((item) => item !== time));
     } else {
       setSelectedDepartureTime([...selectedDepartureTime, time]);
+    }
+  };
+
+  const handleSelectDepartureDays = (day: string) => {
+    if (selectedDepartureDays.includes(day)) {
+      setSelectedDepartureDays(selectedDepartureDays.filter((item) => item !== day));
+    } else {
+      setSelectedDepartureDays([...selectedDepartureDays, day]);
     }
   };
 
@@ -146,6 +155,39 @@ const SearchFilterList = () => {
                       onClick={() => handleSelectDepartureTime(time.name)}
                       className={`body6-m-13 ${isSelected ? 'text-purple100' : 'text-gray800'} ${isSelected ? 'border-purple100' : 'border-gray300'} flex h-[3.4rem] w-[11.7rem] cursor-pointer items-center justify-center rounded-[2px] border`}>
                       {time.name}
+                    </div>
+                  );
+                })}
+              </div>
+            </Accordion.Content>
+          </div>
+        )}
+      </Accordion>
+
+      <Divider />
+
+      {/* 출발 요일 */}
+      <Accordion>
+        {({ isVisible }) => (
+          <div className="my-[2.4rem]">
+            <Accordion.Header>
+              <div className="flex items-center justify-between">
+                <p className="sub3-sb-15">출발 요일</p>
+                <img src={isVisible ? upIcon : downIcon} alt="up 아이콘" className="w-[1.4rem]" />
+              </div>
+            </Accordion.Header>
+
+            <Accordion.Content>
+              <div className="mt-[2rem] flex flex-wrap gap-x-[0.2rem]">
+                {DEPARTURE_DAYS.map((day) => {
+                  const isSelected = selectedDepartureDays.includes(day.name);
+
+                  return (
+                    <div
+                      key={day.id}
+                      onClick={() => handleSelectDepartureDays(day.name)}
+                      className={`body6-m-13 ${isSelected ? 'text-purple100' : 'text-gray800'} ${isSelected ? 'border-purple100' : 'border-gray300'} flex h-[3.1rem] w-[3.2rem] cursor-pointer items-center justify-center rounded-[2px] border`}>
+                      {day.name}
                     </div>
                   );
                 })}
