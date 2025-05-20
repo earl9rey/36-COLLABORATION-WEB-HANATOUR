@@ -1,6 +1,6 @@
 import Content from '@/shared/components/Accordion/Content';
 import Header from '@/shared/components/Accordion/Header';
-import { createContext, useContext, useState, type ReactNode } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 interface AccordionContextPropTypes {
   isVisible: boolean;
@@ -21,7 +21,7 @@ export const useAccordion = () => {
 };
 
 interface AccordionPropTypes {
-  children: ReactNode;
+  children: React.ReactNode | (({ isVisible }: { isVisible: boolean }) => React.ReactNode);
 }
 
 const Accordion = ({ children }: AccordionPropTypes) => {
@@ -31,7 +31,11 @@ const Accordion = ({ children }: AccordionPropTypes) => {
     setIsVisible((prev) => !prev);
   };
 
-  return <AccordionContext.Provider value={{ isVisible, toggle }}>{children}</AccordionContext.Provider>;
+  return (
+    <AccordionContext.Provider value={{ isVisible, toggle }}>
+      {typeof children === 'function' ? children({ isVisible }) : children}
+    </AccordionContext.Provider>
+  );
 };
 
 export default Accordion;
