@@ -6,12 +6,20 @@ import Accordion from '@/shared/components/Accordion/Accordion';
 
 import Divider from '@/shared/components/Divider/Divider';
 import { useState } from 'react';
-import { DEPARTURE_DAYS, DEPARTURE_TIME, PACKAGE_TYPE, TOUR_CONDITION, TRAVEL_PERIOD } from '../constants/filter';
+import {
+  DEPARTURE_DAYS,
+  DEPARTURE_TIME,
+  HOTEL_GRADE,
+  PACKAGE_TYPE,
+  TOUR_CONDITION,
+  TRAVEL_PERIOD,
+} from '../constants/filter';
 
 const SearchFilterList = () => {
   const [selectedPeriod, setSelectedPeriod] = useState<string[]>([]);
   const [selectedPackageType, setSelectedPackageType] = useState<string[]>([]);
   const [selectedTourCondition, setSelectedTourCondition] = useState<string[]>([]);
+  const [selectedHotelGrade, setSelectedHotelGrade] = useState<string[]>([]);
   const [selectedDepartureTime, setSelectedDepartureTime] = useState<string[]>([]);
   const [selectedDepartureDays, setSelectedDepartureDays] = useState<string[]>([]);
 
@@ -36,6 +44,14 @@ const SearchFilterList = () => {
       setSelectedTourCondition(selectedTourCondition.filter((item) => item !== condition));
     } else {
       setSelectedTourCondition([...selectedTourCondition, condition]);
+    }
+  };
+
+  const handleSelectHotelGrade = (grade: string) => {
+    if (selectedHotelGrade.includes(grade)) {
+      setSelectedHotelGrade(selectedHotelGrade.filter((item) => item !== grade));
+    } else {
+      setSelectedHotelGrade([...selectedHotelGrade, grade]);
     }
   };
 
@@ -156,6 +172,47 @@ const SearchFilterList = () => {
                       className={`body6-m-13 ${isSelected ? 'text-purple100' : 'text-gray800'} ${isSelected ? 'border-purple100' : 'border-gray300'} flex h-[3.4rem] w-[11.7rem] cursor-pointer items-center justify-center rounded-[2px] border`}>
                       {condition.name}
                     </div>
+                  );
+                })}
+              </div>
+            </Accordion.Content>
+          </div>
+        )}
+      </Accordion>
+
+      <Divider />
+
+      {/* 호텔성급 */}
+      <Accordion>
+        {({ isVisible }) => (
+          <div className="my-[2.4rem]">
+            <Accordion.Header>
+              <div className="flex items-center justify-between">
+                <p className="sub3-sb-15">호텔성급</p>
+                <img src={isVisible ? upIcon : downIcon} alt="toggle icon" className="w-[1.4rem]" />
+              </div>
+            </Accordion.Header>
+
+            <Accordion.Content>
+              <div className="mt-[2rem] flex flex-col gap-y-[1.6rem]">
+                {HOTEL_GRADE.map((grade) => {
+                  const isChecked = selectedHotelGrade.includes(grade.name);
+
+                  return (
+                    <label key={grade.id} className="flex cursor-pointer items-center">
+                      <input
+                        type="checkbox"
+                        className="sr-only"
+                        checked={isChecked}
+                        onChange={() => handleSelectHotelGrade(grade.name)}
+                      />
+                      <img
+                        src={isChecked ? checkboxIcon : nonCheckboxIcon}
+                        alt={isChecked ? 'checked' : 'unchecked'}
+                        className="mr-[1rem] h-[2rem] w-[2rem]"
+                      />
+                      <span className="sub5-r-15 text-gray700">{grade.name}</span>
+                    </label>
                   );
                 })}
               </div>

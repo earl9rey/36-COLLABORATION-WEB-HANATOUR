@@ -28,6 +28,13 @@ export const TOUR_CONDITION = [
   { id: '5', name: '쇼핑없음' },
 ];
 
+export const HOTEL_GRADE = [
+  { id: '1', name: '5성급' },
+  { id: '2', name: '4성급' },
+  { id: '3', name: '3성급' },
+  { id: '4', name: '기타' },
+];
+
 export const DEPARTURE_TIME = [
   { id: '1', name: '아침(05~12시)' },
   { id: '2', name: '점심(12시~18시)' },
