@@ -1,9 +1,9 @@
-type TitleProps = {
+interface TitlePropTypes {
   title: string;
   subTitle: string;
-};
+}
 
-const Title = ({ title, subTitle }: TitleProps) => {
+const Title = ({ title, subTitle }: TitlePropTypes) => {
   return (
     <div className="flex w-full flex-col px-[11.4rem] pt-[7.1rem]">
       <p className="head4-sb-26 text-gray800">{title}</p>
