@@ -8,6 +8,7 @@ import location from '@/shared/assets/icons/location.svg';
 import calendar from '@/shared/assets/icons/calendar.svg';
 import DestinationModal from './DestinationModal';
 import DepartureModal from './DepartureModal';
+import CalendarModal from './CalendarModal';
 
 type ModalType = 'destination' | 'departure' | 'calendar' | null;
 
@@ -29,9 +30,38 @@ const SearchBar = () => {
     setIsFilterDrop((prev) => !prev);
   };
 
+  const formatDateString = (date: Date): string => {
+    const dayNames = ['일', '월', '화', '수', '목', '금', '토'];
+    return `${date.getFullYear()}.${(date.getMonth() + 1).toString().padStart(2, '0')}.${date
+      .getDate()
+      .toString()
+      .padStart(2, '0')}(${dayNames[date.getDay()]})`;
+  };
+
+  const formatDateISO = (date: Date): string => {
+    const tzOffset = date.getTimezoneOffset() * 60000;
+    const localISOTime = new Date(date.getTime() - tzOffset).toISOString().slice(0, 19);
+    return localISOTime;
+  };
+
   const [activeModal, setActiveModal] = useState<ModalType>(null);
   const [selectedArrival, setSelectedArrival] = useState<string | null>(null);
   const [selectedDeparture, setSelectedDeparture] = useState<string | null>(null);
+  const [selectedDate, setSelectedDate] = useState<{ arriveDate: Date | null; departDate: Date | null }>({
+    arriveDate: null,
+    departDate: null,
+  });
+
+  console.log(
+    'API 연동 Date : ',
+    selectedDate.arriveDate ? formatDateISO(selectedDate.arriveDate) : '없음',
+    selectedDate.departDate ? formatDateISO(selectedDate.departDate) : '없음'
+  );
+  console.log(
+    'UI date : ',
+    selectedDate.arriveDate ? formatDateString(selectedDate.arriveDate) : '없음',
+    selectedDate.departDate ? formatDateString(selectedDate.departDate) : '없음'
+  );
 
   const closeModal = () => setActiveModal(null);
 
@@ -59,10 +89,10 @@ const SearchBar = () => {
         );
       case 'calendar':
         return (
-          <DepartureModal
+          <CalendarModal
             onClose={closeModal}
-            onSelectDeparture={(location) => {
-              setSelectedDeparture(location);
+            onSelectDate={(date) => {
+              setSelectedDate(date);
               closeModal();
             }}
           />
@@ -137,7 +167,13 @@ const SearchBar = () => {
             onClick={() => setActiveModal('calendar')}
             className="bg-gray100 flex h-[6.8rem] w-full cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
             <img src={calendar} alt="캘린더 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
-            <p className="text-gray600 body1-m-20">여행시작일 선택</p>
+            <p className="text-gray600 body1-m-20">
+              {!selectedDate.arriveDate
+                ? '여행시작일 선택'
+                : !selectedDate.departDate
+                  ? formatDateString(selectedDate.arriveDate)
+                  : `${formatDateString(selectedDate.arriveDate)} - ${formatDateString(selectedDate.departDate)}`}
+            </p>
           </div>
           <div className="bg-gray600 body2-r-17 flex h-[6.8rem] w-[7.8rem] flex-shrink-0 cursor-pointer items-center justify-center gap-[1rem] rounded-[0.5rem] px-[1.5rem] py-[2.3rem] text-center text-white">
             검색

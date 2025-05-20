@@ -3,15 +3,9 @@
 
 
 "@adobe/css-tools@^4.4.0":
-<<<<<<< HEAD
-  version "4.4.3"
-  resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.4.3.tgz#beebbefb0264fdeb32d3052acae0e0d94315a9a2"
-  integrity sha512-VQKMkwriZbaOgVCby1UDY/LDk5fIjhQicCvVPFqfe+69fWaPWydbWJ3wRt59/YzIwda1I81loas3oCoHxnqvdA==
-=======
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.4.2.tgz#c836b1bd81e6d62cd6cdf3ee4948bcdce8ea79c8"
   integrity sha512-baYZExFpsdkBNuvGKTKWCwKH57HRZLVtycZS05WTQNVOiXVSeAki3nU35zlRbToeMW8aHlJfyS+1C4BOv27q0A==
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
 
 "@ampproject/remapping@^2.2.0", "@ampproject/remapping@^2.3.0":
   version "2.3.0"
@@ -1234,7 +1228,6 @@
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-19.1.5.tgz#cdfe2c663742887372f54804b16e8dbc26bd794a"
   integrity sha512-CMCjrWucUBZvohgZxkjd6S9h0nZxXjzus6yDfUb+xLxYM7VvjKNH1tQrE9GWLql1XoOP4/Ds3bwFqShHUYraGg==
 
-<<<<<<< HEAD
 "@types/react-portal@^4.0.7":
   version "4.0.7"
   resolved "https://registry.yarnpkg.com/@types/react-portal/-/react-portal-4.0.7.tgz#c7436c5039e74ec80d488fbe5c98dbcc6469bf44"
@@ -1242,8 +1235,6 @@
   dependencies:
     "@types/react" "*"
 
-=======
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
 "@types/react-router-dom@^5.3.3":
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/@types/react-router-dom/-/react-router-dom-5.3.3.tgz#e9d6b4a66fcdbd651a5f106c2656a30088cc1e83"
@@ -1367,16 +1358,6 @@
     "@swc/core" "^1.11.21"
 
 "@vitest/browser@^3.1.3":
-<<<<<<< HEAD
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@vitest/browser/-/browser-3.1.4.tgz#fbdf3dda9f339d82d95f00a74fbb7cacefc0758a"
-  integrity sha512-2L4vR/tuUZBxKU72Qe+unIp1P8lZ0T5nlqPegkXxyZFR5gWqItV8VPPR261GOzl49Zw2AhzMABzMMHJagQ0a2g==
-  dependencies:
-    "@testing-library/dom" "^10.4.0"
-    "@testing-library/user-event" "^14.6.1"
-    "@vitest/mocker" "3.1.4"
-    "@vitest/utils" "3.1.4"
-=======
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/@vitest/browser/-/browser-3.1.3.tgz#985f12382bc4aeddbffa4209850ab5cbaaa43e60"
   integrity sha512-Dgyez9LbHJHl9ObZPo5mu4zohWLo7SMv8zRWclMF+dxhQjmOtEP0raEX13ac5ygcvihNoQPBZXdya5LMSbcCDQ==
@@ -1385,22 +1366,15 @@
     "@testing-library/user-event" "^14.6.1"
     "@vitest/mocker" "3.1.3"
     "@vitest/utils" "3.1.3"
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
     magic-string "^0.30.17"
     sirv "^3.0.1"
     tinyrainbow "^2.0.0"
     ws "^8.18.1"
 
 "@vitest/coverage-v8@^3.1.3":
-<<<<<<< HEAD
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@vitest/coverage-v8/-/coverage-v8-3.1.4.tgz#faffd0d22795938b69aa4fedc78622bce299ec26"
-  integrity sha512-G4p6OtioySL+hPV7Y6JHlhpsODbJzt1ndwHAFkyk6vVjpK03PFsKnauZIzcd0PrK4zAbc5lc+jeZ+eNGiMA+iw==
-=======
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/@vitest/coverage-v8/-/coverage-v8-3.1.3.tgz#d40e21d11384ef55d12ece1cb711b32930deb499"
   integrity sha512-cj76U5gXCl3g88KSnf80kof6+6w+K4BjOflCl7t6yRJPDuCrHtVu0SgNYOUARJOL5TI8RScDbm5x4s1/P9bvpw==
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
   dependencies:
     "@ampproject/remapping" "^2.3.0"
     "@bcoe/v8-coverage" "^1.0.2"
@@ -1425,24 +1399,6 @@
     chai "^5.1.1"
     tinyrainbow "^1.2.0"
 
-<<<<<<< HEAD
-"@vitest/expect@3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@vitest/expect/-/expect-3.1.4.tgz#837651a71682e3611c3df7b58b157ba485bd8029"
-  integrity sha512-xkD/ljeliyaClDYqHPNCiJ0plY5YIcM0OlRiZizLhlPmpXWpxnGMyTZXOHFhFeG7w9P5PBeL4IdtJ/HeQwTbQA==
-  dependencies:
-    "@vitest/spy" "3.1.4"
-    "@vitest/utils" "3.1.4"
-    chai "^5.2.0"
-    tinyrainbow "^2.0.0"
-
-"@vitest/mocker@3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@vitest/mocker/-/mocker-3.1.4.tgz#73441022b86c7299bfbd11a9fb2e99a7ddc2bb0e"
-  integrity sha512-8IJ3CvwtSw/EFXqWFL8aCMu+YyYXG2WUSrQbViOZkWTKTVicVwZ/YiEZDSqD00kX+v/+W+OnxhNWoeVKorHygA==
-  dependencies:
-    "@vitest/spy" "3.1.4"
-=======
 "@vitest/expect@3.1.3":
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/@vitest/expect/-/expect-3.1.3.tgz#bbca175cd2f23d7de9448a215baed8f3d7abd7b7"
@@ -1459,7 +1415,6 @@
   integrity sha512-PJbLjonJK82uCWHjzgBJZuR7zmAOrSvKk1QBxrennDIgtH4uK0TB1PvYmc0XBCigxxtiAVPfWtAdy4lpz8SQGQ==
   dependencies:
     "@vitest/spy" "3.1.3"
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
     estree-walker "^3.0.3"
     magic-string "^0.30.17"
 
@@ -1477,29 +1432,6 @@
   dependencies:
     tinyrainbow "^1.2.0"
 
-<<<<<<< HEAD
-"@vitest/pretty-format@3.1.4", "@vitest/pretty-format@^3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@vitest/pretty-format/-/pretty-format-3.1.4.tgz#da3e98c250cde3ce39fe8e709339814607b185e8"
-  integrity sha512-cqv9H9GvAEoTaoq+cYqUTCGscUjKqlJZC7PRwY5FMySVj5J+xOm1KQcCiYHJOEzOKRUhLH4R2pTwvFlWCEScsg==
-  dependencies:
-    tinyrainbow "^2.0.0"
-
-"@vitest/runner@3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@vitest/runner/-/runner-3.1.4.tgz#19fa16eb397f5325b99baca48c2bca6cadd098fa"
-  integrity sha512-djTeF1/vt985I/wpKVFBMWUlk/I7mb5hmD5oP8K9ACRmVXgKTae3TUOtXAEBfslNKPzUQvnKhNd34nnRSYgLNQ==
-  dependencies:
-    "@vitest/utils" "3.1.4"
-    pathe "^2.0.3"
-
-"@vitest/snapshot@3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@vitest/snapshot/-/snapshot-3.1.4.tgz#7897d4960a3cf617fb0f17e182cc15c7e3e4ed3f"
-  integrity sha512-JPHf68DvuO7vilmvwdPr9TS0SuuIzHvxeaCkxYcCD4jTk67XwL45ZhEHFKIuCm8CYstgI6LZ4XbwD6ANrwMpFg==
-  dependencies:
-    "@vitest/pretty-format" "3.1.4"
-=======
 "@vitest/pretty-format@3.1.3", "@vitest/pretty-format@^3.1.3":
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/@vitest/pretty-format/-/pretty-format-3.1.3.tgz#760b9eab5f253d7d2e7dcd28ef34570f584023d4"
@@ -1521,7 +1453,6 @@
   integrity sha512-XVa5OPNTYUsyqG9skuUkFzAeFnEzDp8hQu7kZ0N25B1+6KjGm4hWLtURyBbsIAOekfWQ7Wuz/N/XXzgYO3deWQ==
   dependencies:
     "@vitest/pretty-format" "3.1.3"
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
     magic-string "^0.30.17"
     pathe "^2.0.3"
 
@@ -1532,17 +1463,10 @@
   dependencies:
     tinyspy "^3.0.0"
 
-<<<<<<< HEAD
-"@vitest/spy@3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@vitest/spy/-/spy-3.1.4.tgz#94bb566da7ef6deb7c4e1fd79b78f19aa5465b9f"
-  integrity sha512-Xg1bXhu+vtPXIodYN369M86K8shGLouNjoVI78g8iAq2rFoHFdajNvJJ5A/9bPMFcfQqdaCpOgWKEoMQg/s0Yg==
-=======
 "@vitest/spy@3.1.3":
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/@vitest/spy/-/spy-3.1.3.tgz#ca81e2b4f0c3d6c75f35defa77c3336f39c8f605"
   integrity sha512-x6w+ctOEmEXdWaa6TO4ilb7l9DxPR5bwEb6hILKuxfU1NqWT2mpJD9NJN7t3OTfxmVlOMrvtoFJGdgyzZ605lQ==
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
   dependencies:
     tinyspy "^3.0.2"
 
@@ -1556,21 +1480,12 @@
     loupe "^3.1.1"
     tinyrainbow "^1.2.0"
 
-<<<<<<< HEAD
-"@vitest/utils@3.1.4":
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/@vitest/utils/-/utils-3.1.4.tgz#f9f20d92f1384a9d66548c480885390760047b5e"
-  integrity sha512-yriMuO1cfFhmiGc8ataN51+9ooHRuURdfAZfwFd3usWynjzpLslZdYnRegTv32qdgtJTsj15FoeZe2g15fY1gg==
-  dependencies:
-    "@vitest/pretty-format" "3.1.4"
-=======
 "@vitest/utils@3.1.3":
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/@vitest/utils/-/utils-3.1.3.tgz#4f31bdfd646cd82d30bfa730d7410cb59d529669"
   integrity sha512-2Ltrpht4OmHO9+c/nmHtF09HWiyWdworqnHIwjfvDyWjuwKbdkcS9AnhsDn+8E2RM4x++foD1/tNuLPVvWG1Rg==
   dependencies:
     "@vitest/pretty-format" "3.1.3"
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
     loupe "^3.1.3"
     tinyrainbow "^2.0.0"
 
@@ -1583,14 +1498,11 @@
     loupe "^3.1.2"
     tinyrainbow "^1.2.0"
 
-<<<<<<< HEAD
-=======
 "@wojtekmaj/date-utils@^1.1.3":
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/@wojtekmaj/date-utils/-/date-utils-1.5.1.tgz#c3cd67177ac781cfa5736219d702a55a2aea5f2b"
   integrity sha512-+i7+JmNiE/3c9FKxzWFi2IjRJ+KzZl1QPu6QNrsgaa2MuBgXvUy4gA1TVzf/JMdIIloB76xSKikTWuyYAIVLww==
 
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
 acorn-jsx@^5.3.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
@@ -1929,11 +1841,7 @@ chromatic@^11.15.0:
   resolved "https://registry.yarnpkg.com/chromatic/-/chromatic-11.28.2.tgz#c0b9f59dcc323ca8bf2c2790f3c9e3d285834efb"
   integrity sha512-aCmUPcZUs4/p9zRZdMreOoO/5JqO2DiJC3md1/vRx8dlMRcmR/YI5ZbgXZcai2absVR+6hsXZ5XiPxV2sboTuQ==
 
-<<<<<<< HEAD
-clsx@^2.1.1:
-=======
 clsx@^2.0.0, clsx@^2.1.1:
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/clsx/-/clsx-2.1.1.tgz#eed397c9fd8bd882bfb18deab7102049a2f32999"
   integrity sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==
@@ -2744,8 +2652,6 @@ get-symbol-description@^1.1.0:
     es-errors "^1.3.0"
     get-intrinsic "^1.2.6"
 
-<<<<<<< HEAD
-=======
 get-user-locale@^2.2.1:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/get-user-locale/-/get-user-locale-2.3.2.tgz#d37ae6e670c2b57d23a96fb4d91e04b2059d52cf"
@@ -2753,7 +2659,6 @@ get-user-locale@^2.2.1:
   dependencies:
     mem "^8.0.0"
 
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
 glob-parent@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/glob-parent/-/glob-parent-5.1.2.tgz#869832c58034fe68a4093c17dc15e8340d8401c4"
@@ -3362,11 +3267,7 @@ lodash@^4.17.21:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
-<<<<<<< HEAD
-loose-envify@^1.4.0:
-=======
 loose-envify@^1.0.0, loose-envify@^1.4.0:
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
@@ -3425,8 +3326,6 @@ make-dir@^4.0.0:
   dependencies:
     semver "^7.5.3"
 
-<<<<<<< HEAD
-=======
 map-age-cleaner@^0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/map-age-cleaner/-/map-age-cleaner-0.1.3.tgz#7d583a7306434c055fe474b0f45078e6e1b4b92a"
@@ -3434,7 +3333,6 @@ map-age-cleaner@^0.1.3:
   dependencies:
     p-defer "^1.0.0"
 
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
 map-or-similar@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/map-or-similar/-/map-or-similar-1.5.0.tgz#6de2653174adfb5d9edc33c69d3e92a1b76faf08"
@@ -3445,8 +3343,6 @@ math-intrinsics@^1.1.0:
   resolved "https://registry.yarnpkg.com/math-intrinsics/-/math-intrinsics-1.1.0.tgz#a0dd74be81e2aa5c2f27e65ce283605ee4e2b7f9"
   integrity sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==
 
-<<<<<<< HEAD
-=======
 mem@^8.0.0:
   version "8.1.1"
   resolved "https://registry.yarnpkg.com/mem/-/mem-8.1.1.tgz#cf118b357c65ab7b7e0817bdf00c8062297c0122"
@@ -3455,7 +3351,6 @@ mem@^8.0.0:
     map-age-cleaner "^0.1.3"
     mimic-fn "^3.1.0"
 
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
 memoizerific@^1.11.3:
   version "1.11.3"
   resolved "https://registry.yarnpkg.com/memoizerific/-/memoizerific-1.11.3.tgz#7c87a4646444c32d75438570905f2dbd1b1a805a"
@@ -3488,14 +3383,11 @@ mime-types@^2.1.12:
   dependencies:
     mime-db "1.52.0"
 
-<<<<<<< HEAD
-=======
 mimic-fn@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-3.1.0.tgz#65755145bbf3e36954b949c16450427451d5ca74"
   integrity sha512-Ysbi9uYW9hFyfrThdDEQuykN4Ey6BuwPD2kpI5ES/nFTDn/98yxYNLZJcgUAKPT/mcrLLKaGzJR9YVxJrIdASQ==
 
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
 min-indent@^1.0.0, min-indent@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/min-indent/-/min-indent-1.0.1.tgz#a63f681673b30571fbe8bc25686ae746eefa9869"
@@ -3658,14 +3550,11 @@ own-keys@^1.0.1:
     object-keys "^1.1.1"
     safe-push-apply "^1.0.0"
 
-<<<<<<< HEAD
-=======
 p-defer@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/p-defer/-/p-defer-1.0.0.tgz#9f6eb182f6c9aa8cd743004a7d4f96b196b0fb0c"
   integrity sha512-wB3wfAxZpk2AzOfUMJNL+d36xothRSyj8EXOa4f6GMqYDN9BJaaSISbsk+wS9abmnebVw95C2Kb5t85UmpCxuw==
 
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
 p-limit@^3.0.2:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-3.1.0.tgz#e1daccbe78d0d1388ca18c64fea38e3e57e3706b"
@@ -3819,11 +3708,7 @@ prompts@^2.4.0:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-<<<<<<< HEAD
 prop-types@^15.5.8, prop-types@^15.8.1:
-=======
-prop-types@^15.8.1:
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -3854,8 +3739,6 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-<<<<<<< HEAD
-=======
 react-calendar@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/react-calendar/-/react-calendar-5.1.0.tgz#f5d3342a872cbb8907099ca5651bc936046033b8"
@@ -3866,7 +3749,6 @@ react-calendar@^5.1.0:
     get-user-locale "^2.2.1"
     warning "^4.0.0"
 
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
 react-confetti@^6.1.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/react-confetti/-/react-confetti-6.4.0.tgz#e9416b5b3c8baf6f0bb1c5a8e1e3c89babd2c837"
@@ -3912,7 +3794,6 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-<<<<<<< HEAD
 react-portal@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/react-portal/-/react-portal-4.3.0.tgz#92ca3492b1309883134f317a6aa88004534c860f"
@@ -3920,8 +3801,6 @@ react-portal@^4.3.0:
   dependencies:
     prop-types "^15.5.8"
 
-=======
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
 react-router-dom@^7.6.0:
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-7.6.0.tgz#eadcede43856dc714fa3572a946fd7502775c017"
@@ -4398,15 +4277,9 @@ tailwindcss@4.1.7, tailwindcss@^4.1.6:
   integrity sha512-kr1o/ErIdNhTz8uzAYL7TpaUuzKIE6QPQ4qmSdxnoX/lo+5wmUHQA6h3L5yIqEImSRnAAURDirLu/BgiXGPAhg==
 
 tapable@^2.2.0:
-<<<<<<< HEAD
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.2.2.tgz#ab4984340d30cb9989a490032f086dbb8b56d872"
-  integrity sha512-Re10+NauLTMCudc7T5WLFLAwDhQ0JWdrMK+9B2M8zR5hRExKmsRDCBA7/aV/pNJFltmBFO5BAMlQFi/vq3nKOg==
-=======
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-2.2.1.tgz#1967a73ef4060a82f12ab96af86d52fdb76eeca0"
   integrity sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
 
 tar@^7.4.3:
   version "7.4.3"
@@ -4653,17 +4526,10 @@ uuid@^9.0.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-9.0.1.tgz#e188d4c8853cc722220392c424cd637f32293f30"
   integrity sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==
 
-<<<<<<< HEAD
-vite-node@3.1.4:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/vite-node/-/vite-node-3.1.4.tgz#13f10b2cb155197a971cb2761664ec952c6cae18"
-  integrity sha512-6enNwYnpyDo4hEgytbmc6mYWHXDHYEn0D1/rw4Q+tnHUGtKTJsn8T1YkX6Q18wI5LCrS8CTYlBaiCqxOy2kvUA==
-=======
 vite-node@3.1.3:
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/vite-node/-/vite-node-3.1.3.tgz#d021ced40b5a057305eaea9ce62c610c33b60a48"
   integrity sha512-uHV4plJ2IxCl4u1up1FQRrqclylKAogbtBfOTwcuJ28xFi+89PZ57BRh+naIRvH70HPwxy5QHYzg1OrEaC7AbA==
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
   dependencies:
     cac "^6.7.14"
     debug "^4.4.0"
@@ -4686,19 +4552,6 @@ vite-node@3.1.3:
     fsevents "~2.3.3"
 
 vitest@^3.1.3:
-<<<<<<< HEAD
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/vitest/-/vitest-3.1.4.tgz#5f495b7dbb1d4d208b88508cd4dfceb006f8b7e6"
-  integrity sha512-Ta56rT7uWxCSJXlBtKgIlApJnT6e6IGmTYxYcmxjJ4ujuZDI59GUQgVDObXXJujOmPDBYXHK1qmaGtneu6TNIQ==
-  dependencies:
-    "@vitest/expect" "3.1.4"
-    "@vitest/mocker" "3.1.4"
-    "@vitest/pretty-format" "^3.1.4"
-    "@vitest/runner" "3.1.4"
-    "@vitest/snapshot" "3.1.4"
-    "@vitest/spy" "3.1.4"
-    "@vitest/utils" "3.1.4"
-=======
   version "3.1.3"
   resolved "https://registry.yarnpkg.com/vitest/-/vitest-3.1.3.tgz#0b0b01932408cd3af61867f4468d28bd83406ffb"
   integrity sha512-188iM4hAHQ0km23TN/adso1q5hhwKqUpv+Sd6p5sOuh6FhQnRNW3IsiIpvxqahtBabsJ2SLZgmGSpcYK4wQYJw==
@@ -4710,7 +4563,6 @@ vitest@^3.1.3:
     "@vitest/snapshot" "3.1.3"
     "@vitest/spy" "3.1.3"
     "@vitest/utils" "3.1.3"
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
     chai "^5.2.0"
     debug "^4.4.0"
     expect-type "^1.2.1"
@@ -4723,11 +4575,6 @@ vitest@^3.1.3:
     tinypool "^1.0.2"
     tinyrainbow "^2.0.0"
     vite "^5.0.0 || ^6.0.0"
-<<<<<<< HEAD
-    vite-node "3.1.4"
-    why-is-node-running "^2.3.0"
-
-=======
     vite-node "3.1.3"
     why-is-node-running "^2.3.0"
 
@@ -4738,7 +4585,6 @@ warning@^4.0.0:
   dependencies:
     loose-envify "^1.0.0"
 
->>>>>>> e31dbcc828776fd13e6a57a64868b0a6da7b8bd2
 webpack-virtual-modules@^0.6.2:
   version "0.6.2"
   resolved "https://registry.yarnpkg.com/webpack-virtual-modules/-/webpack-virtual-modules-0.6.2.tgz#057faa9065c8acf48f24cb57ac0e77739ab9a7e8"
