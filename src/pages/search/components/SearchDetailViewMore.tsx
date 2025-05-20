@@ -5,7 +5,7 @@ import arrowUp_black from '@/shared/assets/icons/arrowUp_black.svg';
 import SearchDetailCalendar from './SearchDetailCalendar';
 import SearchDetailViewMoreInfo from './SearchDetailViewMoreInfo';
 
-type DetailInfo = {
+interface DetailInfo {
   title: string;
   airline: string;
   date: string;
@@ -14,17 +14,15 @@ type DetailInfo = {
   subTag: string;
   underTag: string;
   price: string;
-};
+}
 
-const SearchDetailViewMore = ({
-  isshowMore,
-  setIsShowMore,
-  detailInfo,
-}: {
+interface SearchDetailViewMorePropsTypes {
   isshowMore: boolean;
-  setIsShowMore: (isshowMore: boolean) => void;
+  setIsShowMore: React.Dispatch<React.SetStateAction<boolean>>;
   detailInfo: DetailInfo;
-}) => {
+}
+
+const SearchDetailViewMore = ({ isshowMore, setIsShowMore, detailInfo }: SearchDetailViewMorePropsTypes) => {
   return (
     <div className="w-100% bg-coolgray100 relative px-[3.4rem] py-[3rem]">
       <header className="relative flex h-[2.9rem] items-center justify-end">
@@ -62,7 +60,7 @@ const SearchDetailViewMore = ({
         price={detailInfo.price}
       />
       <div
-        onClick={() => setIsShowMore(!isshowMore)}
+        onClick={() => setIsShowMore((prev) => !prev)}
         className="body3-sb-15 mt-[2rem] flex cursor-pointer items-center justify-center gap-[0.9rem]">
         접기
         <img src={arrowUp_black} />

@@ -3,13 +3,28 @@ import Divider from '@/shared/components/Divider/Divider';
 import SearchDetail from './SearchDetail';
 import SearchDetailViewMore from './SearchDetailViewMore';
 import { useState } from 'react';
-import SearchDetailMock from '@/pages/home/mock/SearchDetailMock.json';
+import SearchDetailMock from '@/pages/search/datas/SearchDetailMock.json';
+
+interface ShowMoreMap {
+  [key: number]: boolean;
+}
+
+interface DetailInfo {
+  title: string;
+  airline: string;
+  date: string;
+  memo: string;
+  mainTag: string;
+  subTag: string;
+  underTag: string;
+  price: string;
+}
 
 const SearchDetailWrapper = () => {
   const [searchDetailList, setSearchDetailList] = useState(SearchDetailMock);
-  const [showMoreMap, setShowMoreMap] = useState({});
+  const [showMoreMap, setShowMoreMap] = useState<ShowMoreMap>({});
 
-  const toggleShowMore = (id) => {
+  const handleShowMore = (id: number) => {
     setShowMoreMap((prev) => ({
       ...prev,
       [id]: !prev[id],
@@ -24,18 +39,18 @@ const SearchDetailWrapper = () => {
         </span>
         <span className="body5-r-14 border-gray400 flex w-[10rem] items-center justify-center gap-[0.3rem] border-2 py-[0.6rem]">
           추천순
-          <img src={down} />
+          <img src={down} alt="downIcon" />
         </span>
       </header>
       <Divider color="gray300" />
       {searchDetailList.map((item) => (
         <div key={item.id}>
-          <SearchDetail {...item} isshowMore={!!showMoreMap[item.id]} setIsShowMore={() => toggleShowMore(item.id)} />
+          <SearchDetail {...item} setIsShowMore={() => handleShowMore(item.id)} />
           {showMoreMap[item.id] && (
             <SearchDetailViewMore
               isshowMore={!!showMoreMap[item.id]}
-              setIsShowMore={() => toggleShowMore(item.id)}
-              detailInfo={SearchDetailMock.find((info) => info.id === item.id)}
+              setIsShowMore={() => handleShowMore(item.id)}
+              detailInfo={SearchDetailMock.find((info) => info.id === item.id) as DetailInfo}
             />
           )}
         </div>

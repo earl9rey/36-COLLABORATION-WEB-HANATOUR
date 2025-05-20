@@ -1,6 +1,18 @@
 import locationIcon from '@/shared/assets/icons/location.svg';
 import calendarIcon from '@/shared/assets/icons/calendar.svg';
 import memoIcon from '@/shared/assets/icons/memoIcon.svg';
+
+interface SearchDetailViewMoreInfoPropsTypes {
+  title: string;
+  airline: string;
+  date: string;
+  memo: string;
+  mainTag: string;
+  subTag: string;
+  underTag: string;
+  price: string;
+}
+
 const SearchDetailViewMoreInfo = ({
   title,
   airline,
@@ -10,16 +22,7 @@ const SearchDetailViewMoreInfo = ({
   subTag,
   underTag,
   price,
-}: {
-  title: string;
-  airline: string;
-  date: string;
-  memo: string;
-  mainTag: string;
-  subTag: string;
-  underTag: string;
-  price: string;
-}) => {
+}: SearchDetailViewMoreInfoPropsTypes) => {
   return (
     <div className="flex justify-between bg-white p-[2rem]">
       <section className="w-[47rem]">
@@ -30,7 +33,7 @@ const SearchDetailViewMoreInfo = ({
         <div className="body3-sb-15 mt-[1.7rem] mb-[1.6rem]">{title}</div>
         <div className="body7-r-13 flex flex-col gap-[0.6rem]">
           <div className="flex items-center gap-[0.5rem]">
-            <img src={locationIcon} />
+            <img src={locationIcon} alt="locationIcon" />
             {airline}, <div className="text-red100">잔여 1석</div>
           </div>
           <div className="flex items-center gap-[0.5rem]">
