@@ -3,12 +3,12 @@ import closeIcon from '@/shared/assets/icons/closeIcon.svg';
 import chevronRightIcon from '@/shared/assets/icons/chevronRightIcon.svg';
 import { regions } from '../../../shared/constants/destinationData';
 
-interface DestinationModalProps {
+interface DestinationModalPropTypes {
   onClose: () => void;
   onSelectArrival: (city: string) => void;
 }
 
-const DestinationModal = ({ onClose, onSelectArrival }: DestinationModalProps) => {
+const DestinationModal = ({ onClose, onSelectArrival }: DestinationModalPropTypes) => {
   const [selectedRegionIndex, setSelectedRegionIndex] = useState(0);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [recentSearches, setRecentSearches] = useState<string[]>([]);

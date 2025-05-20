@@ -2,12 +2,12 @@ import location from '@/shared/assets/icons/location.svg';
 
 const departureLocations = ['인천/김포', '부산', '대구', '청주', '제주', '양양'] as const;
 
-interface DepartureModalProps {
+interface DepartureModalPropTypes {
   onClose: () => void;
   onSelectDeparture: (location: string) => void;
 }
 
-const DepartureModal = ({ onSelectDeparture }: DepartureModalProps) => {
+const DepartureModal = ({ onSelectDeparture }: DepartureModalPropTypes) => {
   const handleClicklocation = (location: string) => {
     onSelectDeparture(location);
   };

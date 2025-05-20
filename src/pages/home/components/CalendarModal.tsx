@@ -6,19 +6,19 @@ import chevronLeftIcon from '@/shared/assets/icons/chevronLeftIcon.svg';
 import chevronRightIcon from '@/shared/assets/icons/chevronRightIcon.svg';
 import disabledChevIcon from '@/shared/assets/icons/disabledChevIcon.svg';
 
-interface DateRange {
+interface DateRangeTypes {
   arriveDate: Date | null;
   departDate: Date | null;
 }
 
-interface CalendarModalProps {
+interface CalendarModalPropTypes {
   onClose: () => void;
-  onSelectDate: (dates: DateRange) => void;
+  onSelectDate: (dates: DateRangeTypes) => void;
 }
 
 const LOCAL_STORAGE_KEY = 'calendar-selected-dates';
 
-const CalendarModal = ({ onClose, onSelectDate }: CalendarModalProps) => {
+const CalendarModal = ({ onClose, onSelectDate }: CalendarModalPropTypes) => {
   const today = new Date();
 
   const [activeStartDate, setActiveStartDate] = useState<Date>(new Date());
