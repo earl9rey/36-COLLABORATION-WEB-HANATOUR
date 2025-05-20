@@ -11,7 +11,7 @@ const SearchDetailWrapper = () => {
         </span>
         <span className="body5-r-14 border-gray400 flex w-[10rem] items-center justify-center gap-[0.3rem] border-2 py-[0.6rem]">
           추천순
-          <img src={down} />
+          <img src={down} alt="downIcon" />
         </span>
       </header>
       <Divider color="gray300" />
