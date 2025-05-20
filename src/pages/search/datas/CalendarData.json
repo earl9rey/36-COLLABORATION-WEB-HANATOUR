@@ -1,0 +1,18 @@
+[
+  { "day": "일", "date": 1, "price": null },
+  { "day": "월", "date": 2, "price": null },
+  { "day": "화", "date": 3, "price": "1,650만" },
+  { "day": "수", "date": 4, "price": "1,650만" },
+  { "day": "목", "date": 5, "price": "1,650만" },
+  { "day": "금", "date": 6, "price": "1,650만" },
+  { "day": "토", "date": 7, "price": "1,650만" },
+  { "day": "일", "date": 8, "price": "1,650만" },
+  { "day": "월", "date": 9, "price": "1,650만" },
+  { "day": "화", "date": 10, "price": "1,650만" },
+  { "day": "수", "date": 11, "price": "1,650만" },
+  { "day": "목", "date": 12, "price": "1,650만" },
+  { "day": "금", "date": 13, "price": "1,650만" },
+  { "day": "토", "date": 14, "price": "1,650만" },
+  { "day": "일", "date": 15, "price": "1,650만" },
+  { "day": "월", "date": 16, "price": "1,650만" }
+]
