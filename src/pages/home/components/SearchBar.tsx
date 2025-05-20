@@ -6,6 +6,10 @@ import checkedCircle from '@/shared/assets/icons/checkedCircle.svg';
 import uncheckedCircle from '@/shared/assets/icons/uncheckedCircle.svg';
 import location from '@/shared/assets/icons/location.svg';
 import calendar from '@/shared/assets/icons/calendar.svg';
+import DestinationModal from './DestinationModal';
+import DepartureModal from './DepartureModal';
+
+type ModalType = 'destination' | 'departure' | 'calendar' | null;
 
 const SearchBar = () => {
   const [isFilterDrop, setIsFilterDrop] = useState<boolean>(false);
@@ -23,6 +27,22 @@ const SearchBar = () => {
 
   const handleDropFilter = () => {
     setIsFilterDrop((prev) => !prev);
+  };
+
+  const [activeModal, setActiveModal] = useState<ModalType>(null);
+  const closeModal = () => setActiveModal(null);
+
+  const renderModal = () => {
+    switch (activeModal) {
+      case 'destination':
+        return <DestinationModal onClose={closeModal} />;
+      case 'departure':
+        return <DepartureModal onClose={closeModal} />;
+      case 'calendar':
+        return <DepartureModal onClose={closeModal} />;
+      default:
+        return null;
+    }
   };
 
   return (
@@ -45,11 +65,7 @@ const SearchBar = () => {
             onClick={() => handleDropFilter()}
             className="border-purple100 flex cursor-pointer items-center gap-[0.5rem] rounded-[0.5rem] border-[0.15rem] px-[1.7rem] py-[0.5rem]">
             <p className="body2-r-17 text-purple100 whitespace-nowrap">고급 필터</p>
-            {isFilterDrop ? (
-              <img src={dropUp} alt="드롭 업 아이콘" className="" />
-            ) : (
-              <img src={dropDown} alt="드롭다운 아이콘" className="" />
-            )}
+            {isFilterDrop ? <img src={dropUp} alt="드롭 업 아이콘" /> : <img src={dropDown} alt="드롭다운 아이콘" />}
           </div>
         </div>
         {isFilterDrop && (
@@ -77,14 +93,20 @@ const SearchBar = () => {
           </div>
         )}
         <div className="flex items-center gap-[1rem] self-stretch">
-          <div className="bg-gray100 flex h-[6.8rem] w-full cursor-pointer items-center gap-[1rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
+          <div
+            onClick={() => setActiveModal('destination')}
+            className="bg-gray100 flex h-[6.8rem] w-full cursor-pointer items-center gap-[1rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
             <p className="text-gray600 body1-m-20">어디로 떠나세요?</p>
           </div>
-          <div className="bg-gray100 flex h-[6.8rem] w-full cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
+          <div
+            onClick={() => setActiveModal('departure')}
+            className="bg-gray100 flex h-[6.8rem] w-full cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
             <img src={location} alt="위치 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
             <p className="text-gray600 body1-m-20">출발지 전체</p>
           </div>
-          <div className="bg-gray100 flex h-[6.8rem] w-full cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
+          <div
+            onClick={() => setActiveModal('calendar')}
+            className="bg-gray100 flex h-[6.8rem] w-full cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
             <img src={calendar} alt="캘린더 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
             <p className="text-gray600 body1-m-20">여행시작일 선택</p>
           </div>
@@ -93,6 +115,7 @@ const SearchBar = () => {
           </div>
         </div>
       </div>
+      {renderModal()}
     </div>
   );
 };
