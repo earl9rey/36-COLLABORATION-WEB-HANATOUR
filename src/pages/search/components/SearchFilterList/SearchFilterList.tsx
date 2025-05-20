@@ -13,6 +13,7 @@ import Accordion from '@/shared/components/Accordion/Accordion';
 import Divider from '@/shared/components/Divider/Divider';
 import { useState } from 'react';
 import {
+  AIRLINE,
   DEPARTURE_DAYS,
   DEPARTURE_TIME,
   HOTEL_GRADE,
@@ -27,6 +28,7 @@ const SearchFilterList = () => {
   const [selectedPackageType, setSelectedPackageType] = useState<string[]>([]);
   const [selectedTourCondition, setSelectedTourCondition] = useState<string[]>([]);
   const [selectedHotelGrade, setSelectedHotelGrade] = useState<string[]>([]);
+  const [selectedAirline, setSelectedAirline] = useState<string[]>([]);
   const [selectedDepartureTime, setSelectedDepartureTime] = useState<string[]>([]);
   const [selectedDepartureDays, setSelectedDepartureDays] = useState<string[]>([]);
   const [selectedWhoWithTravel, setSelectedWhoWithTravel] = useState<string[]>([]);
@@ -60,6 +62,14 @@ const SearchFilterList = () => {
       setSelectedHotelGrade(selectedHotelGrade.filter((item) => item !== grade));
     } else {
       setSelectedHotelGrade([...selectedHotelGrade, grade]);
+    }
+  };
+
+  const handleSelectAirline = (airline: string) => {
+    if (selectedAirline.includes(airline)) {
+      setSelectedAirline(selectedAirline.filter((item) => item !== airline));
+    } else {
+      setSelectedAirline([...selectedAirline, airline]);
     }
   };
 
@@ -261,6 +271,82 @@ const SearchFilterList = () => {
                       />
                       <span className="sub5-r-15 text-gray700">{grade.name}</span>
                     </label>
+                  );
+                })}
+              </div>
+            </Accordion.Content>
+          </div>
+        )}
+      </Accordion>
+
+      <Divider />
+
+      {/* 항공사 */}
+      <Accordion>
+        {({ isVisible }) => (
+          <div className="my-[2.4rem]">
+            <Accordion.Header>
+              <div className="flex items-center justify-between">
+                <p className="sub3-sb-15">항공사</p>
+                <img src={isVisible ? upIcon : downIcon} alt="toggle icon" className="w-[1.4rem]" />
+              </div>
+            </Accordion.Header>
+
+            <Accordion.Content>
+              <div className="mt-[2rem] flex flex-col gap-y-[1.6rem]">
+                {AIRLINE.map((category) => {
+                  const isRootChecked = selectedAirline.includes(category.name);
+                  return (
+                    <Accordion key={category.id}>
+                      {({ isVisible }) => (
+                        <div>
+                          <Accordion.Header>
+                            <div className="flex items-center justify-between">
+                              <label className="flex cursor-pointer items-center">
+                                <input
+                                  type="checkbox"
+                                  className="sr-only"
+                                  checked={isRootChecked}
+                                  onChange={() => handleSelectAirline(category.name)}
+                                />
+                                <img
+                                  src={isRootChecked ? checkboxIcon : nonCheckboxIcon}
+                                  alt={isRootChecked ? 'checked' : 'unchecked'}
+                                  className="mr-[1rem] h-[2rem] w-[2rem]"
+                                />
+                                <span className="sub5-r-15 text-gray700">{category.name}</span>
+                              </label>
+                              <img src={isVisible ? upIcon : downIcon} alt="toggle icon" className="w-[1.4rem]" />
+                            </div>
+                          </Accordion.Header>
+
+                          <Accordion.Content>
+                            {/* placeholder 내용: 1, 2, 3 (추후 수정) */}
+                            <div className="bg-gray100 mt-[1rem] flex w-full flex-col gap-[1.4rem] px-[4rem] py-[1.4rem]">
+                              {category.value.map((airline) => {
+                                const isChecked = selectedAirline.includes(airline.name);
+                                return (
+                                  <label key={airline.id} className="flex cursor-pointer items-center">
+                                    <input
+                                      type="checkbox"
+                                      className="sr-only"
+                                      checked={isChecked}
+                                      onChange={() => handleSelectAirline(airline.name)}
+                                    />
+                                    <img
+                                      src={isChecked ? checkboxIcon : nonCheckboxIcon}
+                                      alt={isChecked ? 'checked' : 'unchecked'}
+                                      className="mr-[1rem] h-[2rem] w-[2rem]"
+                                    />
+                                    <span className="sub5-r-15 text-gray700">{airline.name}</span>
+                                  </label>
+                                );
+                              })}
+                            </div>
+                          </Accordion.Content>
+                        </div>
+                      )}
+                    </Accordion>
                   );
                 })}
               </div>

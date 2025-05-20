@@ -35,6 +35,35 @@ export const HOTEL_GRADE = [
   { id: '4', name: '기타' },
 ];
 
+export const AIRLINE = [
+  {
+    id: '1',
+    name: '일반항공',
+    value: [
+      { id: '1', name: '대한항공' },
+      { id: '2', name: '아시아나항공' },
+    ],
+  },
+  {
+    id: '2',
+    name: '저가항공',
+    value: [
+      { id: '1', name: '진에어' },
+      { id: '2', name: '제주항공' },
+      { id: '3', name: '티웨이항공' },
+      { id: '3', name: '에이아시아' },
+    ],
+  },
+  {
+    id: '3',
+    name: '기타 해외항공',
+    value: [
+      { id: '1', name: '하와이안항공' },
+      { id: '2', name: '델타항공' },
+    ],
+  },
+];
+
 export const DEPARTURE_TIME = [
   { id: '1', name: '아침(05~12시)' },
   { id: '2', name: '점심(12시~18시)' },
