@@ -39,11 +39,9 @@ const DestinationModal = ({ onClose, onSelectArrival }: DestinationModalProps) =
   };
 
   const handleCityClick = (cityName: string) => {
-    setRecentSearches((prev) => {
-      const updated = [cityName, ...prev.filter((v) => v !== cityName)].slice(0, 4);
-      localStorage.setItem('recentSearches', JSON.stringify(updated));
-      return updated;
-    });
+    const updated = [cityName, ...recentSearches.filter((v) => v !== cityName)].slice(0, 4);
+    setRecentSearches(updated);
+    localStorage.setItem('recentSearches', JSON.stringify(updated));
     onSelectArrival(cityName);
   };
 
@@ -153,7 +151,9 @@ const DestinationModal = ({ onClose, onSelectArrival }: DestinationModalProps) =
 
         {/* 닫기 버튼 */}
         <div className="bg-gray100 flex w-full justify-end py-[0.8rem] pr-[1.8rem]">
-          <button className="text-gray500 body7-r-13 cursor-pointer">닫기</button>
+          <button onClick={onClose} className="text-gray500 body7-r-13 cursor-pointer">
+            닫기
+          </button>
         </div>
       </div>
     </ModalBase>
