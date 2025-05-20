@@ -1,15 +1,15 @@
 import { useState } from 'react';
 
-type FilterProps = {
+interface FilterPropTypes {
   text: string;
-};
+}
 
-const Filter = ({ text }: FilterProps) => {
+const Filter = ({ text }: FilterPropTypes) => {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
     <button
-      onClick={() => setIsClicked(!isClicked)}
+      onClick={() => setIsClicked((prev) => !prev)}
       className={`cursor-pointer rounded-full px-6 py-3 whitespace-nowrap transition-colors duration-300 ${
         isClicked ? 'bg-black text-white' : 'bg-white text-black'
       }`}>
