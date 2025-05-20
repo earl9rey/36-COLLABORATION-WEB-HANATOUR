@@ -10,6 +10,16 @@ export const TRAVEL_PERIOD = [
   { id: '9', name: '10일 이상' },
 ];
 
+export const PACKAGE_TYPE = [
+  { id: '1', name: '패키지' },
+  { id: '2', name: '허니문' },
+  { id: '3', name: '골프' },
+  { id: '4', name: '크루즈' },
+  { id: '5', name: '에어텔' },
+  { id: '6', name: '스탠다드' },
+  { id: '7', name: '프리미엄' },
+];
+
 export const TOUR_CONDITION = [
   { id: '1', name: '자유일정포함' },
   { id: '2', name: '선택관광없음' },

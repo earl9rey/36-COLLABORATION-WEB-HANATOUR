@@ -1,12 +1,16 @@
+import checkboxIcon from '@/shared/assets/icons/checkbox.svg';
 import downIcon from '@/shared/assets/icons/downIcon_gray.svg';
+import nonCheckboxIcon from '@/shared/assets/icons/non_checkbox.svg';
 import upIcon from '@/shared/assets/icons/upIcon_black.svg';
 import Accordion from '@/shared/components/Accordion/Accordion';
+
 import Divider from '@/shared/components/Divider/Divider';
 import { useState } from 'react';
-import { DEPARTURE_DAYS, DEPARTURE_TIME, TOUR_CONDITION, TRAVEL_PERIOD } from '../constants/filter';
+import { DEPARTURE_DAYS, DEPARTURE_TIME, PACKAGE_TYPE, TOUR_CONDITION, TRAVEL_PERIOD } from '../constants/filter';
 
 const SearchFilterList = () => {
   const [selectedPeriod, setSelectedPeriod] = useState<string[]>([]);
+  const [selectedPackageType, setSelectedPackageType] = useState<string[]>([]);
   const [selectedTourCondition, setSelectedTourCondition] = useState<string[]>([]);
   const [selectedDepartureTime, setSelectedDepartureTime] = useState<string[]>([]);
   const [selectedDepartureDays, setSelectedDepartureDays] = useState<string[]>([]);
@@ -16,6 +20,14 @@ const SearchFilterList = () => {
       setSelectedPeriod(selectedPeriod.filter((item) => item !== period));
     } else {
       setSelectedPeriod([...selectedPeriod, period]);
+    }
+  };
+
+  const handleSelectPackageType = (type: string) => {
+    if (selectedPackageType.includes(type)) {
+      setSelectedPackageType(selectedPackageType.filter((item) => item !== type));
+    } else {
+      setSelectedPackageType([...selectedPackageType, type]);
     }
   };
 
@@ -87,12 +99,33 @@ const SearchFilterList = () => {
             <Accordion.Header>
               <div className="flex items-center justify-between">
                 <p className="sub3-sb-15">상품구분</p>
-                <img src={isVisible ? upIcon : downIcon} alt="up 아이콘" className="w-[1.4rem]" />
+                <img src={isVisible ? upIcon : downIcon} alt="toggle icon" className="w-[1.4rem]" />
               </div>
             </Accordion.Header>
 
             <Accordion.Content>
-              <div>2일</div>
+              <div className="mt-[2rem] flex flex-col gap-y-[1.6rem]">
+                {PACKAGE_TYPE.map((type) => {
+                  const isChecked = selectedPackageType.includes(type.name);
+
+                  return (
+                    <label key={type.id} className="flex cursor-pointer items-center">
+                      <input
+                        type="checkbox"
+                        className="sr-only"
+                        checked={isChecked}
+                        onChange={() => handleSelectPackageType(type.name)}
+                      />
+                      <img
+                        src={isChecked ? checkboxIcon : nonCheckboxIcon}
+                        alt={isChecked ? 'checked' : 'unchecked'}
+                        className="mr-[1rem] h-[2rem] w-[2rem]"
+                      />
+                      <span className="sub5-r-15 text-gray700">{type.name}</span>
+                    </label>
+                  );
+                })}
+              </div>
             </Accordion.Content>
           </div>
         )}
