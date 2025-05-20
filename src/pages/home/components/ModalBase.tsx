@@ -1,35 +1,18 @@
 import React from 'react';
-import { Portal } from 'react-portal';
 
 interface ModalBaseProps {
   onClose: () => void;
   children: React.ReactNode;
+  wrapperClassName?: string;
 }
 
-const ModalBase = ({ onClose, children }: ModalBaseProps) => {
-  const node = document.getElementById('portal-root');
-  if (!node) return null;
-
+const ModalBase = ({ onClose, children, wrapperClassName = '' }: ModalBaseProps) => {
   return (
-    <Portal node={node}>
-      <div
-        onClick={onClose}
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          zIndex: 1000,
-        }}>
-        <div onClick={(e) => e.stopPropagation()} style={{ background: '#fff' }}>
-          {children}
-        </div>
+    <div onClick={onClose} className={`absolute w-full bg-transparent ${wrapperClassName}`}>
+      <div onClick={(e) => e.stopPropagation()} className="bg-transparent">
+        {children}
       </div>
-    </Portal>
+    </div>
   );
 };
 

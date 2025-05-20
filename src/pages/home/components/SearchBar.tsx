@@ -9,6 +9,7 @@ import calendar from '@/shared/assets/icons/calendar.svg';
 import DestinationModal from './DestinationModal';
 import DepartureModal from './DepartureModal';
 import CalendarModal from './CalendarModal';
+import ModalBase from './ModalBase';
 
 type ModalType = 'destination' | 'departure' | 'calendar' | null;
 
@@ -67,43 +68,55 @@ const SearchBar = () => {
 
   const renderModal = () => {
     switch (activeModal) {
-      case 'destination':
+      case 'destination': {
+        const modalPositionClass = 'left-[3.2rem] top-[28rem]';
         return (
-          <DestinationModal
-            onClose={closeModal}
-            onSelectArrival={(city) => {
-              setSelectedArrival(city);
-              closeModal();
-            }}
-          />
+          <ModalBase onClose={closeModal} wrapperClassName={modalPositionClass}>
+            <DestinationModal
+              onClose={closeModal}
+              onSelectArrival={(city) => {
+                setSelectedArrival(city);
+                closeModal();
+              }}
+            />
+          </ModalBase>
         );
-      case 'departure':
+      }
+      case 'departure': {
+        const modalPositionClass = 'left-[38.9rem] top-[18.1rem]';
         return (
-          <DepartureModal
-            onClose={closeModal}
-            onSelectDeparture={(location) => {
-              setSelectedDeparture(location);
-              closeModal();
-            }}
-          />
+          <ModalBase onClose={closeModal} wrapperClassName={modalPositionClass}>
+            <DepartureModal
+              onClose={closeModal}
+              onSelectDeparture={(location) => {
+                setSelectedDeparture(location);
+                closeModal();
+              }}
+            />
+          </ModalBase>
         );
-      case 'calendar':
+      }
+      case 'calendar': {
+        const modalPositionClass = 'left-[39rem] top-[28rem]';
         return (
-          <CalendarModal
-            onClose={closeModal}
-            onSelectDate={(date) => {
-              setSelectedDate(date);
-              closeModal();
-            }}
-          />
+          <ModalBase onClose={closeModal} wrapperClassName={modalPositionClass}>
+            <CalendarModal
+              onClose={closeModal}
+              onSelectDate={(date) => {
+                setSelectedDate(date);
+                closeModal();
+              }}
+            />
+          </ModalBase>
         );
+      }
       default:
         return null;
     }
   };
 
   return (
-    <div className="inline-flex w-[121.6rem] flex-col items-start rounded-[0.5px] bg-white p-[0.5rem] shadow-[0_0.25rem_1.25rem_rgba(0,0,0,0.25)]">
+    <div className="relative inline-flex h-[30.8rem] w-[121.6rem] flex-col items-start rounded-[0.5px] bg-white p-[0.5rem] shadow-[0_0.25rem_1.25rem_rgba(0,0,0,0.25)]">
       <div className="flex w-full items-center justify-center px-[1.5rem] pt-[3.2rem]">
         <div className="bg-purple100 head4-sb-26 flex w-full items-center justify-center px-[15.5rem] py-[1rem] text-center whitespace-nowrap text-white">
           패키지
@@ -129,7 +142,9 @@ const SearchBar = () => {
           <div className="items-[center] flex gap-[1.6rem] pr-[81.4rem]">
             <div
               onClick={() => handleClickFilter('flight')}
-              className={`flex cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] border-[0.15rem] bg-white px-[1.6rem] py-[1.2rem] ${checkedFilters.flight ? 'border-purple100 text-purple100' : 'border-gray300 text-gray500'}`}>
+              className={`flex cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] border-[0.15rem] bg-white px-[1.6rem] py-[1.2rem] ${
+                checkedFilters.flight ? 'border-purple100 text-purple100' : 'border-gray300 text-gray500'
+              }`}>
               {checkedFilters.flight ? (
                 <img src={checkedCircle} alt="채워진 체크박스 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
               ) : (
@@ -139,7 +154,9 @@ const SearchBar = () => {
             </div>
             <div
               onClick={() => handleClickFilter('group')}
-              className={`flex cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] border-[0.15rem] bg-white px-[1.6rem] py-[1.2rem] ${checkedFilters.group ? 'border-purple100 text-purple100' : 'border-gray300 text-gray500'}`}>
+              className={`flex cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] border-[0.15rem] bg-white px-[1.6rem] py-[1.2rem] ${
+                checkedFilters.group ? 'border-purple100 text-purple100' : 'border-gray300 text-gray500'
+              }`}>
               {checkedFilters.group ? (
                 <img src={checkedCircle} alt="채워진 체크박스 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
               ) : (
