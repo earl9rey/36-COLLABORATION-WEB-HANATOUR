@@ -160,7 +160,6 @@ const CalendarModal = () => {
             }
             formatDay={() => ''}
             activeStartDate={activeStartDate}
-            onActiveStartDateChange={() => {}}
             onClickDay={handleDateClick}
           />
         </div>
@@ -171,7 +170,6 @@ const CalendarModal = () => {
             tileContent={tileContent}
             formatDay={() => ''}
             activeStartDate={secondStartDate}
-            onActiveStartDateChange={() => {}}
             onClickDay={handleDateClick}
           />
         </div>
