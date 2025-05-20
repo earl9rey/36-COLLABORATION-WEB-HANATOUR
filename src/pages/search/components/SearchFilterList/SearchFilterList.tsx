@@ -10,8 +10,6 @@ import upIcon from '@/shared/assets/icons/upIcon_black.svg';
 import slide from '@/shared/assets/images/slider.svg';
 import Accordion from '@/shared/components/Accordion/Accordion';
 
-import Divider from '@/shared/components/Divider/Divider';
-import { useState } from 'react';
 import {
   AIRLINE,
   DEPARTURE_DAYS,
@@ -21,81 +19,29 @@ import {
   TOUR_CONDITION,
   TRAVEL_PERIOD,
   WHO_WITH_TRAVEL,
-} from '../../constants/filter';
+} from '@/pages/search/constants/filter';
+import Divider from '@/shared/components/Divider/Divider';
+import { useSearchFilters } from '../../hooks/useSearchFilters';
 
 const SearchFilterList = () => {
-  const [selectedPeriod, setSelectedPeriod] = useState<string[]>([]);
-  const [selectedPackageType, setSelectedPackageType] = useState<string[]>([]);
-  const [selectedTourCondition, setSelectedTourCondition] = useState<string[]>([]);
-  const [selectedHotelGrade, setSelectedHotelGrade] = useState<string[]>([]);
-  const [selectedAirline, setSelectedAirline] = useState<string[]>([]);
-  const [selectedDepartureTime, setSelectedDepartureTime] = useState<string[]>([]);
-  const [selectedDepartureDays, setSelectedDepartureDays] = useState<string[]>([]);
-  const [selectedWhoWithTravel, setSelectedWhoWithTravel] = useState<string[]>([]);
-
-  const handleSelectPeriod = (period: string) => {
-    if (selectedPeriod.includes(period)) {
-      setSelectedPeriod(selectedPeriod.filter((item) => item !== period));
-    } else {
-      setSelectedPeriod([...selectedPeriod, period]);
-    }
-  };
-
-  const handleSelectPackageType = (type: string) => {
-    if (selectedPackageType.includes(type)) {
-      setSelectedPackageType(selectedPackageType.filter((item) => item !== type));
-    } else {
-      setSelectedPackageType([...selectedPackageType, type]);
-    }
-  };
-
-  const handleSelectTourCondition = (condition: string) => {
-    if (selectedTourCondition.includes(condition)) {
-      setSelectedTourCondition(selectedTourCondition.filter((item) => item !== condition));
-    } else {
-      setSelectedTourCondition([...selectedTourCondition, condition]);
-    }
-  };
-
-  const handleSelectHotelGrade = (grade: string) => {
-    if (selectedHotelGrade.includes(grade)) {
-      setSelectedHotelGrade(selectedHotelGrade.filter((item) => item !== grade));
-    } else {
-      setSelectedHotelGrade([...selectedHotelGrade, grade]);
-    }
-  };
-
-  const handleSelectAirline = (airline: string) => {
-    if (selectedAirline.includes(airline)) {
-      setSelectedAirline(selectedAirline.filter((item) => item !== airline));
-    } else {
-      setSelectedAirline([...selectedAirline, airline]);
-    }
-  };
-
-  const handleSelectDepartureTime = (time: string) => {
-    if (selectedDepartureTime.includes(time)) {
-      setSelectedDepartureTime(selectedDepartureTime.filter((item) => item !== time));
-    } else {
-      setSelectedDepartureTime([...selectedDepartureTime, time]);
-    }
-  };
-
-  const handleSelectDepartureDays = (day: string) => {
-    if (selectedDepartureDays.includes(day)) {
-      setSelectedDepartureDays(selectedDepartureDays.filter((item) => item !== day));
-    } else {
-      setSelectedDepartureDays([...selectedDepartureDays, day]);
-    }
-  };
-
-  const handleSelectWhoWithTravel = (withType: string) => {
-    if (selectedWhoWithTravel.includes(withType)) {
-      setSelectedWhoWithTravel(selectedWhoWithTravel.filter((item) => item !== withType));
-    } else {
-      setSelectedWhoWithTravel([...selectedWhoWithTravel, withType]);
-    }
-  };
+  const {
+    selectedPeriod,
+    selectedPackageType,
+    selectedTourCondition,
+    selectedHotelGrade,
+    selectedAirline,
+    selectedDepartureTime,
+    selectedDepartureDays,
+    selectedWhoWithTravel,
+    handleSelectPeriod,
+    handleSelectPackageType,
+    handleSelectTourCondition,
+    handleSelectHotelGrade,
+    handleSelectAirline,
+    handleSelectDepartureTime,
+    handleSelectDepartureDays,
+    handleSelectWhoWithTravel,
+  } = useSearchFilters();
 
   return (
     <div className="w-[23.6rem]">
