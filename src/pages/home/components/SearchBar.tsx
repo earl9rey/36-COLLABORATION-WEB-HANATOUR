@@ -69,7 +69,7 @@ const SearchBar = () => {
   const renderModal = () => {
     switch (activeModal) {
       case 'destination': {
-        const modalPositionClass = 'left-[3.2rem] top-[28rem]';
+        const modalPositionClass = isFilterDrop ? 'left-[3.2rem] top-[34rem]' : 'left-[3.2rem] top-[27rem]';
         return (
           <ModalBase onClose={closeModal} wrapperClassName={modalPositionClass}>
             <DestinationModal
@@ -83,7 +83,7 @@ const SearchBar = () => {
         );
       }
       case 'departure': {
-        const modalPositionClass = 'left-[38.9rem] top-[18.1rem]';
+        const modalPositionClass = isFilterDrop ? 'left-[38.9rem] top-[25rem]' : 'left-[38.9rem] top-[18.2rem]';
         return (
           <ModalBase onClose={closeModal} wrapperClassName={modalPositionClass}>
             <DepartureModal
@@ -97,7 +97,7 @@ const SearchBar = () => {
         );
       }
       case 'calendar': {
-        const modalPositionClass = 'left-[39rem] top-[28rem]';
+        const modalPositionClass = isFilterDrop ? 'left-[39rem] top-[34rem]' : 'left-[39rem] top-[27rem]';
         return (
           <ModalBase onClose={closeModal} wrapperClassName={modalPositionClass}>
             <CalendarModal
@@ -116,7 +116,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="relative inline-flex h-[30.8rem] w-[121.6rem] flex-col items-start rounded-[0.5px] bg-white p-[0.5rem] shadow-[0_0.25rem_1.25rem_rgba(0,0,0,0.25)]">
+    <div className="relative inline-flex w-[121.6rem] flex-col items-start rounded-[0.5px] bg-white p-[0.5rem] shadow-[0_0.25rem_1.25rem_rgba(0,0,0,0.25)]">
       <div className="flex w-full items-center justify-center px-[1.5rem] pt-[3.2rem]">
         <div className="bg-purple100 head4-sb-26 flex w-full items-center justify-center px-[15.5rem] py-[1rem] text-center whitespace-nowrap text-white">
           패키지
