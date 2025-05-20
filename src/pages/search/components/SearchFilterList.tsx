@@ -3,7 +3,7 @@ import upIcon from '@/shared/assets/icons/upIcon_black.svg';
 import Accordion from '@/shared/components/Accordion/Accordion';
 import Divider from '@/shared/components/Divider/Divider';
 import { useState } from 'react';
-import { TRAVEL_PERIOD } from '../constants/filter';
+import { TOUR_CONDITION, TRAVEL_PERIOD } from '../constants/filter';
 
 const SearchFilterList = () => {
   const [selectedPeriod, setSelectedPeriod] = useState<string[]>([]);
@@ -85,7 +85,53 @@ const SearchFilterList = () => {
             </Accordion.Header>
 
             <Accordion.Content>
-              <div>2일</div>
+              <div className="mt-[2rem] flex flex-wrap gap-x-[0.2rem] gap-y-[0.6rem]">
+                {TOUR_CONDITION.map((condition) => {
+                  const isSelected = selectedPeriod.includes(condition.name);
+
+                  return (
+                    <div
+                      key={condition.id}
+                      onClick={() => handleSelectPeriod(condition.name)}
+                      className={`body6-m-13 ${isSelected ? 'text-purple100' : 'text-gray800'} ${isSelected ? 'border-purple100' : 'border-gray300'} flex h-[3.4rem] w-[11.7rem] cursor-pointer items-center justify-center rounded-[2px] border`}>
+                      {condition.name}
+                    </div>
+                  );
+                })}
+              </div>
+            </Accordion.Content>
+          </div>
+        )}
+      </Accordion>
+
+      <Divider />
+
+      {/* 출발 항공 시간대 */}
+      <Accordion>
+        {({ isVisible }) => (
+          <div className="my-[2.4rem]">
+            <Accordion.Header>
+              <div className="flex items-center justify-between">
+                <p className="sub3-sb-15">출발 항공 시간대</p>
+                <img src={isVisible ? upIcon : downIcon} alt="up 아이콘" className="w-[1.4rem]" />
+              </div>
+            </Accordion.Header>
+
+            <Accordion.Content>
+              <div className="mt-[2rem] flex flex-wrap gap-x-[0.2rem] gap-y-[0.6rem]">
+                {TOUR_CONDITION.map((condition) => {
+                  const isSelected = selectedPeriod.includes(condition.name);
+
+                  return (
+                    <div
+                      key={condition.id}
+                      onClick={() => handleSelectPeriod(condition.name)}
+                      className={`body6-m-13 ${isSelected ? 'text-purple100' : 'text-gray800'} ${isSelected ? 'border-purple100' : 'border-gray300'} flex h-[3.4rem] w-[11.7rem] cursor-pointer items-center justify-center rounded-[2px] border`}>
+                      {condition.name}
+                    </div>
+                  );
+                })}
+              </div>
             </Accordion.Content>
           </div>
         )}
