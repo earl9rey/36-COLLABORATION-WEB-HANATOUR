@@ -1,6 +1,7 @@
 import checkboxIcon from '@/shared/assets/icons/checkbox.svg';
 import downIcon from '@/shared/assets/icons/downIcon_gray.svg';
 import nonCheckboxIcon from '@/shared/assets/icons/non_checkbox.svg';
+import searchIcon from '@/shared/assets/icons/SearchIcon.svg';
 import upIcon from '@/shared/assets/icons/upIcon_black.svg';
 import Accordion from '@/shared/components/Accordion/Accordion';
 
@@ -337,6 +338,23 @@ const SearchFilterList = () => {
           </div>
         )}
       </Accordion>
+
+      <Divider />
+
+      {/* 결과 내 검색 */}
+      <div className="mt-[2.4rem] mb-[1.4rem] flex w-full flex-col gap-[1.8rem]">
+        <p className="sub3-sb-15">결과 내 검색</p>
+        <div className="border-gray300 flex h-[4.2rem] w-full items-center justify-between rounded-[2px] border pr-[1.3rem] pl-[1rem]">
+          <input
+            className="body5-r-14 text-gray500 placeholder-gray500 w-[12.5rem]"
+            type="text"
+            placeholder="상품명을 입력해주세요"
+          />
+          <img src={searchIcon} alt="검색 아이콘" />
+        </div>
+      </div>
+
+      <Divider />
     </div>
   );
 };
