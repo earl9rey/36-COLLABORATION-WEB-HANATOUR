@@ -8,7 +8,7 @@ interface ModalBaseProps {
 
 const ModalBase = ({ onClose, children, wrapperClassName = '' }: ModalBaseProps) => {
   return (
-    <div onClick={onClose} className={`absolute w-full bg-transparent ${wrapperClassName}`}>
+    <div onClick={onClose} className={`absolute z-2 w-full bg-transparent ${wrapperClassName}`}>
       <div onClick={(e) => e.stopPropagation()} className="bg-transparent">
         {children}
       </div>

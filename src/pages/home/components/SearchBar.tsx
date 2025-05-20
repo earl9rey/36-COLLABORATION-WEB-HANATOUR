@@ -197,6 +197,7 @@ const SearchBar = () => {
           </div>
         </div>
       </div>
+      {activeModal && <div className="fixed z-1 h-full w-full" onClick={closeModal} />}
       {renderModal()}
     </div>
   );
