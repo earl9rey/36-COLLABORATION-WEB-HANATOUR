@@ -3,7 +3,13 @@ import location from '@/shared/assets/icons/location.svg';
 import calendar from '@/shared/assets/icons/calender.svg';
 import Divider from '@/shared/components/Divider/Divider';
 
-const SearchHeader = ({ arrival, departure, date }: { arrival: string; departure: string; date: string }) => {
+interface SearchHeaderPropsTypes {
+  arrival: string;
+  departure: string;
+  date: string;
+}
+
+const SearchHeader = ({ arrival, departure, date }: SearchHeaderPropsTypes) => {
   return (
     <div className="my-[2.7rem] flex flex-col items-center justify-center">
       <div className="my-[1.8rem] flex w-full justify-between pr-[12.2rem] pl-[12.4rem]">
