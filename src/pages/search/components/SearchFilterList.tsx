@@ -13,6 +13,7 @@ import {
   PACKAGE_TYPE,
   TOUR_CONDITION,
   TRAVEL_PERIOD,
+  WHO_WITH_TRAVEL,
 } from '../constants/filter';
 
 const SearchFilterList = () => {
@@ -22,6 +23,7 @@ const SearchFilterList = () => {
   const [selectedHotelGrade, setSelectedHotelGrade] = useState<string[]>([]);
   const [selectedDepartureTime, setSelectedDepartureTime] = useState<string[]>([]);
   const [selectedDepartureDays, setSelectedDepartureDays] = useState<string[]>([]);
+  const [selectedWhoWithTravel, setSelectedWhoWithTravel] = useState<string[]>([]);
 
   const handleSelectPeriod = (period: string) => {
     if (selectedPeriod.includes(period)) {
@@ -68,6 +70,14 @@ const SearchFilterList = () => {
       setSelectedDepartureDays(selectedDepartureDays.filter((item) => item !== day));
     } else {
       setSelectedDepartureDays([...selectedDepartureDays, day]);
+    }
+  };
+
+  const handleSelectWhoWithTravel = (withType: string) => {
+    if (selectedWhoWithTravel.includes(withType)) {
+      setSelectedWhoWithTravel(selectedWhoWithTravel.filter((item) => item !== withType));
+    } else {
+      setSelectedWhoWithTravel([...selectedWhoWithTravel, withType]);
     }
   };
 
@@ -279,6 +289,47 @@ const SearchFilterList = () => {
                       className={`body6-m-13 ${isSelected ? 'text-purple100' : 'text-gray800'} ${isSelected ? 'border-purple100' : 'border-gray300'} flex h-[3.1rem] w-[3.2rem] cursor-pointer items-center justify-center rounded-[2px] border`}>
                       {day.name}
                     </div>
+                  );
+                })}
+              </div>
+            </Accordion.Content>
+          </div>
+        )}
+      </Accordion>
+
+      <Divider />
+
+      {/* 누구와 떠나세요? */}
+      <Accordion>
+        {({ isVisible }) => (
+          <div className="my-[2.4rem]">
+            <Accordion.Header>
+              <div className="flex items-center justify-between">
+                <p className="sub3-sb-15">누구와 떠나세요?</p>
+                <img src={isVisible ? upIcon : downIcon} alt="toggle icon" className="w-[1.4rem]" />
+              </div>
+            </Accordion.Header>
+
+            <Accordion.Content>
+              <div className="mt-[2rem] flex flex-col gap-y-[1.6rem]">
+                {WHO_WITH_TRAVEL.map((withType) => {
+                  const isChecked = selectedWhoWithTravel.includes(withType.name);
+
+                  return (
+                    <label key={withType.id} className="flex cursor-pointer items-center">
+                      <input
+                        type="checkbox"
+                        className="sr-only"
+                        checked={isChecked}
+                        onChange={() => handleSelectWhoWithTravel(withType.name)}
+                      />
+                      <img
+                        src={isChecked ? checkboxIcon : nonCheckboxIcon}
+                        alt={isChecked ? 'checked' : 'unchecked'}
+                        className="mr-[1rem] h-[2rem] w-[2rem]"
+                      />
+                      <span className="sub5-r-15 text-gray700">{withType.name}</span>
+                    </label>
                   );
                 })}
               </div>

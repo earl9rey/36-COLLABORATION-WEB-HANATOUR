@@ -51,3 +51,11 @@ export const DEPARTURE_DAYS = [
   { id: '6', name: '토' },
   { id: '7', name: '일' },
 ];
+
+export const WHO_WITH_TRAVEL = [
+  { id: '1', name: '부부/연인' },
+  { id: '2', name: '친구모임' },
+  { id: '3', name: '가족 여행' },
+  { id: '4', name: '나홀로 여행' },
+  { id: '5', name: '아동 위주 여행' },
+];
