@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { FilterOption } from '@/pages/home/types';
 import dropDown from '@/shared/assets/icons/dropDown.svg';
-import dropUp from '@/shared/assets/icons/dropUp.svg';
+import dropUp from '@/shared/assets/icons/dropUp_purple.svg';
 import checkedCircle from '@/shared/assets/icons/checkedCircle.svg';
 import uncheckedCircle from '@/shared/assets/icons/uncheckedCircle.svg';
 import location from '@/shared/assets/icons/location.svg';
