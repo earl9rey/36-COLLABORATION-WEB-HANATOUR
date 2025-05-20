@@ -1,10 +1,10 @@
-type CircleCardS = {
+interface CircleCardSPropTypes {
   image: string;
   title: string;
   subText: string;
-};
+}
 
-const CircleCardS = ({ image, title, subText }: CircleCardS) => {
+const CircleCardS = ({ image, title, subText }: CircleCardSPropTypes) => {
   return (
     <div className="flex h-[24.2rem] w-[18.1rem] flex-col items-center">
       {/* 이미지와 추천 뱃지를 감싸는 박스 */}
