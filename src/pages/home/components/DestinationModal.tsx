@@ -1,9 +1,14 @@
 import { useEffect, useState } from 'react';
 import closeIcon from '@/shared/assets/icons/closeIcon.svg';
 import chevronRightIcon from '@/shared/assets/icons/chevronRightIcon.svg';
-import { regions } from '../../../shared/constants/destinationData'; // 경로 맞게 조정
+import { regions } from '../../../shared/constants/destinationData';
 
-const DestinationModal = () => {
+interface DestinationModalPropTypes {
+  onClose: () => void;
+  onSelectArrival: (city: string) => void;
+}
+
+const DestinationModal = ({ onClose, onSelectArrival }: DestinationModalPropTypes) => {
   const [selectedRegionIndex, setSelectedRegionIndex] = useState(0);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [recentSearches, setRecentSearches] = useState<string[]>([]);
@@ -33,15 +38,14 @@ const DestinationModal = () => {
   };
 
   const handleCityClick = (cityName: string) => {
-    setRecentSearches((prev) => {
-      const updated = [cityName, ...prev.filter((v) => v !== cityName)].slice(0, 4);
-      localStorage.setItem('recentSearches', JSON.stringify(updated));
-      return updated;
-    });
+    const updated = [cityName, ...recentSearches.filter((v) => v !== cityName)].slice(0, 4);
+    setRecentSearches(updated);
+    localStorage.setItem('recentSearches', JSON.stringify(updated));
+    onSelectArrival(cityName);
   };
 
   return (
-    <div className="border-gray800 flex w-[68.3rem] flex-col items-start border shadow-[0_0.25rem_1.25rem_rgba(0,0,0,0.25)]">
+    <div className="border-gray800 flex w-[68.3rem] flex-col items-start border bg-white shadow-[0_0.25rem_1.25rem_rgba(0,0,0,0.25)]">
       {/* 최근 검색 */}
       <div className="flex w-full flex-col items-start gap-[1.7rem] self-stretch px-[2.6rem] py-[3.1rem]">
         <div className="w-full">
@@ -145,7 +149,9 @@ const DestinationModal = () => {
 
       {/* 닫기 버튼 */}
       <div className="bg-gray100 flex w-full justify-end py-[0.8rem] pr-[1.8rem]">
-        <button className="text-gray500 body7-r-13 cursor-pointer">닫기</button>
+        <button onClick={onClose} className="text-gray500 body7-r-13 cursor-pointer">
+          닫기
+        </button>
       </div>
     </div>
   );
