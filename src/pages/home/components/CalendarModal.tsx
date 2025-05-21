@@ -133,19 +133,14 @@ const CalendarModal = ({ onClose, onSelectDate }: CalendarModalPropTypes) => {
   };
 
   const handleConfirm = () => {
-    if (startDate && endDate) {
-      onSelectDate({
-        arriveDate: startDate,
-        departDate: endDate,
-      });
-      onClose();
-    } else if (startDate) {
-      onSelectDate({
-        arriveDate: startDate,
-        departDate: null,
-      });
-      onClose();
-    }
+    if (!startDate) return;
+
+    onSelectDate({
+      arriveDate: startDate,
+      departDate: endDate ?? null,
+    });
+
+    onClose();
   };
 
   const saveDatesToLocalStorage = (start: Date | null, end: Date | null) => {
