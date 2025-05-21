@@ -119,7 +119,7 @@ const SearchBar = () => {
   const { mutate: searchPackages } = usePostMainSearch();
 
   const handleClickSearch = () => {
-    if (!selectedArrival || !selectedDeparture || !selectedDate.arriveDate || !selectedDate.departDate) {
+    if (!selectedArrival || !selectedDeparture || !selectedDate.departDate) {
       alert('출발지, 도착지, 날짜를 모두 선택해주세요.');
       return;
     }
