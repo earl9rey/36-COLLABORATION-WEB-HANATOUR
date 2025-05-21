@@ -18,12 +18,12 @@ const Announcement = () => {
       </div>
       {/* 각종 사이트 링크(?)들 */}
       <div className="flex flex-row justify-end gap-[1.7rem]">
-        <img src={facebook} className="w-[2.6rem]"></img>
-        <img src={instagram} className="w-[2.6rem]"></img>
-        <img src={naverblog} className="w-[2.6rem]"></img>
-        <img src={kakao} className="w-[2.6rem]"></img>
-        <img src={youtube} className="w-[2.6rem]"></img>
-        <img src={kakaostory} className="w-[2.6rem]"></img>
+        <img src={facebook} alt="페이스북 로고 이미지" className="w-[2.6rem]"></img>
+        <img src={instagram} alt="인스타그램 로고 이미지" className="w-[2.6rem]"></img>
+        <img src={naverblog} alt="네이버 블로그 로고 이미지" className="w-[2.6rem]"></img>
+        <img src={kakao} alt="카카오 로고 이미지" className="w-[2.6rem]"></img>
+        <img src={youtube} alt="유튜브 로고 이미지" className="w-[2.6rem]"></img>
+        <img src={kakaostory} alt="카카오스토리 로고 이미지" className="w-[2.6rem]"></img>
       </div>
     </div>
   );
