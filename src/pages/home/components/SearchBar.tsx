@@ -56,6 +56,14 @@ const SearchBar = () => {
     departDate: null,
   });
 
+  const renderDateText = () => {
+    const { arriveDate, departDate } = selectedDate;
+
+    if (!arriveDate) return '여행 시작일 선택';
+    if (!departDate) return formatDateString(arriveDate);
+    return `${formatDateString(arriveDate)} - ${formatDateString(departDate)}`;
+  };
+
   const closeModal = () => setActiveModal(null);
 
   const renderModal = () => {
@@ -190,13 +198,7 @@ const SearchBar = () => {
             onClick={() => setActiveModal('calendar')}
             className="bg-gray100 flex h-[6.8rem] w-full cursor-pointer items-center gap-[0.8rem] rounded-[0.5rem] px-[1.6rem] py-[2.1rem]">
             <img src={calendar} alt="캘린더 아이콘" className="aspect-[1/1] h-[1.5rem] w-[1.5rem]" />
-            <p className="text-gray600 body1-m-20">
-              {!selectedDate.arriveDate
-                ? '여행시작일 선택'
-                : !selectedDate.departDate
-                  ? formatDateString(selectedDate.arriveDate)
-                  : `${formatDateString(selectedDate.arriveDate)} - ${formatDateString(selectedDate.departDate)}`}
-            </p>
+            <p className="text-gray600 body1-m-20">{renderDateText()}</p>
           </div>
           <div
             onClick={() => handleClickSearch()}
