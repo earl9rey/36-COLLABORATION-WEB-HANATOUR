@@ -2,11 +2,10 @@ import bannerRightImage from '@/shared/assets/images/promotion_banner_right_imag
 
 const PromotionBanner = () => {
   return (
-    <div className="h-[71.1rem] w-full bg-[url('./shared/assets/images/promotion_banner_image.svg')] bg-cover bg-no-repeat pt-[5.8rem] pb-[9.3rem]">
+    <div className="mt-[4rem] h-[71.1rem] w-full bg-[url('./shared/assets/images/promotion_banner_image.svg')] bg-cover bg-no-repeat pt-[5.8rem] pb-[9.3rem]">
       <div className="mx-auto flex w-[113.9rem] flex-col gap-[3rem]">
         <h3 className="head3-sb-30 text-white">🐨 호주 외않가? 호주에서만 만날 수 있는 귀요미들</h3>
         <div style={{ boxShadow: '8px 8px 30px rgba(0, 0, 0, 0.15)' }} className="flex h-[49.1rem] w-full">
-          {/* 왼쪽 */}
           <div className="flex w-[42.3rem] flex-col items-center justify-center gap-[3.2rem] bg-white px-[2.8rem] py-[4.8rem]">
             <iframe
               width="100%"

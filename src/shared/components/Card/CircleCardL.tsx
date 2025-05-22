@@ -8,10 +8,8 @@ interface CircleCardLPropTypes {
 const CircleCardL = ({ image, title, subText, hashTag }: CircleCardLPropTypes) => {
   return (
     <div className="relative flex h-[38.1rem] w-[29rem] flex-col items-center">
-      {/* 이미지와 추천 뱃지를 감싸는 박스 */}
       <div className="h-[29rem] w-[29rem]">
         <img className="h-full w-full rounded-full object-cover" src={image} alt={title}></img>
-        {/* 추천뱃지 */}
         <div className="bg-purple100 absolute top-[1.9rem] left-[21.7rem] h-[4.9rem] w-[4.9rem] rounded-full">
           <p className="sub6-r-12 absolute px-[1.4rem] py-[1.6rem] text-white">추천</p>
         </div>

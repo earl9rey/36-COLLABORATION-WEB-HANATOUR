@@ -5,7 +5,7 @@ import RectCardMini from '@/shared/components/Card/RectCardMini';
 
 const SingarporeBanner = () => {
   return (
-    <div className="bg-skyblue100 flex h-[69.6rem] flex-row gap-[4.8rem] px-[11.4rem] py-[9.3rem]">
+    <div className="bg-skyblue100 mt-[6rem] flex h-[69.6rem] flex-row gap-[4.8rem] px-[16rem] py-[9.3rem]">
       <img src={singapore} className="w-[55.9rem]"></img>
       <div className="flex flex-col">
         {/* 텍스트 묶음 */}
