@@ -1,22 +1,25 @@
 interface RectCardFoodPropTypes {
   image: string;
-  packageName: string;
   title: string;
-  hashTag: string;
-  price: string;
+  hashTag1: string;
+  hashTag2: string;
+  hashTag3: string;
+  price: number;
 }
 
-const RectCardFood = ({ image, packageName, title, hashTag, price }: RectCardFoodPropTypes) => {
+const RectCardFood = ({ image, title, hashTag1, hashTag2, hashTag3, price }: RectCardFoodPropTypes) => {
   return (
     <div className="h-[40.7rem] w-[26.8rem]">
       <img className="h-[20rem] w-[26.8rem]" src={image} alt={title}></img>
       <div className="px-[2rem] pt-[1.3rem] pb-[7.5rem]">
         {/* 패키지 */}
-        <p className="text-blue200 body7-r-13">{packageName}</p>
+        {/* <p className="text-blue200 body7-r-13">{packageName}</p> */}
         {/* 타이틀 */}
         <p className="text-gray800 head7-m-17 mt-[0.7rem]">{title}</p>
         {/* 해시태그 */}
-        <p className="text-gray600 body5-r-14 mt-[1.2rem] mb-[1.4rem]">#{hashTag}</p>
+        <p className="text-gray600 body5-r-14 mt-[1.2rem] mb-[1.4rem]">#{hashTag1}</p>
+        <p className="text-gray600 body5-r-14 mt-[1.2rem] mb-[1.4rem]">#{hashTag2}</p>
+        <p className="text-gray600 body5-r-14 mt-[1.2rem] mb-[1.4rem]">#{hashTag3}</p>
         <div className="flex flex-row items-center">
           {/* 가격 숫자*/}
           <p className="text-gray800 head6-sb-22">{price}</p>

@@ -1,7 +1,7 @@
 import arrowLeftIcon from '@/shared/assets/icons/arrowLeft.svg';
 import arrowRightIcon from '@/shared/assets/icons/arrowRight.svg';
-import down from '@/shared/assets/icons/down.svg';
 import arrowUp_black from '@/shared/assets/icons/arrowUp_black.svg';
+import down from '@/shared/assets/icons/down.svg';
 import SearchDetailCalendar from './SearchDetailCalendar';
 import SearchDetailViewMoreInfo from './SearchDetailViewMoreInfo';
 

@@ -1,9 +1,12 @@
+import SearchDetailMock from '@/pages/search/datas/SearchDetailMock.json';
 import down from '@/shared/assets/icons/down.svg';
 import Divider from '@/shared/components/Divider/Divider';
+import { useState } from 'react';
 import SearchDetail from './SearchDetail';
 import SearchDetailViewMore from './SearchDetailViewMore';
 import { useState } from 'react';
 import { useGetSearchFilterQuery } from '@/shared/apis/getSearchFilterQuery';
+
 
 interface ShowMoreMap {
   [key: string]: boolean;
@@ -12,7 +15,20 @@ interface ShowMoreMap {
 const SearchDetailWrapper = ({ period, page, size }: { period: string; page: number; size: number }) => {
   const { data, isLoading, error } = useGetSearchFilterQuery({ period, page, size });
   const packageList = data?.result?.result ?? [];
-  console.log(packageList);
+
+interface DetailInfo {
+  title: string;
+  airline: string;
+  date: string;
+  memo: string;
+  mainTag: string;
+  subTag: string;
+  underTag: string;
+  price: string;
+}
+
+const SearchDetailWrapper = () => {
+
   const [showMoreMap, setShowMoreMap] = useState<ShowMoreMap>({});
 
   const handleShowMore = (id: string) => {
@@ -35,6 +51,7 @@ const SearchDetailWrapper = ({ period, page, size }: { period: string; page: num
       </header>
       <Divider color="gray300" />
 
+
       {isLoading && <div>로딩 중...</div>}
       {error && <div>에러 발생</div>}
       {!isLoading &&
@@ -51,6 +68,15 @@ const SearchDetailWrapper = ({ period, page, size }: { period: string; page: num
               description={item.description}
               location={item.schedules.departure}
               travel_period={period}
+
+      {searchDetailList.map((item) => (
+        <div key={item.id}>
+          <SearchDetail {...item} setIsShowMore={() => handleShowMore(item.id)} />
+          {showMoreMap[item.id] && (
+            <SearchDetailViewMore
+              setIsShowMore={() => handleShowMore(item.id)}
+              detailInfo={SearchDetailMock.find((info) => info.id === item.id) as DetailInfo}
+
             />
             <Divider color="gray300" />
             {showMoreMap[item.packageId] && (
