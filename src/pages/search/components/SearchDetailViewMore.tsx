@@ -1,7 +1,7 @@
 import arrowLeftIcon from '@/shared/assets/icons/arrowLeft.svg';
 import arrowRightIcon from '@/shared/assets/icons/arrowRight.svg';
-import down from '@/shared/assets/icons/down.svg';
 import arrowUp_black from '@/shared/assets/icons/arrowUp_black.svg';
+import down from '@/shared/assets/icons/down.svg';
 import SearchDetailCalendar from './SearchDetailCalendar';
 import SearchDetailViewMoreInfo from './SearchDetailViewMoreInfo';
 
@@ -17,12 +17,11 @@ interface DetailInfo {
 }
 
 interface SearchDetailViewMorePropsTypes {
-  isshowMore: boolean;
   setIsShowMore: React.Dispatch<React.SetStateAction<boolean>>;
   detailInfo: DetailInfo;
 }
 
-const SearchDetailViewMore = ({ isshowMore, setIsShowMore, detailInfo }: SearchDetailViewMorePropsTypes) => {
+const SearchDetailViewMore = ({ setIsShowMore, detailInfo }: SearchDetailViewMorePropsTypes) => {
   return (
     <div className="w-100% bg-coolgray100 relative px-[3.4rem] py-[3rem]">
       <header className="relative flex h-[2.9rem] items-center justify-end">
