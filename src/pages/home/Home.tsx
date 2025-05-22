@@ -1,19 +1,18 @@
-import Title from '@/shared/components/Title/Title'; // 제목 영역들들
+import { useCards } from '@/pages/home/apis/getCardsQuery';
+import CardBenefit from '@/shared/components/Card/CardBenefit'; // 카드 혜택
+import CircleCardS from '@/shared/components/Card/CircleCardS'; // 원형 작은 카드
+import RectCardBottom from '@/shared/components/Card/RectCardBottom'; // 추천여행 카드들
+import RectCardFood from '@/shared/components/Card/RectCardFood'; // 미식탐방 카드들
 import RectCardTop from '@/shared/components/Card/RectCardTop'; // 할인런 카드들
 import Filter from '@/shared/components/Filter/Filter'; // 미식 탐방 필터 버튼
-import RectCardFood from '@/shared/components/Card/RectCardFood'; // 미식탐방 카드들
-import RectCardBottom from '@/shared/components/Card/RectCardBottom'; // 추천여행 카드들
-import CircleCardL from '@/shared/components/Card/CircleCardL'; // 원형 큰 카드
-import CircleCardS from '@/shared/components/Card/CircleCardS'; // 원형 작은 카드
-import CardBenefit from '@/shared/components/Card/CardBenefit'; // 카드 혜택
-import { useCards } from '@/pages/home/apis/getCardsQuery';
-import { useTimedeal } from './apis/getTimedealQuery';
-import { useRecommend } from './apis/getRecommendQuery';
-import { useMycountry } from './apis/getMycountryQuery';
-import { useFood } from './apis/getFoodQuery';
-import { useDiscountRun } from './apis/getDiscountRunQuery';
-import SingarporeBanner from './components/SingaporeBanner'; // 싱가포르 배너
+import Title from '@/shared/components/Title/Title'; // 제목 영역들들
 import { useState } from 'react';
+import { useDiscountRun } from './apis/getDiscountRunQuery';
+import { useFood } from './apis/getFoodQuery';
+import { useMycountry } from './apis/getMycountryQuery';
+import { useRecommend } from './apis/getRecommendQuery';
+import { useTimedeal } from './apis/getTimedealQuery';
+import SingarporeBanner from './components/SingaporeBanner'; // 싱가포르 배너
 
 const Home = () => {
   const [selectedCountry, setSelectedCountry] = useState<string>('일본'); // 기본값 선택 가능
@@ -23,10 +22,6 @@ const Home = () => {
   const { data: mycountrys } = useMycountry();
   const { data: foods } = useFood(selectedCountry);
   const { data: discountruns } = useDiscountRun();
-
-  console.log(cards?.result);
-  console.log(timedeals?.result);
-  console.log(recommends?.result);
 
   if (isLoading) return <p>로딩 중...</p>;
   if (isError) return <p>에러 발생!</p>;
