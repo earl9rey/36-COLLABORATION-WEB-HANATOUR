@@ -1,9 +1,9 @@
+import SearchDetailMock from '@/pages/search/datas/SearchDetailMock.json';
 import down from '@/shared/assets/icons/down.svg';
 import Divider from '@/shared/components/Divider/Divider';
+import { useState } from 'react';
 import SearchDetail from './SearchDetail';
 import SearchDetailViewMore from './SearchDetailViewMore';
-import { useState } from 'react';
-import SearchDetailMock from '@/pages/search/datas/SearchDetailMock.json';
 
 interface ShowMoreMap {
   [key: number]: boolean;
@@ -21,7 +21,7 @@ interface DetailInfo {
 }
 
 const SearchDetailWrapper = () => {
-  const [searchDetailList, setSearchDetailList] = useState(SearchDetailMock);
+  const searchDetailList = SearchDetailMock;
   const [showMoreMap, setShowMoreMap] = useState<ShowMoreMap>({});
 
   const handleShowMore = (id: number) => {
@@ -48,7 +48,6 @@ const SearchDetailWrapper = () => {
           <SearchDetail {...item} setIsShowMore={() => handleShowMore(item.id)} />
           {showMoreMap[item.id] && (
             <SearchDetailViewMore
-              isshowMore={!!showMoreMap[item.id]}
               setIsShowMore={() => handleShowMore(item.id)}
               detailInfo={SearchDetailMock.find((info) => info.id === item.id) as DetailInfo}
             />

@@ -2,14 +2,17 @@ import { useState } from 'react';
 
 interface FilterPropTypes {
   text: string;
+  country: string;
+  onClick: (country: string) => void;
+  selected: string | null;
 }
 
-const Filter = ({ text }: FilterPropTypes) => {
-  const [isClicked, setIsClicked] = useState(false);
+const Filter = ({ text, country, onClick, selected }: FilterPropTypes) => {
+  const isClicked = selected === country;
 
   return (
     <button
-      onClick={() => setIsClicked((prev) => !prev)}
+      onClick={() => onClick(country)}
       className={`cursor-pointer rounded-full px-6 py-3 whitespace-nowrap transition-colors duration-300 ${
         isClicked ? 'bg-black text-white' : 'bg-white text-black'
       }`}>

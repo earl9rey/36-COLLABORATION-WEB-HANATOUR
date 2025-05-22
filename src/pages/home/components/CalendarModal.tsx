@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import '@/shared/styles/react-calendar.css';
@@ -6,7 +6,19 @@ import chevronLeftIcon from '@/shared/assets/icons/chevronLeftIcon.svg';
 import chevronRightIcon from '@/shared/assets/icons/chevronRightIcon.svg';
 import disabledChevIcon from '@/shared/assets/icons/disabledChevIcon.svg';
 
-const CalendarModal = () => {
+interface DateRangeTypes {
+  departDate: Date | null;
+  arriveDate: Date | null;
+}
+
+interface CalendarModalPropTypes {
+  onClose: () => void;
+  onSelectDate: (dates: DateRangeTypes) => void;
+}
+
+const LOCAL_STORAGE_KEY = 'calendar-selected-dates';
+
+const CalendarModal = ({ onClose, onSelectDate }: CalendarModalPropTypes) => {
   const today = new Date();
 
   const [activeStartDate, setActiveStartDate] = useState<Date>(new Date());
@@ -37,6 +49,7 @@ const CalendarModal = () => {
     if (startDate && endDate) {
       setStartDate(date);
       setEndDate(null);
+      saveDatesToLocalStorage(date, null);
       return;
     }
 
@@ -44,13 +57,16 @@ const CalendarModal = () => {
       if (date < startDate) {
         setStartDate(date);
         setEndDate(startDate);
+        saveDatesToLocalStorage(date, startDate);
       } else {
         setEndDate(date);
+        saveDatesToLocalStorage(startDate, date);
       }
       return;
     }
 
     setStartDate(date);
+    saveDatesToLocalStorage(date, null);
   };
 
   const isSameDay = (d1: Date, d2: Date) =>
@@ -63,7 +79,6 @@ const CalendarModal = () => {
 
   const isStart = (date: Date) => startDate !== null && isSameDay(date, startDate);
   const isEnd = (date: Date) => endDate !== null && isSameDay(date, endDate);
-  console.log('시작:', startDate, '종료', endDate);
 
   const tileClassName = ({ date, view }: { date: Date; view: string }) => {
     if (view !== 'month') return null;
@@ -107,7 +122,7 @@ const CalendarModal = () => {
 
   const handleSelectEntireMonth = (date: Date) => {
     const startOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
-    const endOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0); // 다음 달 0일 = 이번 달 마지막 날
+    const endOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
     const isCurrentMonth = date.getFullYear() === today.getFullYear() && date.getMonth() === today.getMonth();
 
@@ -117,8 +132,42 @@ const CalendarModal = () => {
     setEndDate(endOfMonth);
   };
 
+  const handleConfirm = () => {
+    if (!startDate) return;
+
+    onSelectDate({
+      departDate: startDate,
+      arriveDate: endDate ?? null,
+    });
+
+    onClose();
+  };
+
+  const saveDatesToLocalStorage = (start: Date | null, end: Date | null) => {
+    localStorage.setItem(
+      LOCAL_STORAGE_KEY,
+      JSON.stringify({
+        startDate: start ? start.toISOString() : null,
+        endDate: end ? end.toISOString() : null,
+      })
+    );
+  };
+
+  useEffect(() => {
+    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (parsed.startDate) setStartDate(new Date(parsed.startDate));
+        if (parsed.endDate) setEndDate(new Date(parsed.endDate));
+      } catch (e) {
+        console.error('날짜 저장 실패:', e);
+      }
+    }
+  }, []);
+
   return (
-    <div className="border-gray800 relative flex w-[70.8rem] flex-col border shadow-[0_0.4rem_2rem_rgba(0,0,0,0.25)]">
+    <div className="border-gray800 relative flex w-[70.8rem] flex-col border bg-white shadow-[0_0.4rem_2rem_rgba(0,0,0,0.25)]">
       <div className="mt-[3.2rem] flex items-center justify-between px-[3.5rem]">
         <button onClick={handlePrev} disabled={isPrevDisabled} className="cursor-pointer">
           <img src={isPrevDisabled ? disabledChevIcon : chevronLeftIcon} />
@@ -186,6 +235,7 @@ const CalendarModal = () => {
           </p>
         </div>
         <button
+          onClick={handleConfirm}
           className={`body2-r-17 h-[4.2rem] w-[11rem] cursor-pointer rounded-[0.5rem] py-[1rem] text-white ${startDate ? 'bg-purple100' : 'bg-gray300'}`}>
           선택완료
         </button>
