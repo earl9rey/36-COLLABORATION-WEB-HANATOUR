@@ -127,8 +127,8 @@ const SearchBar = () => {
     }
 
     const requestBody = {
-      departure: selectedDeparture,
-      arrival: selectedArrival,
+      departure: '인천',
+      arrival: '하와이',
       departDate: formatDateISO(selectedDate.departDate) as string,
       arriveDate: formatDateISO(selectedDate.arriveDate) as string,
       size: 20,
@@ -137,7 +137,11 @@ const SearchBar = () => {
     searchPackages(requestBody, {
       onSuccess: (result) => {
         console.log('검색 결과:', result);
-        navigate('/search');
+        navigate('/search', {
+          state: {
+            result: result,
+          },
+        });
       },
       onError: (err) => {
         console.error('패키지 검색 오류:', err);

@@ -9,6 +9,6 @@ interface mainSearchRequest {
 }
 
 export const postMainSearch = async (body: mainSearchRequest) => {
-  const response = await http.post('/api/v1/packages/search', body);
+  const response = await http.post<any>('/api/v1/packages/search', body);
   return response.data;
 };

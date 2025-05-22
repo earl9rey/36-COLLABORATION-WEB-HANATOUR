@@ -9,11 +9,28 @@ interface ShowMoreMap {
   [key: string]: boolean;
 }
 
-const SearchDetailWrapper = ({ period, page, size }: { period: string; page: number; size: number }) => {
-  const [showMoreMap, setShowMoreMap] = useState<ShowMoreMap>({});
+const SearchDetailWrapper = ({
+  period,
+  page,
+  size,
+  searchResult,
+}: {
+  period: string;
+  page: number;
+  size: number;
+  searchResult: any;
+}) => {
   const { data, isLoading, error } = useGetSearchFilterQuery({ period, page, size });
+  const [showMoreMap, setShowMoreMap] = useState<ShowMoreMap>({});
 
   const packageList = data?.result?.result ?? [];
+
+  const dataList =
+    Array.isArray(packageList) && packageList.length > 0
+      ? packageList
+      : Array.isArray(searchResult.result)
+        ? searchResult.result
+        : [];
 
   const handleShowMore = (id: string) => {
     setShowMoreMap((prev) => ({
@@ -26,7 +43,7 @@ const SearchDetailWrapper = ({ period, page, size }: { period: string; page: num
     <div className="w-[130.6rem]">
       <header className="flex w-full items-center justify-between">
         <span className="sub5-r-15 py-[2rem]">
-          호놀룰루 패키지 <span className="text-purple100"> {isLoading || error ? '-' : packageList.length}</span>개
+          호놀룰루 패키지 <span className="text-purple100"> {isLoading || error ? '-' : dataList.length}</span>개
         </span>
         <span className="body5-r-14 border-gray400 flex w-[10rem] items-center justify-center gap-[0.3rem] border-2 py-[0.6rem]">
           추천순
@@ -40,7 +57,7 @@ const SearchDetailWrapper = ({ period, page, size }: { period: string; page: num
 
       {!isLoading &&
         !error &&
-        packageList.map((item: any) => (
+        dataList.map((item: any) => (
           <div key={item.packageId}>
             <SearchDetail
               title={item.title}
