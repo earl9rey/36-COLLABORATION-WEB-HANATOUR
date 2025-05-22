@@ -17,6 +17,7 @@ import { useTimedeal } from './apis/getTimedealQuery';
 import TopBanner from './components/TopBanner';
 import SingarporeBanner from './components/SingaporeBanner'; // 싱가포르 배너
 import PromotionBanner from './components/PromotionBanner';
+import AdvertisementBanner from './components/AdvertisementBanner';
 
 const Home = () => {
   const [selectedCountry, setSelectedCountry] = useState<string>('일본'); // 기본값 선택 가능
@@ -66,7 +67,8 @@ const Home = () => {
             />
           ))}
         </CardContainer>
-        <div className="relative my-[4rem] flex h-[57rem] items-center">
+        <AdvertisementBanner />
+        <div className="relative mt-[4rem] mb-[2rem] flex h-[57rem] items-center">
           <div className="absolute h-[53.7rem] w-[41.2rem] bg-[url('./shared/assets/images/food_banner_image.svg')] pt-[6.6rem] pl-[5.7rem]">
             <p className="head1-sb-36 flex flex-col gap-[0.2rem] text-white">
               <span>미식 탐방</span>

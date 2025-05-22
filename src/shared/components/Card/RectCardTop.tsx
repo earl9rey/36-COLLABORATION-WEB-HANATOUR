@@ -37,7 +37,7 @@ const RectCardTop = ({
           {/* 가격 숫자*/}
           <p className="text-gray800 head6-sb-22">{price}</p>
           {/* 가격 원 */}
-          <p className="text-gray800 body2-r-17">원</p>
+          <p className="text-gray800 body2-r-17">원 ~</p>
         </div>
         {/* 특징 */}
         <div className="mt-[1.2rem] flex flex-row">

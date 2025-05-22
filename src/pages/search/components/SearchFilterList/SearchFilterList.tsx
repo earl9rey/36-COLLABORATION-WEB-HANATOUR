@@ -431,14 +431,14 @@ const SearchFilterList = () => {
                       <div className="text-gray500 body5-r-14 border-gray300 flex h-[2.2rem] w-[6.5rem] items-center justify-center rounded-[2px] border">
                         0
                       </div>
-                      <p className="body6-m-13 text-gray600">만원</p>
+                      <p className="body6-m-13 text-gray600">만원 ~</p>
                     </div>
 
                     <div className="flex items-center gap-[0.6rem]">
                       <div className="text-gray500 body5-r-14 border-gray300 flex h-[2.2rem] w-[6.5rem] items-center justify-center rounded-[2px] border">
                         0
                       </div>
-                      <p className="body6-m-13 text-gray600">만원</p>
+                      <p className="body6-m-13 text-gray600">만원 ~</p>
                     </div>
                   </div>
                 </div>
