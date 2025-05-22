@@ -1,0 +1,179 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-*: initial;
+  /* Brand Colors */
+  --color-purple100: #5e2bb8;
+  --color-mint100: #08d1d9;
+
+  /*Button Colors*/
+  --color-yellow100: #fde103;
+  --color-blue100: #5b606e;
+  --color-blue200: #5b699c;
+  --color-blue300: #4585ff;
+  --color-light-purple100: #faf7ff;
+  --color-red100: #eb2c3c;
+
+  /* Background */
+  --color-bg: #ffffff;
+
+  /* Grayscale */
+  --color-gray100: #f7f7f7;
+  --color-gray200: #f5f5f5;
+  --color-gray300: #d3d3d3;
+  --color-gray400: #eeeeee;
+  --color-coolgray100: #eef0f3;
+  --color-gray500: #666666;
+  --color-gray600: #333333;
+  --color-gray700: #252525;
+  --color-gray800: #111111;
+
+  /* Black & White */
+  --color-white: #ffffff;
+  --color-black: #000000;
+}
+
+/* typography */
+
+/* head */
+@utility head1-sb-36 {
+  font-weight: 600;
+  font-size: 3.6rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility head2-sb-32 {
+  font-weight: 600;
+  font-size: 3.2rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility head3-sb-30 {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility head4-sb-26 {
+  font-weight: 600;
+  font-size: 2.6rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility head5-r-26 {
+  font-weight: 400;
+  font-size: 2.6rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility head6-sb-22 {
+  font-weight: 600;
+  font-size: 2.2rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility head7-m-17 {
+  font-weight: 500;
+  font-size: 1.7rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+/* sub */
+@utility sub1-sb-20 {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility sub2-sb-17 {
+  font-weight: 600;
+  font-size: 1.7rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility sub3-sb-15 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility sub4-r-16 {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility sub5-r-15 {
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility sub6-r-12 {
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+/* body */
+@utility body1-m-20 {
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility body2-r-17 {
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility body3-sb-15 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility body4-sb-14 {
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility body5-r-14 {
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility body6-m-13 {
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
+
+@utility body7-r-13 {
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 130%;
+  letter-spacing: -2%;
+}
