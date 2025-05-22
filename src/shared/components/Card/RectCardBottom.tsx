@@ -13,7 +13,7 @@ const RectCardBottom = ({ image, title, price }: RectCardBottomPropTypes) => {
         <p className="head7-m-17 my-[0.5rem]">{title}</p>
         <div className="flex flex-row items-center">
           <p className="text-gray800 head6-sb-22">{price}</p>
-          <p className="text-gray800 body2-r-17">원</p>
+          <p className="text-gray800 body2-r-17">원 ~</p>
         </div>
       </div>
     </div>
