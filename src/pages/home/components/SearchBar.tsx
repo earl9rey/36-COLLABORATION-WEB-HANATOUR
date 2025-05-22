@@ -1,4 +1,5 @@
 import type { FilterOption } from '@/pages/home/types';
+import { useNavigate } from 'react-router-dom';
 import calendar from '@/shared/assets/icons/calendar.svg';
 import checkedCircle from '@/shared/assets/icons/checkedCircle.svg';
 import dropDown from '@/shared/assets/icons/dropDown.svg';
@@ -117,6 +118,7 @@ const SearchBar = () => {
   };
 
   const { mutate: searchPackages } = usePostMainSearch();
+  const navigate = useNavigate();
 
   const handleClickSearch = () => {
     if (!selectedArrival || !selectedDeparture || !selectedDate.departDate) {
@@ -135,6 +137,7 @@ const SearchBar = () => {
     searchPackages(requestBody, {
       onSuccess: (result) => {
         console.log('검색 결과:', result);
+        navigate('/search');
       },
       onError: (err) => {
         console.error('패키지 검색 오류:', err);
