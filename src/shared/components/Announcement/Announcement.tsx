@@ -7,7 +7,7 @@ import kakaostory from '@/shared/assets/icons/kakaostory.svg';
 
 const Announcement = () => {
   return (
-    <div className="flex flex-row items-center justify-between px-[11.4rem] py-[1.4rem]">
+    <div className="border-gray100 flex flex-row items-center justify-between border-t-3 px-[15.5rem] py-[1.4rem]">
       {/* 공지 더보기 기타 */}
       <div className="flex w-[49.1rem] flex-row justify-between">
         <div className="flex flex-row gap-[2rem]">

@@ -18,6 +18,8 @@ import TopBanner from './components/TopBanner';
 import SingarporeBanner from './components/SingaporeBanner'; // 싱가포르 배너
 import PromotionBanner from './components/PromotionBanner';
 import AdvertisementBanner from './components/AdvertisementBanner';
+import Footer from '@/shared/components/Footer/Footer';
+import Announcement from '@/shared/components/Announcement/Announcement';
 
 const Home = () => {
   const [selectedCountry, setSelectedCountry] = useState<string>('일본'); // 기본값 선택 가능
@@ -163,6 +165,8 @@ const Home = () => {
           ))}
         </CardContainer>
       </div>
+      <Announcement />
+      <Footer />
     </div>
   );
 };
