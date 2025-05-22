@@ -14,6 +14,7 @@ import { useFood } from './apis/getFoodQuery';
 import { useMycountry } from './apis/getMycountryQuery';
 import { useRecommend } from './apis/getRecommendQuery';
 import { useTimedeal } from './apis/getTimedealQuery';
+import TopBanner from './components/TopBanner';
 import SingarporeBanner from './components/SingaporeBanner'; // 싱가포르 배너
 import PromotionBanner from './components/PromotionBanner';
 
@@ -31,6 +32,7 @@ const Home = () => {
 
   return (
     <div className="flex flex-col gap-[1rem]">
+      <TopBanner />
       <div className="flex w-full flex-col gap-[1rem] px-[16rem]">
         <Title title={'계속되는 여행 할인런🏃‍♀️🏃‍♂️'} subTitle={'최대 25%, 위클리 릴레이 세일'} />
         <CardContainer>
