@@ -17,12 +17,11 @@ interface DetailInfo {
 }
 
 interface SearchDetailViewMorePropsTypes {
-  isshowMore: boolean;
   setIsShowMore: React.Dispatch<React.SetStateAction<boolean>>;
   detailInfo: DetailInfo;
 }
 
-const SearchDetailViewMore = ({ isshowMore, setIsShowMore, detailInfo }: SearchDetailViewMorePropsTypes) => {
+const SearchDetailViewMore = ({ setIsShowMore, detailInfo }: SearchDetailViewMorePropsTypes) => {
   return (
     <div className="w-100% bg-coolgray100 relative px-[3.4rem] py-[3rem]">
       <header className="relative flex h-[2.9rem] items-center justify-end">
