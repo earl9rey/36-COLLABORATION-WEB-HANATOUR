@@ -2,10 +2,8 @@ import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import axios from 'axios';
 import * as qs from 'qs';
 
-
 const api: AxiosInstance = axios.create({
-
-  baseURL: import.meta.env.VITE_APP_BASE_URL, 
+  baseURL: import.meta.env.VITE_APP_BASE_URL,
 
   timeout: 4000,
   headers: {

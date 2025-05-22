@@ -20,8 +20,8 @@ import {
   TRAVEL_PERIOD,
   WHO_WITH_TRAVEL,
 } from '@/pages/search/constants/filter';
+import type { useSearchFilters } from '@/pages/search/hooks/useSearchFilters';
 import Divider from '@/shared/components/Divider/Divider';
-import type { useSearchFilters } from './hooks/useSearchFilters';
 const SearchFilterList = ({
   selectedPeriod,
   selectedPackageType,
@@ -43,7 +43,7 @@ const SearchFilterList = ({
 }: ReturnType<typeof useSearchFilters> & { onApplyFilter: () => void }) => {
   const handleApplyFilter = () => {
     if (!selectedPeriod) return;
-    onApplyFilter(selectedPeriod);
+    onApplyFilter();
   };
 
   return (

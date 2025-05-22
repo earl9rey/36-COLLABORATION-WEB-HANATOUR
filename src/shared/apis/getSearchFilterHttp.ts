@@ -9,7 +9,7 @@ export const getSearchFilterHttp = async ({
   page?: number;
   size?: number;
 }) => {
-  const response = await http.get(`/api/v1/packages/filter`, {
+  const response = await http.get<any>(`/api/v1/packages/filter`, {
     params: { period, page, size },
   });
 
