@@ -1,24 +1,25 @@
 interface RectCardTopPropTypes {
   image: string;
-  hashTag: string;
   title: string;
-  subText: string;
-  price: string;
+  subText1: string;
+  subText2: string;
+  price: number;
   feature1: string;
   feature2: string;
 }
 
-const RectCardTop = ({ image, hashTag, title, subText, price, feature1, feature2 }: RectCardTopPropTypes) => {
+const RectCardTop = ({ image, title, subText1, subText2, price, feature1, feature2 }: RectCardTopPropTypes) => {
   return (
     <div className="h-[36.6rem] w-[26.9rem]">
       <img src={image} alt={title} className="h-[20.1rem] w-[26.9rem]"></img>
       <div className="mt-[1.5rem]">
         {/* 해시태그 */}
-        <p className="text-blue200 body7-r-13">#{hashTag}</p>
+        {/* <p className="text-blue200 body7-r-13">#{hashTag}</p> */}
         {/* 제목 */}
         <h1 className="text-gray800 head7-m-17 my-[0.7rem]">{title}</h1>
         {/* 서브텍스트 */}
-        <p className="text-gray600 body5-r-14">#{subText}</p>
+        <p className="text-gray600 body5-r-14">#{subText1}</p>
+        <p className="text-gray600 body5-r-14">#{subText2}</p>
         <div className="mt-[1.5rem] flex flex-row items-center">
           {/* 가격 숫자*/}
           <p className="text-gray800 head6-sb-22">{price}</p>
