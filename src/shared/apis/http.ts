@@ -4,7 +4,7 @@ import * as qs from 'qs';
 
 // Axios 인스턴스 생성
 const api: AxiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_BASE_URL, //추후 env에 백 배포 url 추가
+  baseURL: import.meta.env.VITE_APP_BASE_URL, //추후 env에 백 배포 url 추가
   timeout: 4000,
   headers: {
     'Content-Type': 'application/json',

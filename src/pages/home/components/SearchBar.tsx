@@ -10,6 +10,7 @@ import DestinationModal from './DestinationModal';
 import DepartureModal from './DepartureModal';
 import CalendarModal from './CalendarModal';
 import ModalBase from './ModalBase';
+import { usePostMainSearch } from '../apis/postMainSearchQuery';
 
 type ModalType = 'destination' | 'departure' | 'calendar' | null;
 
@@ -52,16 +53,16 @@ const SearchBar = () => {
   const [selectedArrival, setSelectedArrival] = useState<string | null>(null);
   const [selectedDeparture, setSelectedDeparture] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState<{ arriveDate: Date | null; departDate: Date | null }>({
-    arriveDate: null,
     departDate: null,
+    arriveDate: null,
   });
 
   const renderDateText = () => {
-    const { arriveDate, departDate } = selectedDate;
+    const { departDate, arriveDate } = selectedDate;
 
-    if (!arriveDate) return '여행 시작일 선택';
-    if (!departDate) return formatDateString(arriveDate);
-    return `${formatDateString(arriveDate)} - ${formatDateString(departDate)}`;
+    if (!departDate) return '여행 시작일 선택';
+    if (!arriveDate) return formatDateString(departDate);
+    return `${formatDateString(departDate)} - ${formatDateString(arriveDate)}`;
   };
 
   const closeModal = () => setActiveModal(null);
@@ -115,17 +116,32 @@ const SearchBar = () => {
     }
   };
 
+  const { mutate: searchPackages } = usePostMainSearch();
+
   const handleClickSearch = () => {
-    console.log(
-      'arrival:',
-      selectedArrival,
-      '/ departure:',
-      selectedDeparture,
-      '/ arrive_date:',
-      formatDateISO(selectedDate.arriveDate),
-      '/ depart_date:',
-      formatDateISO(selectedDate.departDate)
-    );
+    if (!selectedArrival || !selectedDeparture || !selectedDate.departDate) {
+      alert('출발지, 도착지, 날짜를 모두 선택해주세요.');
+      return;
+    }
+
+    const requestBody = {
+      departure: selectedDeparture,
+      arrival: selectedArrival,
+      departDate: formatDateISO(selectedDate.departDate) as string,
+      arriveDate: formatDateISO(selectedDate.arriveDate) as string,
+      size: 20,
+    };
+
+    searchPackages(requestBody, {
+      onSuccess: (result) => {
+        console.log('검색 결과:', result);
+      },
+      onError: (err) => {
+        console.error('패키지 검색 오류:', err);
+        alert('검색 중 오류가 발생했습니다.');
+      },
+    });
+
     localStorage.removeItem('calendar-selected-dates');
   };
 
