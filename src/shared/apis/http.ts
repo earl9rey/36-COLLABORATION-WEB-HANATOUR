@@ -2,9 +2,11 @@ import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import axios from 'axios';
 import * as qs from 'qs';
 
-// Axios 인스턴스 생성
+
 const api: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_APP_BASE_URL, //추후 env에 백 배포 url 추가
+
+  baseURL: import.meta.env.VITE_APP_BASE_URL, 
+
   timeout: 4000,
   headers: {
     'Content-Type': 'application/json',
@@ -13,7 +15,13 @@ const api: AxiosInstance = axios.create({
     return qs.stringify(params, { indices: false });
   },
 });
-
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    console.error('[API Error Response]', error.response?.data || error.message);
+    return Promise.reject(error);
+  }
+);
 // HTTP 헬퍼 함수 타입 정의
 interface HttpClientTypes {
   //T = unknown: 요청 결과(response data)의 타입 제네릭

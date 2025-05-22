@@ -28,7 +28,7 @@ const SearchDetailViewMoreInfo = ({
       <section className="w-[47rem]">
         <div className="sub6-r-12 flex items-center gap-[0.5rem] text-white">
           <div className="bg-purple100 px-[0.6rem] py-[0.3rem]">{mainTag}</div>
-          <div className="bg-mint100 px-[0.6rem] py-[0.3rem]">{subTag}</div>
+          {subTag && <div className="bg-mint100 px-[0.6rem] py-[0.3rem]">{subTag}</div>}
         </div>
         <div className="body3-sb-15 mt-[1.7rem] mb-[1.6rem]">{title}</div>
         <div className="body7-r-13 flex flex-col gap-[0.6rem]">
@@ -52,7 +52,7 @@ const SearchDetailViewMoreInfo = ({
       <section className="flex flex-col items-end justify-between pr-[1rem]">
         <div className="flex flex-col items-end">
           <div className="sub6-r-12 bg-blue300 rounded-[5rem] px-[0.8rem] py-[0.4rem] text-white">예약 가능</div>
-          <div className="head6-sb-22 mt-[1rem]">{price}</div>
+          <div className="head6-sb-22 mt-[1rem]">{price}원</div>
           <div className="body5-r-14 text-gray500">
             하나투어 회원만 <span className="text-purple100">{price}</span> 적립
           </div>

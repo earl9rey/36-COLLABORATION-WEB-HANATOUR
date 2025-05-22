@@ -21,27 +21,30 @@ import {
   WHO_WITH_TRAVEL,
 } from '@/pages/search/constants/filter';
 import Divider from '@/shared/components/Divider/Divider';
-import { useSearchFilters } from '../../hooks/useSearchFilters';
-
-const SearchFilterList = () => {
-  const {
-    selectedPeriod,
-    selectedPackageType,
-    selectedTourCondition,
-    selectedHotelGrade,
-    selectedAirline,
-    selectedDepartureTime,
-    selectedDepartureDays,
-    selectedWhoWithTravel,
-    handleSelectPeriod,
-    handleSelectPackageType,
-    handleSelectTourCondition,
-    handleSelectHotelGrade,
-    handleSelectAirline,
-    handleSelectDepartureTime,
-    handleSelectDepartureDays,
-    handleSelectWhoWithTravel,
-  } = useSearchFilters();
+import type { useSearchFilters } from './hooks/useSearchFilters';
+const SearchFilterList = ({
+  selectedPeriod,
+  selectedPackageType,
+  selectedTourCondition,
+  selectedHotelGrade,
+  selectedAirline,
+  selectedDepartureTime,
+  selectedDepartureDays,
+  selectedWhoWithTravel,
+  handleSelectPeriod,
+  handleSelectPackageType,
+  handleSelectTourCondition,
+  handleSelectHotelGrade,
+  handleSelectAirline,
+  handleSelectDepartureTime,
+  handleSelectDepartureDays,
+  handleSelectWhoWithTravel,
+  onApplyFilter,
+}: ReturnType<typeof useSearchFilters> & { onApplyFilter: () => void }) => {
+  const handleApplyFilter = () => {
+    if (!selectedPeriod) return;
+    onApplyFilter(selectedPeriod);
+  };
 
   return (
     <div className="w-[23.6rem]">
@@ -464,6 +467,11 @@ const SearchFilterList = () => {
       </div>
 
       <Divider />
+      <button
+        className="bg-purple100 body7-r-13 w-full cursor-pointer py-[1rem] text-white"
+        onClick={handleApplyFilter}>
+        필터 적용하기
+      </button>
     </div>
   );
 };
