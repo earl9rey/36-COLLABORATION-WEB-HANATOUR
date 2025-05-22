@@ -7,8 +7,8 @@ import chevronRightIcon from '@/shared/assets/icons/chevronRightIcon.svg';
 import disabledChevIcon from '@/shared/assets/icons/disabledChevIcon.svg';
 
 interface DateRangeTypes {
-  arriveDate: Date | null;
   departDate: Date | null;
+  arriveDate: Date | null;
 }
 
 interface CalendarModalPropTypes {
@@ -136,8 +136,8 @@ const CalendarModal = ({ onClose, onSelectDate }: CalendarModalPropTypes) => {
     if (!startDate) return;
 
     onSelectDate({
-      arriveDate: startDate,
-      departDate: endDate ?? null,
+      departDate: startDate,
+      arriveDate: endDate ?? null,
     });
 
     onClose();
