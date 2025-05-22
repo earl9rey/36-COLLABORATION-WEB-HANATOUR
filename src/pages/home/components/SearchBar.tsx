@@ -1,16 +1,16 @@
-import { useState } from 'react';
 import type { FilterOption } from '@/pages/home/types';
+import calendar from '@/shared/assets/icons/calendar.svg';
+import checkedCircle from '@/shared/assets/icons/checkedCircle.svg';
 import dropDown from '@/shared/assets/icons/dropDown.svg';
 import dropUp from '@/shared/assets/icons/dropUp_purple.svg';
-import checkedCircle from '@/shared/assets/icons/checkedCircle.svg';
-import uncheckedCircle from '@/shared/assets/icons/uncheckedCircle.svg';
 import location from '@/shared/assets/icons/location.svg';
-import calendar from '@/shared/assets/icons/calendar.svg';
-import DestinationModal from './DestinationModal';
-import DepartureModal from './DepartureModal';
-import CalendarModal from './CalendarModal';
-import ModalBase from './ModalBase';
+import uncheckedCircle from '@/shared/assets/icons/uncheckedCircle.svg';
+import { useState } from 'react';
 import { usePostMainSearch } from '../apis/postMainSearchQuery';
+import CalendarModal from './CalendarModal';
+import DepartureModal from './DepartureModal';
+import DestinationModal from './DestinationModal';
+import ModalBase from './ModalBase';
 
 type ModalType = 'destination' | 'departure' | 'calendar' | null;
 
