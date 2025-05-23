@@ -14,7 +14,7 @@ const RectCardMini = ({ image, title, countryName, price }: RectCardMiniPropType
         <p className="body5-r-14 text-gray500 mt-[0.5rem]">{countryName}</p>
         <div className="mt-[1.1rem] mb-[2.3rem] flex flex-row items-center">
           <p className="body3-sb-15 text-gray800">{price}</p>
-          <p className="body7-r-13 text-gray800">원~</p>
+          <p className="body7-r-13 text-gray800">원 ~</p>
         </div>
       </div>
     </div>

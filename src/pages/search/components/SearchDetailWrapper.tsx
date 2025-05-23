@@ -1,4 +1,4 @@
-import SearchDetailMock from '@/pages/search/datas/SearchDetailMock.json';
+import { useGetSearchFilterQuery } from '@/shared/apis/getSearchFilterQuery';
 import down from '@/shared/assets/icons/down.svg';
 import Divider from '@/shared/components/Divider/Divider';
 import { useState } from 'react';
@@ -6,25 +6,33 @@ import SearchDetail from './SearchDetail';
 import SearchDetailViewMore from './SearchDetailViewMore';
 
 interface ShowMoreMap {
-  [key: number]: boolean;
+  [key: string]: boolean;
 }
 
-interface DetailInfo {
-  title: string;
-  airline: string;
-  date: string;
-  memo: string;
-  mainTag: string;
-  subTag: string;
-  underTag: string;
-  price: string;
-}
-
-const SearchDetailWrapper = () => {
-  const searchDetailList = SearchDetailMock;
+const SearchDetailWrapper = ({
+  period,
+  page,
+  size,
+  searchResult,
+}: {
+  period: string;
+  page: number;
+  size: number;
+  searchResult: any;
+}) => {
+  const { data, isLoading, error } = useGetSearchFilterQuery({ period, page, size });
   const [showMoreMap, setShowMoreMap] = useState<ShowMoreMap>({});
 
-  const handleShowMore = (id: number) => {
+  const packageList = data?.result?.result ?? [];
+
+  const dataList =
+    Array.isArray(packageList) && packageList.length > 0
+      ? packageList
+      : Array.isArray(searchResult.result)
+        ? searchResult.result
+        : [];
+
+  const handleShowMore = (id: string) => {
     setShowMoreMap((prev) => ({
       ...prev,
       [id]: !prev[id],
@@ -32,10 +40,10 @@ const SearchDetailWrapper = () => {
   };
 
   return (
-    <div className="w-[89.6rem]">
-      <header className="flex items-center justify-between">
+    <div className="w-full">
+      <header className="flex w-full items-center justify-between">
         <span className="sub5-r-15 py-[2rem]">
-          호놀룰루 패키지 <span className="text-purple100">8</span>개
+          호놀룰루 패키지 <span className="text-purple100"> {isLoading || error ? '-' : dataList.length}</span>개
         </span>
         <span className="body5-r-14 border-gray400 flex w-[10rem] items-center justify-center gap-[0.3rem] border-2 py-[0.6rem]">
           추천순
@@ -43,17 +51,43 @@ const SearchDetailWrapper = () => {
         </span>
       </header>
       <Divider color="gray300" />
-      {searchDetailList.map((item) => (
-        <div key={item.id}>
-          <SearchDetail {...item} setIsShowMore={() => handleShowMore(item.id)} />
-          {showMoreMap[item.id] && (
-            <SearchDetailViewMore
-              setIsShowMore={() => handleShowMore(item.id)}
-              detailInfo={SearchDetailMock.find((info) => info.id === item.id) as DetailInfo}
+
+      {isLoading && <div>로딩 중...</div>}
+      {error && <div>에러 발생</div>}
+
+      {!isLoading &&
+        !error &&
+        dataList.map((item: any) => (
+          <div key={item.packageId}>
+            <SearchDetail
+              title={item.title}
+              price={item.price.toLocaleString()}
+              image_url={item.imageUrl}
+              mainTag={item.tags.tagName1}
+              subTag={item.tags.tagName2}
+              setIsShowMore={() => handleShowMore(item.packageId)}
+              description={item.description}
+              location={item.schedules.departure}
+              travel_period={period}
             />
-          )}
-        </div>
-      ))}
+            <Divider color="gray300" />
+            {showMoreMap[item.packageId] && (
+              <SearchDetailViewMore
+                setIsShowMore={() => handleShowMore(item.packageId)}
+                detailInfo={{
+                  title: item.title,
+                  airline: `${item.schedules.departure} → ${item.schedules.arrival}`,
+                  date: `${item.schedules.departDate} ~ ${item.schedules.arriveDate}`,
+                  memo: `${item.companion}, ${item.hotelGrade}`,
+                  mainTag: item.tags.tagName1,
+                  subTag: item.tags.tagName3,
+                  underTag: item.tags.tagName2,
+                  price: item.price.toLocaleString(),
+                }}
+              />
+            )}
+          </div>
+        ))}
     </div>
   );
 };

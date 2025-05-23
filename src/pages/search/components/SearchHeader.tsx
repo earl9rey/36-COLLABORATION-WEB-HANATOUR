@@ -1,6 +1,6 @@
+import calendar from '@/shared/assets/icons/calender.svg';
 import downErrow from '@/shared/assets/icons/downErrow.svg';
 import location from '@/shared/assets/icons/location.svg';
-import calendar from '@/shared/assets/icons/calender.svg';
 import Divider from '@/shared/components/Divider/Divider';
 
 interface SearchHeaderPropsTypes {
@@ -11,8 +11,8 @@ interface SearchHeaderPropsTypes {
 
 const SearchHeader = ({ arrival, departure, date }: SearchHeaderPropsTypes) => {
   return (
-    <div className="my-[2.7rem] flex flex-col items-center justify-center">
-      <div className="my-[1.8rem] flex w-full justify-between pr-[12.2rem] pl-[12.4rem]">
+    <div className="mx-auto my-[2.7rem] flex max-w-[119.2rem] flex-col items-center justify-center">
+      <div className="my-[1.8rem] flex w-full justify-between">
         <div className="flex items-center gap-[1.4rem]">
           <span className="head3-sb-30">{arrival}</span>
           <img src={downErrow} alt="downErrowIcon" className="w-[1.6rem]" />
@@ -28,7 +28,7 @@ const SearchHeader = ({ arrival, departure, date }: SearchHeaderPropsTypes) => {
           </div>
         </div>
       </div>
-      <Divider direction="horizontal" color="black" thickness="2px" length="86.6%" />
+      <Divider direction="horizontal" color="black" thickness="2px" length="100%" />
     </div>
   );
 };

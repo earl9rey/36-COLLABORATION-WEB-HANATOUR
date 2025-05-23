@@ -20,31 +20,34 @@ import {
   TRAVEL_PERIOD,
   WHO_WITH_TRAVEL,
 } from '@/pages/search/constants/filter';
+import type { useSearchFilters } from '@/pages/search/hooks/useSearchFilters';
 import Divider from '@/shared/components/Divider/Divider';
-import { useSearchFilters } from '../../hooks/useSearchFilters';
-
-const SearchFilterList = () => {
-  const {
-    selectedPeriod,
-    selectedPackageType,
-    selectedTourCondition,
-    selectedHotelGrade,
-    selectedAirline,
-    selectedDepartureTime,
-    selectedDepartureDays,
-    selectedWhoWithTravel,
-    handleSelectPeriod,
-    handleSelectPackageType,
-    handleSelectTourCondition,
-    handleSelectHotelGrade,
-    handleSelectAirline,
-    handleSelectDepartureTime,
-    handleSelectDepartureDays,
-    handleSelectWhoWithTravel,
-  } = useSearchFilters();
+const SearchFilterList = ({
+  selectedPeriod,
+  selectedPackageType,
+  selectedTourCondition,
+  selectedHotelGrade,
+  selectedAirline,
+  selectedDepartureTime,
+  selectedDepartureDays,
+  selectedWhoWithTravel,
+  handleSelectPeriod,
+  handleSelectPackageType,
+  handleSelectTourCondition,
+  handleSelectHotelGrade,
+  handleSelectAirline,
+  handleSelectDepartureTime,
+  handleSelectDepartureDays,
+  handleSelectWhoWithTravel,
+  onApplyFilter,
+}: ReturnType<typeof useSearchFilters> & { onApplyFilter: () => void }) => {
+  const handleApplyFilter = () => {
+    if (!selectedPeriod) return;
+    onApplyFilter();
+  };
 
   return (
-    <div className="w-[23.6rem]">
+    <div className="w-[23.6rem] justify-self-start">
       <div className="mt-[1.2rem] mb-[2.6rem] flex flex-col gap-[1.7rem]">
         <div className="flex gap-[1.2rem]">
           <div className="flex flex-col items-center gap-[1.6rem]">
@@ -431,14 +434,14 @@ const SearchFilterList = () => {
                       <div className="text-gray500 body5-r-14 border-gray300 flex h-[2.2rem] w-[6.5rem] items-center justify-center rounded-[2px] border">
                         0
                       </div>
-                      <p className="body6-m-13 text-gray600">만원</p>
+                      <p className="body6-m-13 text-gray600">만원 ~</p>
                     </div>
 
                     <div className="flex items-center gap-[0.6rem]">
                       <div className="text-gray500 body5-r-14 border-gray300 flex h-[2.2rem] w-[6.5rem] items-center justify-center rounded-[2px] border">
                         0
                       </div>
-                      <p className="body6-m-13 text-gray600">만원</p>
+                      <p className="body6-m-13 text-gray600">만원 ~</p>
                     </div>
                   </div>
                 </div>
@@ -464,6 +467,11 @@ const SearchFilterList = () => {
       </div>
 
       <Divider />
+      <button
+        className="bg-purple100 body7-r-13 w-full cursor-pointer py-[1rem] text-white"
+        onClick={handleApplyFilter}>
+        필터 적용하기
+      </button>
     </div>
   );
 };

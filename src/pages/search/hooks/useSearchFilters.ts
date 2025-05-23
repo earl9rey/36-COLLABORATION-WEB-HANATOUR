@@ -4,7 +4,7 @@ import { useState } from 'react';
  * 커스텀 훅: 검색 필터 상태 및 토글 핸들러 관리
  */
 export const useSearchFilters = () => {
-  const [selectedPeriod, setSelectedPeriod] = useState<string[]>([]);
+  const [selectedPeriod, setSelectedPeriod] = useState<string>('');
   const [selectedPackageType, setSelectedPackageType] = useState<string[]>([]);
   const [selectedTourCondition, setSelectedTourCondition] = useState<string[]>([]);
   const [selectedHotelGrade, setSelectedHotelGrade] = useState<string[]>([]);
@@ -26,6 +26,17 @@ export const useSearchFilters = () => {
     }
   };
 
+  const resetFilters = () => {
+    setSelectedPeriod('');
+    setSelectedPackageType([]);
+    setSelectedTourCondition([]);
+    setSelectedHotelGrade([]);
+    setSelectedAirline([]);
+    setSelectedDepartureTime([]);
+    setSelectedDepartureDays([]);
+    setSelectedWhoWithTravel([]);
+  };
+
   return {
     selectedPeriod,
     selectedPackageType,
@@ -35,7 +46,7 @@ export const useSearchFilters = () => {
     selectedDepartureTime,
     selectedDepartureDays,
     selectedWhoWithTravel,
-    handleSelectPeriod: (period: string) => toggleSelection(period, selectedPeriod, setSelectedPeriod),
+    handleSelectPeriod: (period: string) => setSelectedPeriod(period),
     handleSelectPackageType: (type: string) => toggleSelection(type, selectedPackageType, setSelectedPackageType),
     handleSelectTourCondition: (condition: string) =>
       toggleSelection(condition, selectedTourCondition, setSelectedTourCondition),
@@ -45,5 +56,6 @@ export const useSearchFilters = () => {
     handleSelectDepartureDays: (day: string) => toggleSelection(day, selectedDepartureDays, setSelectedDepartureDays),
     handleSelectWhoWithTravel: (withType: string) =>
       toggleSelection(withType, selectedWhoWithTravel, setSelectedWhoWithTravel),
+    resetFilters,
   };
 };
