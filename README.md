@@ -7,12 +7,6 @@
 </div>
 <br>
 
-### 🔗 배포 주소
-https://36-collaboration-web-hanatour-qukmvkcf5.vercel.app/
-<br>
-
-### 🔗 노션 링크
-https://www.notion.so/sopt-official/3-1f51e48dd96080f7bf70c898ed8c3558
 
 <br>
 
