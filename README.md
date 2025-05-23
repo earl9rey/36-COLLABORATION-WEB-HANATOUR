@@ -43,7 +43,7 @@
 |------------|------------------|
 | ⚙️ setting      | `이슈/pr 템플릿/라벨` `github project 생성` `레포 생성 → default branch develop으로 설정` `tailwind → Theme + reset + global`  `router 설정 `   |
 | 🎨 view      |  `search page filter list`  `Home 상단 배너` `Promotion 쿼카 배너 & 광고 배너` `Header` `Divider 공통 컴포넌트` `Headless Accordion 컴포넌트`        |
-| 📡 API    |          |
+| 📡 API    |     `Home 페이지 카드 조회 API (GET)`      |
 
 <br>
 
@@ -73,7 +73,7 @@
 |------------|------------------|
 | ⚙️ setting      |  `eslint + prettier 설정` `절대 경로 설정`   |
 | 🎨 view      |   `Home 카드 컴포넌트` `Home filter 컴포넌트` `Home announcement 컴포넌트` `Home 푸터`   |
-| 📡 API    |   `Home 페이지 카드 조회 API (GET)` `Home 페이지 추천 여행 조회 API (GET)`  `Home 타임특가 조회 API (GET)`  `Home 페이지 할인런 조회 API (GET)` `Home 페이지 내나라 조회 API (GET)` `Home 미식탐방 조회 API (GET)`  |
+| 📡 API    |   `Home 페이지 추천 여행 조회 API (GET)`  `Home 타임특가 조회 API (GET)`  `Home 페이지 할인런 조회 API (GET)` `Home 페이지 내나라 조회 API (GET)` `Home 미식탐방 조회 API (GET)`  |
 
 <br>
 
