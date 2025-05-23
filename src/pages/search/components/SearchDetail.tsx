@@ -1,7 +1,7 @@
-import locationIcon from '@/shared/assets/icons/location.svg';
 import calendarIcon from '@/shared/assets/icons/calender.svg';
-import starIcon from '@/shared/assets/icons/star.svg';
 import likesmallIcon from '@/shared/assets/icons/likesmall.svg';
+import locationIcon from '@/shared/assets/icons/location.svg';
+import starIcon from '@/shared/assets/icons/star.svg';
 import arrowUpIcon from '@/shared/assets/icons/upErrow_purple.svg';
 
 interface SearchDetailPropsTypes {

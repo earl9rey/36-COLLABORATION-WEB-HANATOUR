@@ -47,7 +47,7 @@ const SearchFilterList = ({
   };
 
   return (
-    <div className="w-[23.6rem]">
+    <div className="w-[23.6rem] justify-self-start">
       <div className="mt-[1.2rem] mb-[2.6rem] flex flex-col gap-[1.7rem]">
         <div className="flex gap-[1.2rem]">
           <div className="flex flex-col items-center gap-[1.6rem]">

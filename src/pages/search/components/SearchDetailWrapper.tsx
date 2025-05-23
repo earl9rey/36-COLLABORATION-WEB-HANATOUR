@@ -40,7 +40,7 @@ const SearchDetailWrapper = ({
   };
 
   return (
-    <div className="w-[130.6rem]">
+    <div className="w-full">
       <header className="flex w-full items-center justify-between">
         <span className="sub5-r-15 py-[2rem]">
           호놀룰루 패키지 <span className="text-purple100"> {isLoading || error ? '-' : dataList.length}</span>개
