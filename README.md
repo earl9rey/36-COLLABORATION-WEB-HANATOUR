@@ -15,7 +15,7 @@
 진혁|성하|예원|시연
 ---|---|---|---
 사진|사진|사진|사진
-@constantly-dev| @earl9rey | @yeeeww |@siyeon9302
+[@constantly-dev](https://github.com/constantly-dev)| [@earl9rey](https://github.com/earl9rey) | [@yeeeww](https://github.com/yeeeww) |[@siyeon9302](https://github.com/siyeon9302)
 
 <br>
 
@@ -41,8 +41,8 @@
 
 | 종류     | 목록      |
 |------------|------------------|
-| ⚙️ setting      | `이슈/pr 템플릿/라벨` `github project 생성` `레포 생성 → default branch develop으로 설정` `tailwind → Theme + reset + global`  `router 설정 `   |
-| 🎨 view      |  `search page filter list`  `Home 상단 배너` `Promotion 쿼카 배너 & 광고 배너` `Header` `Divider 공통 컴포넌트` `Headless Accordion 컴포넌트`        |
+| ⚙️ setting   | `이슈/pr 템플릿/라벨` `github project 생성` `레포 생성 → default branch develop으로 설정` `tailwind → Theme + reset + global`  `router 설정 `   |
+| 🎨 view   |  `search page filter list`  `Home 상단 배너` `Promotion 쿼카 배너 & 광고 배너` `Header` `Divider 공통 컴포넌트` `Headless Accordion 컴포넌트`        |
 | 📡 API    |     `Home 페이지 카드 조회 API (GET)`      |
 
 <br>
@@ -51,8 +51,8 @@
 
 | 종류     | 목록      |
 |------------|------------------|
-| ⚙️ setting      |  `배포 CI/CD (Vercel - 개인 레포 동기화) ` `폴더 구조 세팅` `storybook 초기 세팅`    |
-| 🎨 view      |  `Home 검색 바 컴포넌트` `Home 여행 목적지 선택 모달` `Home 출발지 선택 모달` `Home 캘린더 모달 커스텀` `Home searchBar` `Home 페이지 컴포넌트 연결 및 퍼블리싱`        |
+| ⚙️ setting   |  `배포 CI/CD (Vercel - 개인 레포 동기화) ` `폴더 구조 세팅` `storybook 초기 세팅`  |
+| 🎨 view   |  `Home 검색 바 컴포넌트` `Home 여행 목적지 선택 모달` `Home 출발지 선택 모달` `Home 캘린더 모달 커스텀` `Home searchBar` `Home 페이지 컴포넌트 연결 및 퍼블리싱`        |
 | 📡 API    |  `Home 페이지 검색 API (POST)`    |
 
 <br>
@@ -61,8 +61,8 @@
 
 | 종류     | 목록      |
 |------------|------------------|
-| ⚙️ setting      |    `Tanstack query 초기 설정` `Axios instance 설정`    |
-| 🎨 view      |  `Search Header 구현` `Search detail 컴포넌트` `Search view more product`     |
+| ⚙️ setting  |    `Tanstack query 초기 설정` `Axios instance 설정`    |
+| 🎨 view    |  `Search Header 구현` `Search detail 컴포넌트` `Search view more product`     |
 | 📡 API    |   `Search 페이지 여행기간 패키지 검색 API (GET)`  |
 
 <br>
@@ -71,8 +71,8 @@
 
 | 종류     | 목록      |
 |------------|------------------|
-| ⚙️ setting      |  `eslint + prettier 설정` `절대 경로 설정`   |
-| 🎨 view      |   `Home 카드 컴포넌트` `Home filter 컴포넌트` `Home announcement 컴포넌트` `Home 푸터`   |
+| ⚙️ setting   |  `eslint + prettier 설정` `절대 경로 설정`   |
+| 🎨 view   |   `Home 카드 컴포넌트` `Home filter 컴포넌트` `Home announcement 컴포넌트` `Home 푸터`   |
 | 📡 API    |   `Home 페이지 추천 여행 조회 API (GET)`  `Home 타임특가 조회 API (GET)`  `Home 페이지 할인런 조회 API (GET)` `Home 페이지 내나라 조회 API (GET)` `Home 미식탐방 조회 API (GET)`  |
 
 <br>
