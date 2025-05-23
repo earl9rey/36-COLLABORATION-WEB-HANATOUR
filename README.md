@@ -2,7 +2,7 @@
 
 <h2> ✈️ AT SOPT 36기 합동세미나 데스크탑 웹 3팀 하나투어 </h2>
 
-![image.png](attachment:3ace6248-35b0-479e-9ae1-3136ee009192:image.png)
+![KakaoTalk_20250523_235212534](https://github.com/user-attachments/assets/b28608a0-bd2a-4133-9e07-93758fcdd056)
 ![image](https://github.com/user-attachments/assets/7eec8046-4517-4b9e-b15c-885d5608da89)
 
 </div>
@@ -11,11 +11,15 @@
 
 <br>
 
+# 프로젝트 소개
+안녕하세요 데스크탑 웹 3팀 우리는 하나~ 하나투어 조입니다❗✈️
+
+
 # 🫶 OUR TEAM 💫
 
 진혁|성하|예원|시연
 ---|---|---|---
-사진|사진|사진|사진
+<img src="https://avatars.githubusercontent.com/u/117571282?v=4"></img> |<img src="https://avatars.githubusercontent.com/u/129039817?v=4"></img>|<img src="https://avatars.githubusercontent.com/u/163109964?v=4"></img>|<img src="https://avatars.githubusercontent.com/u/90365472?v=4"></img>
 [@constantly-dev](https://github.com/constantly-dev)| [@earl9rey](https://github.com/earl9rey) | [@yeeeww](https://github.com/yeeeww) |[@siyeon9302](https://github.com/siyeon9302)
 
 <br>
